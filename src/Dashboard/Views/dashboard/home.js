@@ -2,9 +2,9 @@ import React from "react";
 import Mac from "./../../../assets/Macbook Pro.png";
 import { LiveProvider, LivePreview } from "react-live";
 import PortfolioSite from "./../../../portfolio/Index";
-import UploadResume from "../../components/Card/uploadResume";
-import Share from "../../components/Card/share";
-import Bio from "../../components/Card/bio";
+// import UploadResume from "../../components/Card/uploadResume";
+// import Share from "../../components/Card/share";
+// import Bio from "../../components/Card/bio";
 
 
 const home = () => {
