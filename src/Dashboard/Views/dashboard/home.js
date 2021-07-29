@@ -2,6 +2,10 @@ import React from "react";
 import Mac from "./../../../assets/Macbook Pro.png";
 import { LiveProvider, LivePreview } from "react-live";
 import PortfolioSite from "./../../../portfolio/Index";
+import UploadResume from "../../components/Card/uploadResume";
+import Share from "../../components/Card/share";
+import Bio from "../../components/Card/bio";
+
 
 const home = () => {
   const scope = { PortfolioSite };
@@ -12,6 +16,9 @@ const home = () => {
 
   return (
     <div className="">
+      {/* <UploadResume/> */}
+      {/* <Share/> */}
+      {/* <Bio/> */}
       <div className="pt-8 pb-4 px-6">
         <div className="container px-4 mx-auto">
           <h2 className="text-2xl font-bold">Welcome, John Smith 👋</h2>
@@ -20,8 +27,7 @@ const home = () => {
 
       <section class=" px-6 pb-12 ">
         <div class="flex flex-wrap items-center">
-          <div class="w-full lg:w-auto flex items-center  lg:mb-0">
-          </div>
+          <div class="w-full lg:w-auto flex items-center  lg:mb-0"></div>
           <div class="w-full  lg:w-auto flex py-2 px-4  md:mb-0 md:mr-4 md:ml-auto  rounded "></div>
           <p class="md:w-auto flex items-center py-2 px-4 rounded bg-red-400 hover:bg-red-500 text-white text-sm font-medium">
             <span class="inline-block mr-1">

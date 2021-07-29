@@ -6,7 +6,9 @@ const Index = () => {
     bgTheme: "bg-black",
     mainTheme: "blue-500",
     mainThemeDark: "blue-600",
-    textColor: "text-gray-50",
+    // textColor: "text-gray-50",
+    backgroundColor:"#3CCB2B",
+    textColor:"#2B41CB"
   };
 
   const [loading] = React.useState(false);
@@ -21,8 +23,9 @@ const Index = () => {
             <title>Sumit kumar</title>
             <link rel="canonical" href="https://sumit.pfolio.me" />
           </Helmet>
+          {/* ${data.bgTheme} ${data.textColor} */}
           <body
-            className={`antialiased font-body ${data.bgTheme} ${data.textColor}`}
+            className={`antialiased font-body `} style={{backgroundColor:`${data.backgroundColor}`, color:`${data.textColor}`}}
           >
             <div>
               <section className="py-20">
@@ -32,13 +35,11 @@ const Index = () => {
                       Hey 👋 I am{" "}
                     </h2>
                     <h2
-                      className={` mb-4 text-4xl lg:text-6xl text-${data.mainTheme} font-extrabold font-heading`}
+                      className={` mb-4 text-4xl lg:text-6xl  font-extrabold font-heading`}
                     >
                       Sumit Kumar
                     </h2>
-                    <p
-                      className={`mb-12 text-lg ${data.textColor} font-semibold leading-loose`}
-                    >
+                    <p className={`mb-12 text-lg  font-semibold leading-loose`} style={{color:`${data.textColor}`}}>
                       I full-stack web developer and UI/UX designer. Check out
                       my project,mostly built with React and Node js I love
                       tailwind css. I have work with multiple and startup help
@@ -250,7 +251,7 @@ const Index = () => {
                             alt=""
                           />
                           <h4 className="mb-2 text-gray-800 text-2xl font-bold font-heading">
-                            IIT
+                            IIT Delhi
                           </h4>
                           <p className="text-gray-500">B.tech (CSE)</p>
                         </div>
@@ -341,7 +342,7 @@ const Index = () => {
                 </div>
               </section>
 
-              <section className="py-20">
+              {/* <section className="py-20">
                 <div className="container px-4 mx-auto">
                   <div className="max-w-xl mx-auto text-center">
                     <h2 className="mb-4 text-3xl lg:text-4xl font-bold font-heading">
@@ -376,7 +377,7 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-              </section>
+              </section> */}
 
               <section className="py-20">
                 <div className="container px-4 mx-auto">
