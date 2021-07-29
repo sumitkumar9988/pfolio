@@ -3,10 +3,10 @@ import Loader from "./../utils/loader";
 import { Helmet } from "react-helmet";
 const Index = () => {
   const data = {
-    bgTheme: "blue-200",
+    bgTheme: "bg-black",
     mainTheme: "blue-500",
-    mainThemeDark: "blue-200",
-    textColor: "text-gray-900",
+    mainThemeDark: "blue-600",
+    textColor: "text-gray-50",
   };
 
   const [loading] = React.useState(false);
@@ -22,7 +22,7 @@ const Index = () => {
             <link rel="canonical" href="https://sumit.pfolio.me" />
           </Helmet>
           <body
-            className={`antialiased font-body bg-${data.bgTheme} ${data.textColor}`}
+            className={`antialiased font-body ${data.bgTheme} ${data.textColor}`}
           >
             <div>
               <section className="py-20">
