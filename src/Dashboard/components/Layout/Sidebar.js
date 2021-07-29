@@ -82,7 +82,7 @@ const Sidebar = (props) => {
                       <NavLink
                         active-button
                         activeClassName="bg-red-300 text-white"
-                        to="/home/work"
+                        to="/home/project"
                         className="flex items-center pl-3 py-3 pr-4  hover:bg-red-50  rounded"
                       >
                         <p className="flex items-center text-gray-500 ">
@@ -299,7 +299,7 @@ const Sidebar = (props) => {
                       <NavLink
                         active-button
                         activeClassName="bg-red-300 text-white"
-                        to="/home/work"
+                        to="/home/project"
                         className="flex items-center pl-3 py-3 pr-4  hover:bg-red-50  rounded"
                       >
                         <p className="flex items-center text-gray-500 ">

@@ -48,7 +48,7 @@ const Index = () => {
                     </p>
                     <div className="mb-16">
                       <a
-                        className={'inline-block w-full sm:w-auto px-6 py-2 text-sm text-white font-bold leading-loose  rounded transition duration-200'+` bg-${data.mainTheme} hover:bg-${data.mainThemeDark}`}
+                        className={`inline-block w-full sm:w-auto px-6 py-2 text-sm text-white font-bold leading-loose  rounded transition duration-200 bg-${data.mainTheme} hover:bg-${data.mainThemeDark}`}
                         href="#project"
                       >
                         Know More
