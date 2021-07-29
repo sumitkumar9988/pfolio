@@ -1,7 +1,10 @@
 import React from "react";
 import Mac from "./../../../assets/Macbook Pro.png";
 
+
 const theme = () => {
+
+
   return (
     <div>
       <div class="py-8 px-6">

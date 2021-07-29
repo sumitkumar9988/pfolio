@@ -3,10 +3,10 @@ import Loader from "./../utils/loader";
 import { Helmet } from "react-helmet";
 const Index = () => {
   const data = {
-    bgTheme: "blue-900",
+    bgTheme: "blue-200",
     mainTheme: "blue-500",
     mainThemeDark: "blue-200",
-    textColor: "text-gray-50",
+    textColor: "text-gray-900",
   };
 
   const [loading] = React.useState(false);

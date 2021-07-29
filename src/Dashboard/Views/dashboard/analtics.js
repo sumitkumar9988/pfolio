@@ -64,7 +64,7 @@ const analtics = () => {
         </div>
         <div className="pt-16 m-4">
         <LineChart
-          data={data}  colors={["#f48c8c"]} download={{background: "#fff"}} label="Value" loading="Loading..." 
+          data={data}  colors={["#ff5252"]} download={{background: "#fff"}} label="Value" loading="Loading..." 
         />
         </div>
        

@@ -138,7 +138,7 @@ const Sidebar = (props) => {
                         </p>
                       </NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                       <NavLink
                         active-button
                         activeClassName="bg-red-300 text-white"
@@ -157,7 +157,7 @@ const Sidebar = (props) => {
                           <span>Blog</span>
                         </p>
                       </NavLink>
-                    </li>
+                    </li> */}
                     <li>
                       <NavLink
                         active-button
@@ -355,7 +355,7 @@ const Sidebar = (props) => {
                         </p>
                       </NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                       <NavLink
                         active-button
                         activeClassName="bg-red-300 text-white"
@@ -374,7 +374,7 @@ const Sidebar = (props) => {
                           <span>Blog</span>
                         </p>
                       </NavLink>
-                    </li>
+                    </li> */}
                     <li>
                       <NavLink
                         active-button
