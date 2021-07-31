@@ -7,8 +7,8 @@ const Index = () => {
     mainTheme: "blue-500",
     mainThemeDark: "blue-600",
     // textColor: "text-gray-50",
-    backgroundColor:"#3CCB2B",
-    textColor:"#2B41CB"
+    backgroundColor: "#17202A",
+    textColor: "#FDFEFE",
   };
 
   const [loading] = React.useState(false);
@@ -25,10 +25,23 @@ const Index = () => {
           </Helmet>
           {/* ${data.bgTheme} ${data.textColor} */}
           <body
-            className={`antialiased font-body `} style={{backgroundColor:`${data.backgroundColor}`, color:`${data.textColor}`}}
+            className={`antialiased font-body `}
+            style={{
+              backgroundColor: `${data.backgroundColor}`,
+              color: `${data.textColor}`,
+            }}
           >
             <div>
-              <section className="py-20">
+              {/* <section>
+                <div class="container px-4 mx-auto">
+                  <nav class="flex items-center py-6">
+                    <p class="block mx-auto text-lg font-bold leading-none">
+                      Sumit .
+                    </p>
+                  </nav>
+                </div>
+              </section> */}
+              {/* <section className="py-20">
                 <div className="container px-4 mx-auto">
                   <div className="max-w-3xl pt-8 mx-auto text-center">
                     <h2 className="mt-2 text-4xl lg:text-5xl font-bold font-heading">
@@ -57,12 +70,41 @@ const Index = () => {
                   </div>
                 </div>
               </section>
+            */}
+              <div className="h-full">
+                <div className="py-24 w-full sm:w-3/5 md:w-3/6 lg:2/5 ">
+                  <div className="m-4 ml-4 sm:ml-12  md:ml-16 lg:ml-40 text-left">
+                    <div className="mt-4 font-bold md:font-extrabold  text-3xl md:text-5xl">
+                      <h1> Hello,</h1>
+                      <h1 className="pt-4">I'm Sumit kumar</h1>
+                    </div>
+                    {/* <div className="pt-8 ">
+                      <p className="font-normal md:font-medium w-11/12">
+                        I full-stack web developer and UI/UX designer. Check out  my project,mostly built with React and Node js I love
+                        tailwind css. I have work with multiple and startup help
+                        built there project Feel free to take a look at my
+                        latest projects on the web portfolio page.
+                      </p>
+                    </div> */}
+                    {/* <div className="mb-4 pt-12 " >
+                      <a
+                        className={`inline-block w-full sm:w-auto px-6 py-2 text-sm text-white font-bold leading-loose  rounded transition duration-200 `}
+                        href="#project"
+                        style={{background:`${data.textColor}`}}
+                      >
+                        Know More
+                      </a>
+                    </div> */}
+                  </div>
+                </div>
+              </div>
+
               <section id="project">
                 <div className="py-20">
                   <div className="container px-4 mx-auto">
                     <div className="mb-16 flex flex-wrap justify-center md:justify-between items-center">
                       <div className="text-center lg:text-left">
-                        <h2 className="text-4xl lg:text-5xl font-bold font-heading">
+                        <h2 className="text-3xl lg:text-4xl font-bold font-heading">
                           Featured Projects
                         </h2>
                       </div>
@@ -212,27 +254,47 @@ const Index = () => {
                 </div>
               </section>
 
-              <section class="py-24 bg-blue-800">
-  <div class="container mx-auto px-4">
-    <div class="flex flex-wrap -m-px">
-      <div class="w-full lg:w-1/2 p-px">
-        <img class="w-full h-72 object-cover" src="https://images.unsplash.com/photo-1536851101967-55988a52f455?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt=""/>
-      </div>
-      <div class="w-full lg:w-1/2 p-px">
-        <img class="w-full h-72 object-cover" src="https://images.unsplash.com/photo-1553949345-eb786bb3f7ba?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt=""/>
-      </div>
-      <div class="w-full lg:w-1/3 p-px">
-        <img class="w-full h-72 object-cover" src="https://images.unsplash.com/photo-1552844657-1d8b11fad02e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1003&amp;q=80" alt=""/>
-      </div>
-      <div class="w-full lg:w-1/3 p-px">
-        <img class="w-full h-72 object-cover" src="https://images.unsplash.com/photo-1593776805861-74972b600999?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt=""/>
-      </div>
-      <div class="w-full lg:w-1/3 p-px">
-        <img class="w-full h-72 object-cover" src="https://images.unsplash.com/photo-1551043077-b55224769403?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt=""/>
-      </div>
-    </div>
-  </div>
-</section>
+              <section class="py-24 ">
+                <div class="container mx-auto px-4">
+                  <div class="flex flex-wrap -m-px">
+                    <div class="w-full lg:w-1/2 p-px">
+                      <img
+                        class="w-full h-72 object-cover"
+                        src="https://images.unsplash.com/photo-1536851101967-55988a52f455?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80"
+                        alt=""
+                      />
+                    </div>
+                    <div class="w-full lg:w-1/2 p-px">
+                      <img
+                        class="w-full h-72 object-cover"
+                        src="https://images.unsplash.com/photo-1553949345-eb786bb3f7ba?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80"
+                        alt=""
+                      />
+                    </div>
+                    <div class="w-full lg:w-1/3 p-px">
+                      <img
+                        class="w-full h-72 object-cover"
+                        src="https://images.unsplash.com/photo-1552844657-1d8b11fad02e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1003&amp;q=80"
+                        alt=""
+                      />
+                    </div>
+                    <div class="w-full lg:w-1/3 p-px">
+                      <img
+                        class="w-full h-72 object-cover"
+                        src="https://images.unsplash.com/photo-1593776805861-74972b600999?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80"
+                        alt=""
+                      />
+                    </div>
+                    <div class="w-full lg:w-1/3 p-px">
+                      <img
+                        class="w-full h-72 object-cover"
+                        src="https://images.unsplash.com/photo-1551043077-b55224769403?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </section>
 
               <section>
                 <div className="py-20  ">
@@ -421,7 +483,8 @@ const Index = () => {
                           placeholder="Your Message..."
                         ></textarea>
                         <button
-                          className={`w-full inline-block px-6 py-3 mr-4 text-sm text-white font-bold leading-loose bg-${data.mainTheme} hover:bg-${data.mainThemeDark} rounded transition duration-200`}
+                          style={{ background: `${data.textColor}` }}
+                          className={`w-full inline-block px-6 py-3 mr-4 text-sm text-white font-bold leading-loose rounded transition duration-200`}
                         >
                           Submit
                         </button>

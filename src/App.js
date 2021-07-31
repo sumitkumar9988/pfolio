@@ -5,6 +5,7 @@ import Signup from './Dashboard/Views/Auth/Signup';
 import ChangePassword from './Dashboard/Views/Auth/ChangePassword';
 import ForgetPassword from './Dashboard/Views/Auth/ForgetPassword';
 import ResetPassword from './Dashboard/Views/Auth/ResetPassword';
+import PortfolioProject from './portfolio/project';
 import Portfolio from './portfolio/Index';
 import Sidebar from './Dashboard/components/Layout/Sidebar';
 import FourOFour from './Dashboard/Views/fourofour';
@@ -50,6 +51,7 @@ function App() {
           <Route path="/changepassword" component={ChangePassword} />
           <Route path="/forgetpassword" component={ForgetPassword} />
           <Route path="/resetpassword" component={ResetPassword} />
+          <Route path="/sumit/:id" component={PortfolioProject} />
           <Route path="/sumit" component={Portfolio} />
 
           <DashboardRoute path="/home/education/new" component={AddEducation} />
