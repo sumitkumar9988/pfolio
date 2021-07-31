@@ -40,7 +40,7 @@ const DashboardRoute = ({component: Component, ...rest}) => {
 
 function App() {
   return (
-    <div>
+    <div className="custom-scrollbar">
       <Router>
         <Switch>
         <Route exact path="/" component={LandingPage} />
