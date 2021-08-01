@@ -1,24 +1,42 @@
-import React from "react";
-import Mac from "./../../../assets/Macbook Pro.png";
+import React, {useState} from "react";
 import { LiveProvider, LivePreview } from "react-live";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import PortfolioSite from "./../../../portfolio/Index";
+import Mac from "./../../../assets/Macbook Pro.png";
 // import UploadResume from "../../components/Card/uploadResume";
-// import Share from "../../components/Card/share";
+import Share from "../../components/Card/share";
 // import Bio from "../../components/Card/bio";
 
-
-const home = () => {
+const Home = () => {
+  const [shareScreen, setshareScreen] = useState(false)
   const scope = { PortfolioSite };
+
+  const toggleShareScreen=()=>{
+    setshareScreen(!shareScreen)
+  }
 
   const code = `
 <div><PortfolioSite /></div>
 `;
+  const copyText = () =>
+    toast("Copy", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
 
   return (
     <div className="">
       {/* <UploadResume/> */}
-      {/* <Share/> */}
+      {shareScreen && <Share toggleShareScreen={toggleShareScreen}/>}
       {/* <Bio/> */}
+
       <div className="pt-8 pb-4 px-6">
         <div className="container px-4 mx-auto">
           <h2 className="text-2xl font-bold">Welcome, John Smith 👋</h2>
@@ -67,28 +85,32 @@ const home = () => {
             <div class="w-full lg:w-1/2 p-4">
               <div class="p-6 h-full bg-white shadow rounded text-center overflow-hidden">
                 <img
-                  class="mb-6 mx-auto h-24"
-                  src="artemis-assets/images/friends.png"
+                  class="mb-6 mx-auto h-16"
+                  src="https://img.icons8.com/fluency/48/000000/copy.png"
                   alt=""
                 />
-                <h3 class="mb-2 text-xl font-bold">Invite Member</h3>
-                <p class="mb-6 text-gray-500">Event for your team members</p>
-                <p class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white">
-                  Send invitation
-                </p>
+                <h3 class="mb-2 text-xl font-bold">Your Site</h3>
+                <p class=" mb-6 text-gray-500"> Your website is ready</p>
+                <div onClick={copyText}>
+                  <CopyToClipboard text="https://sumit.pfolio.me">
+                    <p className="py-2 px-3 bg-gray-200 rounded cursor-pointer text-xs text-black font-medium transform hover:scale-105 transition duration-150">
+                      https://sumit.pfolio.tech
+                    </p>
+                  </CopyToClipboard>
+                </div>
               </div>
             </div>
 
             <div class="w-full lg:w-1/2 p-4">
               <div class="p-6 h-full bg-white shadow rounded text-center overflow-hidden">
-                <img
-                  class="mb-6 mx-auto h-24"
-                  src="artemis-assets/images/friends.png"
+              <img
+                  class="mb-6 mx-auto h-16"
+                  src="https://img.icons8.com/fluency/48/000000/link.png"
                   alt=""
                 />
                 <h3 class="mb-2 text-xl font-bold">Invite Member</h3>
                 <p class="mb-6 text-gray-500">Event for your team members</p>
-                <p class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white">
+                <p onClick={toggleShareScreen} class="py-2 px-3 bg-red-400 hover:bg-red-500 rounded text-xs text-white">
                   Send invitation
                 </p>
               </div>
@@ -96,8 +118,19 @@ const home = () => {
           </div>
         </div>
       </section>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };
 
-export default home;
+export default Home;

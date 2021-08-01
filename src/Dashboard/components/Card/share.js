@@ -1,11 +1,11 @@
 import React from "react";
 
-const share = () => {
+const share = ({toggleShareScreen}) => {
   return (
     <div>
       <div class="w-full overflow-hidden h-full fixed block top-0 left-0 bg-gray-100  bg-opacity-95 backdrop-filter backdrop-blur-sm z-50">
         <div className="absolute right-0 pt-8 pr-8">
-          <div className="transform hover:scale-125 h-full w-full transition duration-300">
+          <div onClick={toggleShareScreen} className="transform hover:scale-125 h-full w-full transition duration-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-10 w-10"
