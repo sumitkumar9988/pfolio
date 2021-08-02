@@ -8,7 +8,7 @@ const setting = () => {
           <div className="relative pt-14   rounded ">
             <button className="absolute top-0 right-0 mr-6 mt-7  focus:outline-none">
               <svg
-                className="h-3 w-3 text-white"
+                className="h-3 w-3 text-red-400"
                 viewBox="0 0 12 4"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"

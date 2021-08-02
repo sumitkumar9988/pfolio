@@ -69,8 +69,8 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-              </section>
-            */}
+              </section> */}
+           
               <div className="h-full">
                 <div className="py-24 w-full sm:w-3/5 md:w-3/6 lg:2/5 ">
                   <div className="m-4 ml-4 sm:ml-12  md:ml-16 lg:ml-40 text-left">
@@ -85,10 +85,10 @@ const Index = () => {
                         built there project Feel free to take a look at my
                         latest projects on the web portfolio page.
                       </p>
-                    </div> */}
-                    {/* <div className="mb-4 pt-12 " >
+                    </div>
+                    <div className="mb-4 pt-12 " >
                       <a
-                        className={`inline-block w-full sm:w-auto px-6 py-2 text-sm text-white font-bold leading-loose  rounded transition duration-200 `}
+                        className={`inline-block w-full sm:w-auto px-6 py-2 text-sm text-black font-bold leading-loose  rounded transition duration-200 `}
                         href="#project"
                         style={{background:`${data.textColor}`}}
                       >

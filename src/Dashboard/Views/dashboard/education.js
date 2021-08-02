@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 const education = () => {
   return (
@@ -32,6 +33,7 @@ const education = () => {
               </svg>
             </button>
           </div>
+          <Link to="education/new">
           <p
             class="md:w-auto flex items-center py-2 px-4 rounded bg-red-400 hover:bg-red-500 text-white text-sm font-medium"
             href="#"
@@ -51,6 +53,7 @@ const education = () => {
             </span>
             <span>Add Education</span>
           </p>
+          </Link>
         </div>
       </section>
       <div className="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 pt-6 gap-8">
