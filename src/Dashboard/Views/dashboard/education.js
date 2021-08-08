@@ -1,10 +1,10 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const education = () => {
   return (
-    <div>
-      <section class="py-8 px-6">
+    <div className="min-h-screen">
+      <section class="py-8 px-6 ">
         <div class="flex flex-wrap items-center">
           <div class="w-full lg:w-auto flex items-center mb-4 lg:mb-0">
             <h2 class="text-2xl font-bold">Education</h2>
@@ -34,36 +34,81 @@ const education = () => {
             </button>
           </div>
           <Link to="education/new">
-          <p
-            class="md:w-auto flex items-center py-2 px-4 rounded bg-red-400 hover:bg-red-500 text-white text-sm font-medium"
-            href="#"
-          >
-            <span class="inline-block mr-1">
-              <svg
-                class="h-4 w-4 text-gray-800"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12.6667 1.33334H3.33333C2.19999 1.33334 1.33333 2.20001 1.33333 3.33334V12.6667C1.33333 13.8 2.19999 14.6667 3.33333 14.6667H12.6667C13.8 14.6667 14.6667 13.8 14.6667 12.6667V3.33334C14.6667 2.20001 13.8 1.33334 12.6667 1.33334ZM10.6667 8.66668H8.66666V10.6667C8.66666 11.0667 8.4 11.3333 8 11.3333C7.6 11.3333 7.33333 11.0667 7.33333 10.6667V8.66668H5.33333C4.93333 8.66668 4.66666 8.40001 4.66666 8.00001C4.66666 7.60001 4.93333 7.33334 5.33333 7.33334H7.33333V5.33334C7.33333 4.93334 7.6 4.66668 8 4.66668C8.4 4.66668 8.66666 4.93334 8.66666 5.33334V7.33334H10.6667C11.0667 7.33334 11.3333 7.60001 11.3333 8.00001C11.3333 8.40001 11.0667 8.66668 10.6667 8.66668Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-            </span>
-            <span>Add Education</span>
-          </p>
+            <p
+              class="md:w-auto flex items-center py-2 px-4 rounded bg-red-400 hover:bg-red-500 text-white text-sm font-medium"
+              href="#"
+            >
+              <span class="inline-block mr-1">
+                <svg
+                  class="h-4 w-4 text-gray-800"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.6667 1.33334H3.33333C2.19999 1.33334 1.33333 2.20001 1.33333 3.33334V12.6667C1.33333 13.8 2.19999 14.6667 3.33333 14.6667H12.6667C13.8 14.6667 14.6667 13.8 14.6667 12.6667V3.33334C14.6667 2.20001 13.8 1.33334 12.6667 1.33334ZM10.6667 8.66668H8.66666V10.6667C8.66666 11.0667 8.4 11.3333 8 11.3333C7.6 11.3333 7.33333 11.0667 7.33333 10.6667V8.66668H5.33333C4.93333 8.66668 4.66666 8.40001 4.66666 8.00001C4.66666 7.60001 4.93333 7.33334 5.33333 7.33334H7.33333V5.33334C7.33333 4.93334 7.6 4.66668 8 4.66668C8.4 4.66668 8.66666 4.93334 8.66666 5.33334V7.33334H10.6667C11.0667 7.33334 11.3333 7.60001 11.3333 8.00001C11.3333 8.40001 11.0667 8.66668 10.6667 8.66668Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </span>
+              <span>Add Education</span>
+            </p>
           </Link>
         </div>
       </section>
-      <div className="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 pt-6 gap-8">
-        <div className="rounded border-gray-300  dark:border-gray-700 border-dashed border-2 h-72" />
-        <div className="rounded border-gray-300  dark:border-gray-700 border-dashed border-2 h-72" />
-        <div className="rounded border-gray-300  dark:border-gray-700 border-dashed border-2 h-72" />
-        <div className="rounded border-gray-300  dark:border-gray-700 border-dashed border-2 h-72" />
-        <div className="rounded border-gray-300  dark:border-gray-700 border-dashed border-2 h-72" />
+      <div className="flex flex-wrap">
+        <div className="transform hover:scale-105 transition duration-300 mb-6 w-full md:w-1/2 lg:w-1/3 px-3">
+          <div className="h-96 bg-white rounded shadow text-center">
+            <div className="h-60 p-4">
+            <img
+              className="mx-auto mb-8 h-full w-full rounded-full object-contain"
+              src="https://upload.wikimedia.org/wikipedia/en/f/fd/Indian_Institute_of_Technology_Delhi_Logo.svg"
+              alt=""
+            />
+            </div>
+            
+            <h4 className="mb-2 pt-4 text-gray-800 text-2xl font-bold font-heading">
+              IIT Delhi
+            </h4>
+            <p className="text-gray-500">B.tech (CSE)</p>
+          </div>
+        </div>
+        <div className="mb-6 w-full md:w-1/2 lg:w-1/3 px-3">
+          <div className="h-96 transform hover:scale-105 transition duration-300 bg-white rounded shadow text-center">
+           
+           <div className="h-60 p-4">
+           <img
+              className="mx-auto mb-8 h-full w-full rounded-full object-contain"
+              src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/IIM_Bangalore_Logo.svg/1200px-IIM_Bangalore_Logo.svg.png"
+              alt=""
+            />
+           </div>
+            
+            <h4 className="mb-2 pt-4 text-gray-800 text-2xl font-bold font-heading">
+              IIIM Banglore
+            </h4>
+            <p className="text-gray-500">MBA</p>
+          </div>
+        </div>
 
+        <div className="transform  hover:scale-105 transition duration-300 mb-6 w-full md:w-1/2 lg:w-1/3 px-3">
+          <div className="h-96 bg-white rounded shadow text-center">
+            <div className="h-60 p-4">
+            <img
+              className="mx-auto mb-8 w-full h-full rounded-full object-contain"
+              src="http://www.dpsjhakri.com/images/dps_logo1.png"
+              alt=""
+            />
+            </div>
+           
+            <h4 className="mb-2 pt-4 text-gray-800 text-2xl font-bold font-heading">
+              Delhi Public School
+            </h4>
+            <p className="text-gray-500">High School</p>
+          </div>
+        </div>
       </div>
+   
     </div>
   );
 };

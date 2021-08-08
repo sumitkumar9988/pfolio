@@ -7,8 +7,8 @@ const Index = () => {
     mainTheme: "blue-500",
     mainThemeDark: "blue-600",
     // textColor: "text-gray-50",
-    backgroundColor: "#17202A",
-    textColor: "#FDFEFE",
+    backgroundColor: "#FAF8F7",
+    textColor: "#809FFA",
   };
 
   const [loading] = React.useState(false);
@@ -78,8 +78,8 @@ const Index = () => {
                       <h1> Hello,</h1>
                       <h1 className="pt-4">I'm Sumit kumar</h1>
                     </div>
-                    {/* <div className="pt-8 ">
-                      <p className="font-normal md:font-medium w-11/12">
+                    <div className="pt-8 ">
+                      <p className="font-medium md:font-medium text-xs md:text-sm w-11/12">
                         I full-stack web developer and UI/UX designer. Check out  my project,mostly built with React and Node js I love
                         tailwind css. I have work with multiple and startup help
                         built there project Feel free to take a look at my
@@ -88,13 +88,13 @@ const Index = () => {
                     </div>
                     <div className="mb-4 pt-12 " >
                       <a
-                        className={`inline-block w-full sm:w-auto px-6 py-2 text-sm text-black font-bold leading-loose  rounded transition duration-200 `}
+                        className={`inline-block  sm:w-auto px-6 py-2 text-sm text-black font-bold leading-loose  rounded transition duration-200 `}
                         href="#project"
-                        style={{background:`${data.textColor}`}}
+                        style={{background:`${data.textColor}`,color:`${data.backgroundColor}`}}
                       >
                         Know More
                       </a>
-                    </div> */}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -346,6 +346,7 @@ const Index = () => {
                         </div>
                       </div>
                     </div>
+                  
                   </div>
                 </div>
               </section>
@@ -400,6 +401,7 @@ const Index = () => {
                         </div>
                       </div>
                     </div>
+                 
                   </div>
                 </div>
               </section>
