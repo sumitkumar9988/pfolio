@@ -69,16 +69,16 @@ const Home = () => {
         </div>
       </section>
 
-      <div className="relative h-full w-full ">
-        <img src={Mac} className="bg-contain h-full w-full" alt="mac" />
-        <div className="absolute     w-77 h-82 overflow-scroll overflow-x-hidden  mt-4 ml-12 sm:mt-4 sm:ml-16 md:ml-20 lg:mt-4 lg:ml-22 xl:mt-8 xl:ml-32 inset-0 rounded">
-          <div className="transform">
+      <div className="w-full rounded p-2">
+        <div className="h-screen ">
+          <div className=" border-8  w-full h-full overflow-scroll rounded ">
+            <div className="items-center text-center text-base font-base ">sumt.firstletter.tech</div>
             <LiveProvider code={code} scope={scope}>
               <LivePreview />
             </LiveProvider>
           </div>
         </div>
-      </div>
+        </div>
       <section class="py-8">
         <div class="container px-4 mx-auto">
           <div class="flex flex-wrap -m-4">
