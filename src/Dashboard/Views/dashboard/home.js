@@ -4,7 +4,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PortfolioSite from "./../../../portfolio/Index";
-import Mac from "./../../../assets/Macbook Pro.png";
+// import Mac from "./../../../assets/Macbook Pro.png";
 // import UploadResume from "../../components/Card/uploadResume";
 import Share from "../../components/Card/share";
 // import Bio from "../../components/Card/bio";
@@ -39,7 +39,7 @@ const Home = () => {
 
       <div className="pt-8 pb-4 px-6">
         <div className="container px-4 mx-auto">
-          <h2 className="text-2xl font-bold">Welcome, John Smith 👋</h2>
+          <h2 className="text-2xl font-bold">Welcome, Sumit Kumar 👋</h2>
         </div>
       </div>
 
@@ -72,7 +72,6 @@ const Home = () => {
       <div className="w-full rounded p-2">
         <div className="h-screen ">
           <div className=" border-8  w-full h-full overflow-scroll rounded ">
-            <div className="items-center text-center text-base font-base ">sumt.firstletter.tech</div>
             <LiveProvider code={code} scope={scope}>
               <LivePreview />
             </LiveProvider>

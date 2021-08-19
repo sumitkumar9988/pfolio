@@ -1,5 +1,4 @@
 import React from "react";
-import Mac from "./../../../assets/Macbook Pro.png";
 import { CirclePicker } from "react-color";
 import CustomColorPicker from "./../../components/CustomColorPicker";
 import { LiveProvider, LivePreview } from "react-live";
