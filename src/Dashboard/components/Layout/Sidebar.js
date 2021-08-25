@@ -138,6 +138,26 @@ const Sidebar = (props) => {
                         </p>
                       </NavLink>
                     </li>
+                    <li>
+                      <NavLink
+                        active-button
+                        activeClassName="bg-red-300 text-white"
+                        to="/home/blog"
+                        className="flex items-center pl-3 py-3 pr-4  hover:bg-red-50  rounded"
+                      >
+                        <p className="flex items-center text-gray-500  ">
+                          <span className="inline-block mr-3">
+                            <img
+                              src="https://res.cloudinary.com/sumit9988/image/upload/v1626811733/icons8-google-blog-search-256_udfnsd.png"
+                              width="25px"
+                              height="25px"
+                              alt="logo"
+                            />
+                          </span>{" "}
+                          <span>Oppurunity</span>
+                        </p>
+                      </NavLink>
+                    </li>
                     {/* <li>
                       <NavLink
                         active-button
@@ -352,6 +372,26 @@ const Sidebar = (props) => {
                             />
                           </span>{" "}
                           <span>Experience</span>
+                        </p>
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        active-button
+                        activeClassName="bg-red-300 text-white"
+                        to="/home/blog"
+                        className="flex items-center pl-3 py-3 pr-4  hover:bg-red-50  rounded"
+                      >
+                        <p className="flex items-center text-gray-500  ">
+                          <span className="inline-block mr-3">
+                            <img
+                              src="https://res.cloudinary.com/sumit9988/image/upload/v1626811733/icons8-google-blog-search-256_udfnsd.png"
+                              width="25px"
+                              height="25px"
+                              alt="logo"
+                            />
+                          </span>{" "}
+                          <span>Oppurunity</span>
                         </p>
                       </NavLink>
                     </li>

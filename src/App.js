@@ -50,7 +50,7 @@ function App() {
           <Route path="/signup" component={Signup} />
           <Route path="/changepassword" component={ChangePassword} />
           <Route path="/forgetpassword" component={ForgetPassword} />
-          <Route path="/resetpassword" component={ResetPassword} />
+          <Route path="/resetpassword/:id" component={ResetPassword} />
           <Route path="/sumit/:id" component={PortfolioProject} />
           <Route path="/sumit" component={Portfolio} />
 

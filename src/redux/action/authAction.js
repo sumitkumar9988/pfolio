@@ -58,16 +58,16 @@ export const userSignup = (input, path = 'signup') => async (dispatch) => {
   }
 };
 
-export const changePassword = (input) => async (dispatch, getState) => {
+export const userChangePassword = (input) => async (dispatch, getState) => {
   dispatch({ type: CHANGE_PASSWORD_REQUEST });
   try {
     const {
-      userLogin: { token },
+      login: { user },
     } = getState();
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${user}`,
       },
     };
 
@@ -91,7 +91,7 @@ export const changePassword = (input) => async (dispatch, getState) => {
   }
 };
 
-export const resetPasswords = (input, id) => async (dispatch) => {
+export const userResetPassword = (input, id) => async (dispatch) => {
   dispatch({ type: RESET_PASSWORD_REQUEST });
   try {
     const config = {
@@ -101,6 +101,7 @@ export const resetPasswords = (input, id) => async (dispatch) => {
     };
 
     const { data } = await axios.post(`${baseURL}/resetPassword/${id}`, input, config);
+    console.log(data)
 
     dispatch({
       type: RESET_PASSWORD_SUCCESS,
@@ -119,7 +120,7 @@ export const resetPasswords = (input, id) => async (dispatch) => {
   }
 };
 
-export const forgetPassword = (input) => async (dispatch) => {
+export const userforgetPassword = (input) => async (dispatch) => {
   dispatch({ type: FORGET_PASSWORD_REQUEST });
   try {
     const config = {
