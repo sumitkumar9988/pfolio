@@ -5,6 +5,7 @@ import Signup from './Dashboard/Views/Auth/Signup';
 import ChangePassword from './Dashboard/Views/Auth/ChangePassword';
 import ForgetPassword from './Dashboard/Views/Auth/ForgetPassword';
 import ResetPassword from './Dashboard/Views/Auth/ResetPassword';
+import CreateProfile from './Dashboard/Views/Auth/Profile';
 import PortfolioProject from './portfolio/project';
 import Portfolio from './portfolio/Index';
 import Sidebar from './Dashboard/components/Layout/Sidebar';
@@ -51,6 +52,7 @@ function App() {
           <Route path="/changepassword" component={ChangePassword} />
           <Route path="/forgetpassword" component={ForgetPassword} />
           <Route path="/resetpassword/:id" component={ResetPassword} />
+          <Route path="/create-profile" component={CreateProfile} />
           <Route path="/sumit/:id" component={PortfolioProject} />
           <Route path="/sumit" component={Portfolio} />
 

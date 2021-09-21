@@ -59,59 +59,7 @@ const project = () => {
           </div>
         </div>
       </section>
-      <div className="flex flex-wrap">
-        <div className="transform hover:scale-105 transition duration-300 mb-6 w-full md:w-1/2 lg:w-1/3 px-3">
-          <div className="h-96 bg-white rounded shadow text-center">
-            <div className="h-60 p-4 ">
-            <img
-              className="mx-auto mb-8 h-full w-full  object-contain"
-              src="https://images.unsplash.com/photo-1583508915901-b5f84c1dcde1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-              alt=""
-            />
-            </div>
-            
-            <h4 className="mb-2 pt-4 text-gray-800 text-2xl font-bold font-heading">
-              IIT Delhi
-            </h4>
-            <p className="text-gray-500">B.tech (CSE)</p>
-          </div>
-        </div>
-        <div className="mb-6 w-full md:w-1/2 lg:w-1/3 px-3">
-          <div className="h-96 transform hover:scale-105 transition duration-300 bg-white rounded shadow text-center">
-           
-           <div className="h-60 pt-2">
-           <img
-              className="mx-auto mb-8 h-full w-full  object-contain"
-              src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-              alt=""
-            />
-           </div>
-            
-            <h4 className="mb-2 pt-4 text-gray-800 text-2xl font-bold font-heading">
-              IIIM Banglore
-            </h4>
-            <p className="text-gray-500">MBA</p>
-          </div>
-        </div>
-
-        <div className="transform  hover:scale-105 transition duration-300 mb-6 w-full md:w-1/2 lg:w-1/3 px-3">
-          <div className="h-96 bg-white rounded shadow text-center">
-            <div className="h-60 p-4">
-            <img
-              className="mx-auto mb-8 w-full h-full  object-contain"
-              src="https://images.unsplash.com/photo-1536329583941-14287ec6fc4e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-              alt=""
-            />
-            </div>
-           
-            <h4 className="mb-2 pt-4 text-gray-800 text-2xl font-bold font-heading">
-              Delhi Public School
-            </h4>
-            <p className="text-gray-500">High School</p>
-          </div>
-        </div>
-      </div>
-   
+     
      </div>
   );
 };

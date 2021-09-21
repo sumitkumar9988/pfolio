@@ -1,8 +1,10 @@
 import React from "react";
-import {  NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./style.css";
+
 const Sidebar = (props) => {
   const [open, setOpen] = React.useState(false);
+
 
   const onflipSide = () => {
     setOpen(!open);
@@ -11,9 +13,11 @@ const Sidebar = (props) => {
   return (
     <div>
       <body className="antialiased bg-body text-body font-body">
-        <div>
+        <div
+         
+        >
           <div>
-            <nav className="lg:hidden py-6 px-6 border-b">
+            <nav className="lg:hidden py-6 px-6 ">
               <div className="flex items-center justify-between">
                 <p className="text-2xl font-semibold">
                   <img
@@ -40,12 +44,16 @@ const Sidebar = (props) => {
               </div>
             </nav>
             {open ? (
-              <div className=" lg:block navbar-menu relative z-50">
+              <div
+                className=" lg:block navbar-menu relative z-50"
+               
+              >
                 <div
                   onClick={onflipSide}
-                  className="navbar-backdrop fixed lg:hidden inset-0 bg-gray-800 opacity-10"
+                  className="navbar-backdrop fixed lg:hidden inset-0 bg-black opacity-10"
                 ></div>
-                <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-3/4 lg:w-80 sm:max-w-xs pt-6 pb-8 bg-white border-r overflow-y-auto">
+                <nav  
+                 className="fixed top-0 left-0 bottom-0 flex flex-col w-3/4 lg:w-80 sm:max-w-xs pt-6 pb-8 bg-white  overflow-y-auto">
                   <div className="flex w-full items-center px-6 pb-6 mb-6 lg:border-b border-blue-50">
                     <p className="text-xl flex item-center text-center font-semibold">
                       <img
@@ -57,108 +65,109 @@ const Sidebar = (props) => {
                     </p>
                   </div>
                   <div className="px-4 pb-6">
-                  <ul className="mb-8 text-sm font-medium">
-                    <li>
-                      <NavLink
-                        active-button
-                        activeClassName="bg-red-300 text-white "
-                        exact to="/home"
-                        className="flex items-center pl-3 py-3 pr-4 rounded hover:bg-red-50"
-                      >
-                        <p className="flex items-center text-gray-500 ">
-                          <span className="inline-block mr-3 ">
-                            <img
-                              src="https://res.cloudinary.com/sumit9988/image/upload/v1626812049/icons8-change-256_ewtfnj.png"
-                              width="25px"
-                              height="25px"
-                              alt="logo"
-                            />
-                          </span>{" "}
-                          <span>Home</span>
-                        </p>
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        active-button
-                        activeClassName="bg-red-300 text-white"
-                        to="/home/project"
-                        className="flex items-center pl-3 py-3 pr-4  hover:bg-red-50  rounded"
-                      >
-                        <p className="flex items-center text-gray-500 ">
-                          <span className="inline-block mr-3">
-                            <img
-                              src="https://res.cloudinary.com/sumit9988/image/upload/v1626811371/icons8-project-management-100_qoolrh.png"
-                              width="25px"
-                              height="25px"
-                              alt="logo"
-                            />
-                          </span>{" "}
-                          <span>Project</span>
-                        </p>
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        active-button
-                        activeClassName="bg-red-300 text-white"
-                        to="/home/education"
-                        className="flex items-center pl-3 py-3 pr-4 hover:bg-red-50  rounded"
-                      >
-                        <p className="flex items-center text-gray-500  ">
-                          <span className="inline-block mr-3">
-                            <img
-                              src="https://res.cloudinary.com/sumit9988/image/upload/v1626811049/icons8-education_2_nolzoi.svg"
-                              width="25px"
-                              height="25px"
-                              alt="education"
-                            />
-                          </span>{" "}
-                          <span>Education</span>
-                        </p>
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        active-button
-                        activeClassName="bg-red-300 text-white"
-                        to="/home/experience"
-                        className="flex items-center pl-3 py-3 pr-4 hover:bg-red-50   rounded"
-                      >
-                        <p className="flex items-center text-gray-500 ">
-                          <span className="inline-block mr-3">
-                            <img
-                              src="https://res.cloudinary.com/sumit9988/image/upload/v1626811470/icons8-work-100_lf6r6f.png"
-                              width="25px"
-                              height="25px"
-                              alt="logo"
-                            />
-                          </span>{" "}
-                          <span>Experience</span>
-                        </p>
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        active-button
-                        activeClassName="bg-red-300 text-white"
-                        to="/home/blog"
-                        className="flex items-center pl-3 py-3 pr-4  hover:bg-red-50  rounded"
-                      >
-                        <p className="flex items-center text-gray-500  ">
-                          <span className="inline-block mr-3">
-                            <img
-                              src="https://res.cloudinary.com/sumit9988/image/upload/v1626811733/icons8-google-blog-search-256_udfnsd.png"
-                              width="25px"
-                              height="25px"
-                              alt="logo"
-                            />
-                          </span>{" "}
-                          <span>Oppurunity</span>
-                        </p>
-                      </NavLink>
-                    </li>
-                    {/* <li>
+                    <ul className="mb-8 text-sm font-medium">
+                      <li>
+                        <NavLink
+                          active-button
+                          activeClassName="bg-red-300 text-white "
+                          exact
+                          to="/home"
+                          className="flex items-center pl-3 py-3 pr-4 rounded hover:bg-red-50"
+                        >
+                          <p className="flex items-center text-gray-500 ">
+                            <span className="inline-block mr-3 ">
+                              <img
+                                src="https://res.cloudinary.com/sumit9988/image/upload/v1626812049/icons8-change-256_ewtfnj.png"
+                                width="25px"
+                                height="25px"
+                                alt="logo"
+                              />
+                            </span>{" "}
+                            <span>Home</span>
+                          </p>
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          active-button
+                          activeClassName="bg-red-300 text-white"
+                          to="/home/project"
+                          className="flex items-center pl-3 py-3 pr-4  hover:bg-red-50  rounded"
+                        >
+                          <p className="flex items-center text-gray-500 ">
+                            <span className="inline-block mr-3">
+                              <img
+                                src="https://res.cloudinary.com/sumit9988/image/upload/v1626811371/icons8-project-management-100_qoolrh.png"
+                                width="25px"
+                                height="25px"
+                                alt="logo"
+                              />
+                            </span>{" "}
+                            <span>Project</span>
+                          </p>
+                        </NavLink>
+                      </li>
+                      {/* <li>
+                        <NavLink
+                          active-button
+                          activeClassName="bg-red-300 text-white"
+                          to="/home/education"
+                          className="flex items-center pl-3 py-3 pr-4 hover:bg-red-50  rounded"
+                        >
+                          <p className="flex items-center text-gray-500  ">
+                            <span className="inline-block mr-3">
+                              <img
+                                src="https://res.cloudinary.com/sumit9988/image/upload/v1626811049/icons8-education_2_nolzoi.svg"
+                                width="25px"
+                                height="25px"
+                                alt="education"
+                              />
+                            </span>{" "}
+                            <span>Education</span>
+                          </p>
+                        </NavLink>
+                      </li> */}
+                      <li>
+                        <NavLink
+                          active-button
+                          activeClassName="bg-red-300 text-white"
+                          to="/home/experience"
+                          className="flex items-center pl-3 py-3 pr-4 hover:bg-red-50   rounded"
+                        >
+                          <p className="flex items-center text-gray-500 ">
+                            <span className="inline-block mr-3">
+                              <img
+                                src="https://res.cloudinary.com/sumit9988/image/upload/v1626811470/icons8-work-100_lf6r6f.png"
+                                width="25px"
+                                height="25px"
+                                alt="logo"
+                              />
+                            </span>{" "}
+                            <span>Experience</span>
+                          </p>
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          active-button
+                          activeClassName="bg-red-300 text-white"
+                          to="/home/blog"
+                          className="flex items-center pl-3 py-3 pr-4  hover:bg-red-50  rounded"
+                        >
+                          <p className="flex items-center text-gray-500  ">
+                            <span className="inline-block mr-3">
+                              <img
+                                src="https://res.cloudinary.com/sumit9988/image/upload/v1626811733/icons8-google-blog-search-256_udfnsd.png"
+                                width="25px"
+                                height="25px"
+                                alt="logo"
+                              />
+                            </span>{" "}
+                            <span>Explore</span>
+                          </p>
+                        </NavLink>
+                      </li>
+                      {/* <li>
                       <NavLink
                         active-button
                         activeClassName="bg-red-300 text-white"
@@ -178,101 +187,101 @@ const Sidebar = (props) => {
                         </p>
                       </NavLink>
                     </li> */}
-                    <li>
-                      <NavLink
-                        active-button
-                        activeClassName="bg-red-300 text-white"
-                        to="/home/analytics"
-                        className="flex items-center pl-3 py-3 pr-4  hover:bg-red-50  rounded"
-                      >
-                        <p className="flex items-center text-gray-500 hover:bg-red-50 ">
+                      <li>
+                        <NavLink
+                          active-button
+                          activeClassName="bg-red-300 text-white"
+                          to="/home/analytics"
+                          className="flex items-center pl-3 py-3 pr-4  hover:bg-red-50  rounded"
+                        >
+                          <p className="flex items-center text-gray-500 hover:bg-red-50 ">
+                            <span className="inline-block mr-3">
+                              <img
+                                src="https://res.cloudinary.com/sumit9988/image/upload/v1626811382/icons8-combo-chart_bvckso.svg"
+                                width="25px"
+                                height="25px"
+                                alt="logo"
+                              />
+                            </span>{" "}
+                            <span>Analytics</span>
+                          </p>
+                        </NavLink>
+                      </li>
+                      {/* <li>
+                        <NavLink
+                          active-button
+                          activeClassName="bg-red-300 text-white"
+                          to="/home/profile"
+                          className="flex items-center pl-3 py-3 pr-4 hover:bg-red-50 rounded"
+                        >
+                          <p className="flex items-center text-gray-500 ">
+                            <span className="inline-block mr-3">
+                              <img
+                                src="https://res.cloudinary.com/sumit9988/image/upload/v1626811562/icons8-male-user_wxw5u3.svg"
+                                width="25px"
+                                height="25px"
+                                alt="logo"
+                              />
+                            </span>{" "}
+                            <span>Profile</span>
+                          </p>
+                        </NavLink>
+                      </li> */}
+                      <li>
+                        <NavLink
+                          active-button
+                          activeClassName="bg-red-300 text-white"
+                          to="/home/setting"
+                          className="flex items-center pl-3 py-3 pr-4 hover:bg-red-50 rounded"
+                        >
+                          <p className="flex items-center text-gray-500 ">
+                            <span className="inline-block mr-3">
+                              <img
+                                src="https://res.cloudinary.com/sumit9988/image/upload/v1626811643/icons8-gear-256_flidj6.png"
+                                width="25px"
+                                height="25px"
+                                alt="logo"
+                              />
+                            </span>{" "}
+                            <span>Setting</span>
+                          </p>
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          active-button
+                          activeClassName="bg-red-300 text-white"
+                          to="/home/theme"
+                          className="flex items-center pl-3 py-3 pr-4 hover:bg-red-50 rounded"
+                        >
+                          <p className="flex items-center text-gray-500 ">
+                            <span className="inline-block mr-3">
+                              <img
+                                src="https://res.cloudinary.com/sumit9988/image/upload/v1627156222/icons8-page_hx51lu.svg"
+                                width="25px"
+                                height="25px"
+                                alt="logo"
+                              />
+                            </span>{" "}
+                            <span>Theme</span>
+                          </p>
+                        </NavLink>
+                      </li>
+
+                      <li>
+                        <p className="flex items-center pl-3 py-3 pr-4 text-gray-500 hover:bg-red-50 rounded">
                           <span className="inline-block mr-3">
                             <img
-                              src="https://res.cloudinary.com/sumit9988/image/upload/v1626811382/icons8-combo-chart_bvckso.svg"
+                              src="https://res.cloudinary.com/sumit9988/image/upload/v1626811840/icons8-logout-rounded-left_zmbw5g.svg"
                               width="25px"
                               height="25px"
                               alt="logo"
                             />
                           </span>{" "}
-                          <span>Analytics</span>
+                          <span>Logout</span>
                         </p>
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        active-button
-                        activeClassName="bg-red-300 text-white"
-                        to="/home/profile"
-                        className="flex items-center pl-3 py-3 pr-4 hover:bg-red-50 rounded"
-                      >
-                        <p className="flex items-center text-gray-500 ">
-                          <span className="inline-block mr-3">
-                            <img
-                              src="https://res.cloudinary.com/sumit9988/image/upload/v1626811562/icons8-male-user_wxw5u3.svg"
-                              width="25px"
-                              height="25px"
-                              alt="logo"
-                            />
-                          </span>{" "}
-                          <span>Profile</span>
-                        </p>
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        active-button
-                        activeClassName="bg-red-300 text-white"
-                        to="/home/setting"
-                        className="flex items-center pl-3 py-3 pr-4 hover:bg-red-50 rounded"
-                      >
-                        <p className="flex items-center text-gray-500 ">
-                          <span className="inline-block mr-3">
-                            <img
-                              src="https://res.cloudinary.com/sumit9988/image/upload/v1626811643/icons8-gear-256_flidj6.png"
-                              width="25px"
-                              height="25px"
-                              alt="logo"
-                            />
-                          </span>{" "}
-                          <span>Setting</span>
-                        </p>
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        active-button
-                        activeClassName="bg-red-300 text-white"
-                        to="/home/theme"
-                        className="flex items-center pl-3 py-3 pr-4 hover:bg-red-50 rounded"
-                      >
-                        <p className="flex items-center text-gray-500 ">
-                          <span className="inline-block mr-3">
-                            <img
-                              src="https://res.cloudinary.com/sumit9988/image/upload/v1627156222/icons8-page_hx51lu.svg"
-                              width="25px"
-                              height="25px"
-                              alt="logo"
-                            />
-                          </span>{" "}
-                          <span>Theme</span>
-                        </p>
-                      </NavLink>
-                    </li>
-                   
-                    <li>
-                      <p className="flex items-center pl-3 py-3 pr-4 text-gray-500 hover:bg-red-50 rounded">
-                        <span className="inline-block mr-3">
-                          <img
-                            src="https://res.cloudinary.com/sumit9988/image/upload/v1626811840/icons8-logout-rounded-left_zmbw5g.svg"
-                            width="25px"
-                            height="25px"
-                            alt="logo"
-                          />
-                        </span>{" "}
-                        <span>Logout</span>
-                      </p>
-                    </li>
-                  </ul>
+                      </li>
+                    </ul>
                   </div>
                 </nav>
               </div>
@@ -283,7 +292,7 @@ const Sidebar = (props) => {
                 className="navbar-backdrop fixed lg:hidden inset-0 bg-gray-800 opacity-10"
               ></div>
               <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-3/4 lg:w-80 sm:max-w-xs pt-6 pb-8 bg-white border-r overflow-y-auto">
-                <div className="flex w-full items-center px-6 pb-6 mb-6 lg:border-b border-blue-50">
+                <div className="flex w-full items-center px-6 pb-6 mb-6  border-blue-50">
                   <p className="text-xl flex item-center text-center font-semibold">
                     <img
                       src="https://res.cloudinary.com/sumit9988/image/upload/v1626467520/Peach_Abstract_Design_Brand_Letter_P_Logo_1_pp0dmw.svg"
@@ -294,12 +303,13 @@ const Sidebar = (props) => {
                   </p>
                 </div>
                 <div className="px-4 pb-6">
-                <ul className="mb-8 text-sm font-medium">
+                  <ul className="mb-8 text-sm font-medium">
                     <li>
                       <NavLink
                         active-button
                         activeClassName="bg-red-300 text-white "
-                        exact to="/home"
+                        exact
+                        to="/home"
                         className="flex items-center pl-3 py-3 pr-4 rounded hover:bg-red-50"
                       >
                         <p className="flex items-center text-gray-500 ">
@@ -335,7 +345,7 @@ const Sidebar = (props) => {
                         </p>
                       </NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                       <NavLink
                         active-button
                         activeClassName="bg-red-300 text-white"
@@ -354,7 +364,7 @@ const Sidebar = (props) => {
                           <span>Education</span>
                         </p>
                       </NavLink>
-                    </li>
+                    </li> */}
                     <li>
                       <NavLink
                         active-button
@@ -391,7 +401,7 @@ const Sidebar = (props) => {
                               alt="logo"
                             />
                           </span>{" "}
-                          <span>Oppurunity</span>
+                          <span>Explore</span>
                         </p>
                       </NavLink>
                     </li>
@@ -435,7 +445,7 @@ const Sidebar = (props) => {
                         </p>
                       </NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                       <NavLink
                         active-button
                         activeClassName="bg-red-300 text-white"
@@ -454,7 +464,7 @@ const Sidebar = (props) => {
                           <span>Profile</span>
                         </p>
                       </NavLink>
-                    </li>
+                    </li> */}
                     <li>
                       <NavLink
                         active-button
@@ -495,7 +505,7 @@ const Sidebar = (props) => {
                         </p>
                       </NavLink>
                     </li>
-                   
+
                     <li>
                       <p className="flex items-center pl-3 py-3 pr-4 text-gray-500 hover:bg-red-50 rounded">
                         <span className="inline-block mr-3">
@@ -510,19 +520,18 @@ const Sidebar = (props) => {
                       </p>
                     </li>
                   </ul>
-
                 </div>
               </nav>
             </div>
-            <div className="mx-auto lg:ml-80">
-              <section className="py-6 px-6 bg-white shadow">
+            <div className="mx-auto lg:ml-80 ">
+              <section className="py-6 px-6 bg-white shadow-sm">
                 <nav className="relative">
                   <div className="flex items-center">
                     <div className="flex items-center mr-auto"> </div>
 
                     <ul className="flex lg:justify-end ml-auto mr-6">
                       <li className="mr-6">
-                        <p className="text-gray-200 hover:text-gray-300">
+                        <p className="text-gray-200 hover:text-gray-300 ">
                           <svg
                             className="h-5 w-5"
                             viewbox="0 0 18 20"
@@ -537,7 +546,7 @@ const Sidebar = (props) => {
                         </p>
                       </li>
                       <li>
-                        <p className="text-gray-200 hover:text-gray-300">
+                        <p className="text-gray-200 hover:text-gray-300 w">
                           <svg
                             className="h-5 w-5"
                             viewbox="0 0 16 20"
@@ -553,7 +562,7 @@ const Sidebar = (props) => {
                       </li>
                     </ul>
                     <div>
-                      <button className="flex items-center">
+                      <button className="flex items-center ">
                         <div className="mr-3">
                           <p className="text-sm">Sumit Kumar</p>
                           <p className="text-sm text-gray-500">Developer</p>
@@ -570,7 +579,7 @@ const Sidebar = (props) => {
                   </div>
                 </nav>
               </section>
-              <div className="bg-gray-50 h-full">{props.children}</div>
+              <div className=" h-full">{props.children}</div>
             </div>
           </div>
         </div>

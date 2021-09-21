@@ -11,6 +11,7 @@
     "aws-sdk": "^2.973.0",
     "axios": "^0.21.1",
     "chart.js": "^3.5.0",
+    "framer-motion": "^4.1.17",
     "history": "^5.0.1",
     "lottie-react": "^2.1.0",
     "moment": "^2.29.1",

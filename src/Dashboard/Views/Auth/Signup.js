@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactGA from "react-ga";
 import { Link } from "react-router-dom";
 import GoogleLogin from "react-google-login";
-import {  toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { google_clientID } from "../../../utils/url";
 import { userSignup } from "../../../redux/action/authAction";
@@ -10,7 +10,6 @@ import Loader from "./../../../utils/loader";
 import ToastContainer from "./../../../utils/toast";
 
 ReactGA.initialize("UA-198799173-1");
-
 
 const Signup = ({ history }) => {
   const [checked, setChecked] = useState(true);
@@ -56,8 +55,8 @@ const Signup = ({ history }) => {
       toast.error(error);
     }
     if (success) {
-      toast.success('Your Account Created !')
-      history.push("/home");
+      toast.success("Your Account Created !");
+      history.push("/create-profile");
     }
   }, [history, success, error, user]);
 
@@ -67,7 +66,7 @@ const Signup = ({ history }) => {
       category: "User",
       action: "Account Created",
     });
-    
+
     const data = {
       name,
       email,
@@ -158,7 +157,7 @@ const Signup = ({ history }) => {
                       placeholder="like Jons smith"
                     />
                     <span class="absolute top-0 left-0 ml-4 -mt-2 px-1 inline-block bg-white text-gray-500 text-xs">
-                     Your Name
+                      Your Name
                     </span>
                   </div>
                   <div class="relative flex flex-wrap mb-6">
@@ -185,7 +184,6 @@ const Signup = ({ history }) => {
                       Password
                     </span>
                   </div>
-                
                   <label class="inline-flex mb-10 text-left">
                     <input
                       class="mr-2"
@@ -216,9 +214,9 @@ const Signup = ({ history }) => {
                 <p class="text-sm text-gray-500">
                   <span>Already have an account?</span>{" "}
                   <Link to="/login">
-                  <p class="text-red-400 font-semibold hover:underline">
-                    Sign in
-                  </p>
+                    <p class="text-red-400 font-semibold hover:underline">
+                      Sign in
+                    </p>
                   </Link>
                 </p>
               </div>
@@ -226,7 +224,7 @@ const Signup = ({ history }) => {
           </section>
         </div>
       </body>
-     <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };
