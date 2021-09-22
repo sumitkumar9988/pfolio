@@ -1,6 +1,6 @@
 import React from "react";
 
-const project = () => {
+const Project = () => {
   return (
     <div class="min-h-screen">
       <section class="py-8 px-6">
@@ -64,4 +64,4 @@ const project = () => {
   );
 };
 
-export default project;
+export default Project;
