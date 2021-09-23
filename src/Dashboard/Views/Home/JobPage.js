@@ -1,5 +1,4 @@
 import React from "react";
-import { ReactComponent as BlogSVG } from "./../../../assets/blog-section.svg";
 
 const blog = () => {
   return (

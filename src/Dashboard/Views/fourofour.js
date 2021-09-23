@@ -1,6 +1,6 @@
 import React from "react";
-import FourOFourSVG from "./../../assets/404.svg";
-const fourofour = () => {
+import FourOFourSVG from "./../../Assets/404.svg";
+const FourOFour = () => {
   return (
     <section class="py-20 overflow-hidden">
       <div class="container px-4 mx-auto text-center">
@@ -27,4 +27,4 @@ const fourofour = () => {
   );
 };
 
-export default fourofour;
+export default FourOFour;

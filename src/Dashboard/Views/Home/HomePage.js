@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { LiveProvider, LivePreview } from "react-live";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import PortfolioSite from "../../../portfolio/Index";
+import PortfolioSite from "../../../Portfolio/Index";
 // import Mac from "./../../../assets/Macbook Pro.png";
 import UploadResume from "../../components/Card/uploadResume";
 import Share from "../../components/Card/share";
