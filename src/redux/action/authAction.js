@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { baseURL } from './../../utils/url';
+import { baseURL } from '../../utils/url';
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -25,7 +25,7 @@ import {
   UPDATE_SOCIAL_ACCOUNT_REQUEST,
   UPDATE_SOCIAL_ACCOUNT_SUCCESS,
   UPDATE_SOCIAL_ACCOUNT_FAIL,
-} from './../constant';
+} from '../constant';
 
 export const userLogin = (input, path = 'login') => async (dispatch) => {
   try {

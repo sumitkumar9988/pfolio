@@ -1,5 +1,5 @@
 import React from "react";
-import dashboardImage from "./../assets/demo.png";
+import dashboardImage from "./../Assets/demo.png";
 const Index = () => {
   return (
     <>

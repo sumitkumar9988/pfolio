@@ -25,7 +25,7 @@ import {
     UPDATE_SOCIAL_ACCOUNT_REQUEST,
     UPDATE_SOCIAL_ACCOUNT_SUCCESS,
     UPDATE_SOCIAL_ACCOUNT_FAIL,
-  } from './../constant';
+  } from '../constant';
   
   export const loginReducer = (state = {}, action) => {
     switch (action.type) {

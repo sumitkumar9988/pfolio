@@ -1,5 +1,5 @@
 import React from "react";
-import Loader from "./../utils/loader";
+import Loader from "../utils/loader";
 import { Helmet } from "react-helmet";
 const Index = () => {
   const data = {
