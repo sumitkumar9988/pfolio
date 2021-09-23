@@ -31,6 +31,7 @@ import EditProfile from './Dashboard/Views/Forms/EditProfile';
 import ViewProfile from './Dashboard/Views/Forms/ViewProfile';
 import AddProject from './Dashboard/Views/Forms/AddProject';
 import EditProject from './Dashboard/Views/Forms/EditProject';
+import skills from './utils/AllSkills';
 
 const DashboardRoute = ({component: Component, ...rest}) => {  
   return (  
@@ -79,6 +80,7 @@ function App() {
           <DashboardRoute path="/home/analytics" component={Analtics} />
           <DashboardRoute path="/home/theme" component={Theme} />
           <DashboardRoute path="/home" component={Home} />
+          <DashboardRoute path="/skills" component={skills} />
           <Route path="*" exact  component={FourOFour} />
          
         </Switch>
