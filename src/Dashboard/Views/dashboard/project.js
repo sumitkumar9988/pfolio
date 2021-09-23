@@ -7,11 +7,9 @@ const Project = () => {
         <div class="flex flex-wrap -mx-3 items-center">
           <div class="w-full lg:w-1/2 flex items-center mb-5 lg:mb-0 px-3">
             <div>
-              <h2 class="mb-1 text-2xl font-bold">
-                Project
-              </h2>
+              <h2 class="mb-1 text-2xl font-bold">Project</h2>
               <p class="text-sm text-gray-500 font-medium">
-                Add new project or import 
+                Add new project or import
               </p>
             </div>
           </div>
@@ -58,9 +56,71 @@ const Project = () => {
             </p>
           </div>
         </div>
+
+        <div className="flex flex-wrap pt-8">
+          <div className="mb-4 w-full md:w-1/2 lg:w-1/3 px-3 rounded-lg">
+            <div className="h-72 transform hover:scale-105 transition duration-300 rounded-xl bg-white justify-center items-center flex flex-col  shadow-xl text-center">
+              <div className="h-32 p-4">
+                <img
+                  className="mx-auto mb-4 h-full w-full object-contain"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAPFBMVEXxURuAzCgAre/7vAn////xTxfxVCDyWiyFzjSEzS8Ir+8dsfD7vxz7vhLyWCfxTRLyYjeL0D4ptPD7wSkDOo23AAABHUlEQVR4nO3PSRKCQBAAwVZAYFhc+P9fPToXrk2MkfWBioxHJDWM/a/pltUchISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhOfCGJJ67hcJxz2rVyV8z1NW0f97hO1H2H6E7UfYfoTtF0vJ6lNtj23NKso9q1IJ1y6tROFyiXAjJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkPBd+AR2XhmxGp3JaAAAAAElFTkSuQmCC"
+                  alt=""
+                />
+              </div>
+
+              <h4 className="mb-2 pt-2 text-gray-800 text-2xl font-bold font-heading">
+                Microsoft
+              </h4>
+              <p className="text-gray-500">Head of Development</p>
+            
+            </div>
+          </div>
+
+          <div className="mb-4 w-full md:w-1/2 lg:w-1/3 px-3 rounded-lg">
+            <div className="h-72 transform hover:scale-105 transition duration-300 rounded-xl bg-white justify-center items-center flex flex-col  shadow-xl text-center">
+              <div className="">
+                <img
+                  className=" mb-4 h-32 w-full bg-auto bg-no-repeat bg-center"
+                  src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTgwOTN8MHwxfHNlYXJjaHwyfHxkZXNpZ25lcnxlbnwwfHx8fDE2MzE3ODg5Mzg&ixlib=rb-1.2.1&q=80&w=1080"
+                  alt=""
+                />
+              </div>
+
+              <h4 className="mb-2 pt-2 text-gray-800 text-2xl font-bold font-heading">
+                Microsoft
+              </h4>
+              <p className="text-gray-500">Head of Development</p>
+             
+            </div>
+          </div>
+
+          <div className="mb-4 w-full md:w-1/2 lg:w-1/3 px-3 rounded-lg">
+            <div className="h-72 transform hover:scale-105 transition duration-300 rounded-xl bg-white justify-center items-center flex flex-col  shadow-xl text-center">
+              <div className=" p-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-12 w-12"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                  />
+                </svg>
+              </div>
+
+              {/* <h4 className="mb-2 pt-2 text-gray-800 text-2xl font-bold font-heading">
+                Add Experience
+              </h4> */}
+            </div>
+          </div>
+        </div>
       </section>
-     
-     </div>
+    </div>
   );
 };
 
