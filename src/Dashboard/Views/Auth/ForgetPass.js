@@ -2,8 +2,8 @@ import React,{useState,useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from "react-toastify";
 import { userforgetPassword } from "../../../redux/action/authAction";
-import Loader from "./../../../utils/loader";
-import ToastContainer from "./../../../utils/toast";
+import Loader from "../../../utils/loader";
+import ToastContainer from "../../../utils/toast";
 
 const ForgetPassword = () => {
 

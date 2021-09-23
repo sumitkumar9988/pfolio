@@ -6,8 +6,8 @@ import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { google_clientID } from "../../../utils/url";
 import { userLogin } from "../../../redux/action/authAction";
-import Loader from "./../../../utils/loader";
-import ToastContainer from "./../../../utils/toast";
+import Loader from "../../../utils/loader";
+import ToastContainer from "../../../utils/toast";
 
 ReactGA.initialize("UA-198799173-1");
 
