@@ -10,9 +10,9 @@ import {
 
 const Hero = () => {
   return (
-    <div className="bg-gray-900 h-full ">
+    <div className=" ">
       <div className="w-full md:w-10/12 lg:w-7/12 mx-auto">
-        <div className="pt-24 p-8 lg:p-16 md:pt-32  pb-32">
+        <div className="pt-24 p-8 lg:p-16 md:pt-32  pb-4">
           <img
             src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTgwOTN8MHwxfHNlYXJjaHwyM3x8bWVufGVufDB8fHx8MTYzMjQ3MTI0Ng&ixlib=rb-1.2.1&q=80&w=1080"
             alt="me"
@@ -46,7 +46,7 @@ const Hero = () => {
           </div>
 
           <div className="mt-10">
-            <p className="mb-8 text-base md:text-xl font-rubik   text-gray-200 ">
+            <p className=" text-base md:text-xl font-rubik   text-gray-200 ">
               I am a rising junior at Nazarbayev University majoring in CS. I
               enjoy creating high-quality software products with a complex logic
               behind it aaa. Maaay technology stack includes React, TypeScript
