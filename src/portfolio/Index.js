@@ -18,7 +18,7 @@ const Index = () => {
             <link rel="canonical" href="https://sumit.pfolio.me" />
           </Helmet>
           <div>
-            <Header/>
+            {/* <Header/> */}
             <Hero/>
           </div>
         </div>
