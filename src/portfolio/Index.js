@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import Header from './components/Headers';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
+import Experience from './components/Experience';
 const Index = () => {
   const [loading] = React.useState(false);
 
@@ -22,6 +23,7 @@ const Index = () => {
             {/* <Header/> */}
             <Hero/>
             <Skills/>
+            <Experience/>
           </div>
         </div>
       )}
