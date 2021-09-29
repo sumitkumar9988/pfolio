@@ -51,10 +51,10 @@ const skills = [
 
 const Skills = () => {
   return (
-    <div className="w-full md:w-10/12 lg:w-7/12 mx-auto ">
+    <div className="w-full mt-20 md:mt-4  md:w-10/12 lg:w-7/12 mx-auto ">
       <div className=" pb-8 ml-0  p-8 md:p-16">
         <div>
-          <p className="mb-4 text-2xl font-bold md:text-sectionHeader text-white">
+          <p className="mb-4 text-2xl font-bold md:text-3xl font-rubik text-white">
             Skills
           </p>
         </div>

@@ -4,7 +4,12 @@ import { Helmet } from "react-helmet";
 import Header from './components/Headers';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
+import Project from './components/Project';
 import Experience from './components/Experience';
+import Education from './components/Education';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+
 const Index = () => {
   const [loading] = React.useState(false);
 
@@ -23,7 +28,11 @@ const Index = () => {
             {/* <Header/> */}
             <Hero/>
             <Skills/>
+            <Project/>
             <Experience/>
+            <Education/>
+             <Contact/>
+            <Footer/> 
           </div>
         </div>
       )}
