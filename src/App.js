@@ -21,16 +21,16 @@ import Setting from './Dashboard/Views/Home/SettingPage';
 import Project from './Dashboard/Views/Home/ProjectPage';
 import Theme from './Dashboard/Views/Home/ThemePage';
 // Dashboard 
-import EditEducation from './Dashboard/Views/Forms/EditEdu';
-import AddEducation from './Dashboard/Views/Forms/AddEdu';
-import AddExperience from './Dashboard/Views/Forms/AddExp';
-import EditExperience from './Dashboard/Views/Forms/EditExp';
-import AddLink from './Dashboard/Views/Forms/AddLink';
-import EditProfile from './Dashboard/Views/Forms/EditProfile';
-import ViewProfile from './Dashboard/Views/Forms/ViewProfile';
-import AddProject from './Dashboard/Views/Forms/AddProject';
-import EditProject from './Dashboard/Views/Forms/EditProject';
-import CustomDomain from './Dashboard/Views/Forms/CustomDomain';
+import EditEducation from './Dashboard/Views/Forms/education/EditEdu';
+import AddEducation from './Dashboard/Views/Forms/education/AddEdu';
+import AddExperience from './Dashboard/Views/Forms/experience/AddExp';
+import EditExperience from './Dashboard/Views/Forms/experience/EditExp';
+import AddLink from './Dashboard/Views/Forms/profile/AddLink';
+import EditProfile from './Dashboard/Views/Forms/profile/EditProfile';
+import ViewProfile from './Dashboard/Views/Forms/profile/ViewProfile';
+import AddProject from './Dashboard/Views/Forms/project/AddProject';
+import EditProject from './Dashboard/Views/Forms/project/EditProject';
+import CustomDomain from './Dashboard/Views/Forms/profile/CustomDomain';
 import skills from './utils/AllSkills';
 
 const DashboardRoute = ({component: Component, ...rest}) => {  
@@ -78,7 +78,7 @@ function App() {
 
 
 
-          <DashboardRoute path="/home/blog" component={JobPage} />
+          <DashboardRoute path="/home/explore" component={JobPage} />
           <DashboardRoute path="/home/analytics" component={Analtics} />
           <DashboardRoute path="/home/theme" component={Theme} />
           <DashboardRoute path="/home" component={Home} />

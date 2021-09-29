@@ -34,13 +34,11 @@ const data = [
 ];
 
 const Experience = () => {
-  console.log(data.length);
   let x, y, z;
   x = 0;
   y = data.length - parseInt(data.length / 2);
   z = data.length;
 
-  console.log(x, y, z);
 
   return (
     <div className="w-full md:w-10/12 lg:w-7/12 mx-auto pb-12">
