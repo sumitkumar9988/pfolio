@@ -25,7 +25,7 @@ const Index = () => {
             <link rel="canonical" href="https://sumit.pfolio.me" />
           </Helmet>
           <div className="bg-gray-900 h-full ">
-            {/* <Header/> */}
+            <Header/>
             <Hero/>
             <Skills/>
             <Project/>
