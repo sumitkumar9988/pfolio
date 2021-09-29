@@ -131,7 +131,7 @@ const Sidebar = (props) => {
                         <NavLink
                           active-button
                           activeClassName="bg-red-300 text-white"
-                          to="/home/experience"
+                          to="/home/background"
                           className="flex items-center pl-3 py-3 pr-4 hover:bg-red-50   rounded"
                         >
                           <p className="flex items-center text-gray-500 ">
@@ -143,7 +143,7 @@ const Sidebar = (props) => {
                                 alt="logo"
                               />
                             </span>{" "}
-                            <span>Experience</span>
+                            <span>Background</span>
                           </p>
                         </NavLink>
                       </li>
@@ -369,7 +369,7 @@ const Sidebar = (props) => {
                       <NavLink
                         active-button
                         activeClassName="bg-red-300 text-white"
-                        to="/home/experience"
+                        to="/home/background"
                         className="flex items-center pl-3 py-3 pr-4 hover:bg-red-50   rounded"
                       >
                         <p className="flex items-center text-gray-500 ">
@@ -381,7 +381,7 @@ const Sidebar = (props) => {
                               alt="logo"
                             />
                           </span>{" "}
-                          <span>Experience</span>
+                          <span>Background</span>
                         </p>
                       </NavLink>
                     </li>

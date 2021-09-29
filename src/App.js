@@ -15,8 +15,7 @@ import Sidebar from './Dashboard/components/Layout/Sidebar';
 import FourOFour from './Dashboard/Views/Fourofour';
 import Analtics from './Dashboard/Views/Home/Analtics';
 import JobPage from './Dashboard/Views/Home/JobPage';
-import Education from './Dashboard/Views/Home/EduPage';
-import Experience from './Dashboard/Views/Home/ExpePage';
+import Background from './Dashboard/Views/Home/BackgroundPage';
 import Home from './Dashboard/Views/Home/HomePage';
 import Setting from './Dashboard/Views/Home/SettingPage';
 import Project from './Dashboard/Views/Home/ProjectPage';
@@ -31,6 +30,7 @@ import EditProfile from './Dashboard/Views/Forms/EditProfile';
 import ViewProfile from './Dashboard/Views/Forms/ViewProfile';
 import AddProject from './Dashboard/Views/Forms/AddProject';
 import EditProject from './Dashboard/Views/Forms/EditProject';
+import CustomDomain from './Dashboard/Views/Forms/CustomDomain';
 import skills from './utils/AllSkills';
 
 const DashboardRoute = ({component: Component, ...rest}) => {  
@@ -60,11 +60,10 @@ function App() {
 
           <DashboardRoute path="/home/education/new" component={AddEducation} />
           <DashboardRoute path="/home/education/:id" component={EditEducation} />
-          <DashboardRoute path="/home/education" component={Education} />
 
           <DashboardRoute path="/home/experience/new" component={AddExperience} />
           <DashboardRoute path="/home/experience/:id" component={EditExperience} />
-          <DashboardRoute path="/home/experience" component={Experience} />
+          <DashboardRoute path="/home/background" component={Background} />
 
           <DashboardRoute path="/home/project/new" component={AddProject} />
           <DashboardRoute path="/home/project/:id" component={EditProject} />
@@ -75,6 +74,9 @@ function App() {
           <DashboardRoute path="/home/profile/view" component={ViewProfile} />
 
           <DashboardRoute path="/home/setting" component={Setting} />
+          <DashboardRoute path="/home/custom-domain" component={CustomDomain} />
+
+
 
           <DashboardRoute path="/home/blog" component={JobPage} />
           <DashboardRoute path="/home/analytics" component={Analtics} />

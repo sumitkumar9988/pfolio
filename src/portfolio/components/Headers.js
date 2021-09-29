@@ -5,18 +5,17 @@ import { useHeaderVisible } from "./../utils/useHeaderVisible";
 
 const Headers = () => {
   const visible = useHeaderVisible();
-  console.log(visible);
   return (
     <div
       className={clsx(
-        "sticky z-50 w-full opacity-90 bg-gray-900 transition-top  flex items-center transform transition duration-200 justify-center mx-auto py-8",
+        "sticky z-30 w-full opacity-90 bg-gray-900 transition-top  flex items-center transform transition duration-200 justify-center mx-auto py-8",
         visible ? "top-0" : "-top-32"
       )}
     >
       <div className="w-full md:w-10/12 lg:w-7/12 ">
         <div>
           <Link href="/">
-            <div className="text-white text-2xl font-rubik font-semibold ">
+            <div className="text-white text-2xl mx-8 font-rubik font-semibold ">
               Sumit .
             </div>
           </Link>
