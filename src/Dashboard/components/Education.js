@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Heading from "./Heading";
 import Add from "./Card/Add";
 import EducationCard from "./Card/InfoCard";
@@ -36,14 +37,22 @@ const Education = () => {
       <Heading title="Education" number="3" />
 
       <div className="flex flex-wrap pt-8">
-      {edu.map((item, i) => (
+        {edu.map((item, i) => (
           <div className="mb-4 w-full md:w-1/2 lg:w-1/3 px-3 rounded-lg">
-            <EducationCard />
+            <Link to={`/home/education/${item.id}`}>
+              <EducationCard
+                heading={item.course}
+                subheading={item.institute}
+                from={item.from}
+                to={item.to}
+                id={item.id}
+                image={item.logo}
+              />
+            </Link>
           </div>
         ))}
-
         <div className="mb-4 w-full md:w-1/2 lg:w-1/3 px-3 rounded-lg">
-          <Add link="/education/new" />
+          <Add link="/home/education/new" />
         </div>
       </div>
     </div>

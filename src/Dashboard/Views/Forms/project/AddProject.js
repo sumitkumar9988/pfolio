@@ -2,52 +2,74 @@
 import React, { useState } from "react";
 
 const AddProject = () => {
-  const [image, setimage] = useState(
-    "https://images.unsplash.com/photo-1606788168382-08d45b491332?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=721&q=80"
-  );
+  const [image, setimage] = useState();
 
+  // DemoUrl
+  // updated_at
+  // included
   return (
     <div>
       <div className=" mx-auto flex justify-center w-full h-full ">
         <div className="mt-8 w-full sm:w-8/12 m-4 md:w-3/6">
           <div class="w-full ">
-            <h2 class="text-2xl font-bold text-center">Project Name</h2>
+            <h2 class="text-2xl font-bold text-center">Add New Project</h2>
           </div>
           <div>
             <div class=" mt-4 mb-4 ">
               <label for="name-with-label" class="text-gray-700">
-                Email
+                Project Name
               </label>
               <input
                 type="text"
                 id="name-with-label"
                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
-                name="email"
-                placeholder="Your name"
+                name="name"
+                placeholder="Project Name"
               />
             </div>
             <div class=" mt-4 mb-4 ">
               <label for="name-with-label" class="text-gray-700">
-                Email
+                Link of Project
               </label>
               <input
                 type="text"
                 id="name-with-label"
                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
-                name="email"
-                placeholder="Your name"
+                name="DemoUrl"
+                placeholder="URL"
+              />
+            </div>
+            <div class=" mt-4 mb-4 ">
+              <label for="name-with-label" class="text-gray-700">
+                Source of Project
+              </label>
+              <input
+                type="text"
+                id="name-with-label"
+                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                name="DemoUrl"
+                placeholder="Link of github or behance"
               />
             </div>
             <div class=" mt-4 mb-4 ">
               <div className="mx-auto grid sm:grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label class="text-gray-700" for="time">
-                    Time{" "}
+                    Include in Portfolio List
                   </label>
-                  <input
-                    type="date"
-                    class="appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent flex-1"
-                  />
+                  <select
+                    type="text"
+                    id="name-with-label"
+                    class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                    name="DemoUrl"
+                  >
+                    <option className="p-1 font-semibold font-rubik text-base">
+                      Yes
+                    </option>
+                    <option className="p-1 font-semibold font-rubik text-base">
+                      No
+                    </option>
+                  </select>
                 </div>
                 <div>
                   <label class="text-gray-700" for="time">
@@ -62,13 +84,13 @@ const AddProject = () => {
             </div>
             <div class=" mt-4 mb-4 ">
               <label for="name-with-label" class="text-gray-700">
-                Email
+                Description
               </label>
               <textarea
                 class="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
-                id="comment"
-                placeholder="Enter your comment"
-                name="comment"
+                id="description"
+                name="description"
+                placeholder="About Project"
                 rows="5"
                 cols="40"
               ></textarea>
@@ -137,9 +159,9 @@ const AddProject = () => {
               </div>
             </div>
             <div className="flex items-center justify-center">
-              <p class="inline-block py-3 px-6 leading-none text-white bg-red-400 hover:bg-red-500 rounded shadow">
-                Primary button
-              </p>
+              <div class="inline-block py-3 px-6 leading-none text-white bg-red-400 hover:bg-red-500 rounded shadow">
+                Add Project
+              </div>
             </div>
           </div>
         </div>

@@ -41,17 +41,12 @@ const analtics = () => {
       <section class="py-8">
         <div class="container px-4 mx-auto">
           <div class=" rounded">
-            <div class="flex flex-wrap items-center py-5 px-6">
+            <div class="flex flex-wrap justify-between items-center py-5 px-6">
+              <div>
               <h3 class="w-full md:w-auto mb-4 md:mb-0 text-2xl font-bold">
                 Daily Visitiors
               </h3>
-              <div class="ml-auto inline-block py-2 px-3 border rounded text-xs text-gray-500">
-                <select class="pr-1" name="" id="">
-                  <option value="1">March</option>
-                  <option value="1">June</option>
-                  <option value="1">September</option>
-                </select>
-              </div>
+          </div>
               <div class="ml-2 inline-block py-2 px-3 border rounded text-xs text-gray-500">
                 <select class="pr-1" name="" id="">
                   <option value="1">Daily</option>

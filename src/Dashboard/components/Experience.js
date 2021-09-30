@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Heading from "./Heading";
 import Add from "./Card/Add";
 import ExperienceCard from "./Card/InfoCard";
@@ -10,6 +11,7 @@ const exp = [
     company: "Google",
     from: "2021-06",
     to: "2021-06",
+    id:1
   },
   {
     postion: "Software Developer",
@@ -17,6 +19,8 @@ const exp = [
     company: "Microsoft",
     from: "2021-06",
     to: "2021-06",
+    id:1
+
   },
   {
     postion: "Software Developer",
@@ -24,6 +28,8 @@ const exp = [
     company: "Amazon",
     from: "2021-06",
     to: "2021-06",
+    id:1
+
   },
 ];
 
@@ -34,12 +40,21 @@ const Experience = () => {
       <div className="flex flex-wrap pt-8">
         {exp.map((item, i) => (
           <div className="mb-4 w-full md:w-1/2 lg:w-1/3 px-3 rounded-lg">
-            <ExperienceCard />
+            <Link to={`/home/experience/${item.id}`}>
+              <ExperienceCard
+                heading={item.postion}
+                subheading={item.company}
+                from={item.from}
+                to={item.to}
+                id={item.id}
+                image={item.logo}
+              />
+            </Link>
           </div>
         ))}
 
         <div className="mb-4 w-full md:w-1/2 lg:w-1/3 px-3 rounded-lg">
-          <Add link="/experience/new" />
+          <Add link="/home/experience/new" />
         </div>
       </div>
     </div>

@@ -29,6 +29,7 @@ import AddLink from './Dashboard/Views/Forms/profile/AddLink';
 import EditProfile from './Dashboard/Views/Forms/profile/EditProfile';
 import ViewProfile from './Dashboard/Views/Forms/profile/ViewProfile';
 import AddProject from './Dashboard/Views/Forms/project/AddProject';
+import ImportProject from './Dashboard/Views/Forms/project/ImportProject';
 import EditProject from './Dashboard/Views/Forms/project/EditProject';
 import CustomDomain from './Dashboard/Views/Forms/profile/CustomDomain';
 import skills from './utils/AllSkills';
@@ -65,6 +66,7 @@ function App() {
           <DashboardRoute path="/home/experience/:id" component={EditExperience} />
           <DashboardRoute path="/home/background" component={Background} />
 
+          <DashboardRoute path="/home/project/import-project" component={ImportProject} />
           <DashboardRoute path="/home/project/new" component={AddProject} />
           <DashboardRoute path="/home/project/:id" component={EditProject} />
           <DashboardRoute path="/home/project" component={Project} />
@@ -75,8 +77,6 @@ function App() {
 
           <DashboardRoute path="/home/setting" component={Setting} />
           <DashboardRoute path="/home/custom-domain" component={CustomDomain} />
-
-
 
           <DashboardRoute path="/home/explore" component={JobPage} />
           <DashboardRoute path="/home/analytics" component={Analtics} />

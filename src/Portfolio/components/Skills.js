@@ -1,5 +1,4 @@
 import React from "react";
-
 const skills = [
   {
     name: "TypeScript",
@@ -51,24 +50,26 @@ const skills = [
 
 const Skills = () => {
   return (
-    <div className="w-full mt-20 md:mt-4  md:w-10/12 lg:w-7/12 mx-auto ">
-      <div className=" pb-8 ml-0  p-8 md:p-16">
-        <div>
-          <p className="mb-4 text-2xl font-bold md:text-3xl font-rubik text-white">
-            Skills
-          </p>
-        </div>
-        <div className="max-w-md mt-8 grid grid-cols-2 sm:grid-cols-3 gap-6">
-          {skills.map((skill, i) => (
-            <p className="block pt-3 pb-2 text-center bg-gray-700 rounded-lg shadow-lg ">
-               <div className="">
+    <div>
+      <div className="w-full mt-20 md:mt-4  md:w-10/12 lg:w-7/12 mx-auto ">
+        <div className=" pb-8 ml-0  p-8 md:p-16">
+          <div>
+            <p className="mb-4 text-2xl font-bold md:text-3xl font-rubik text-white">
+              Skills
+            </p>
+          </div>
+          <div className="max-w-md mt-8 grid grid-cols-2 sm:grid-cols-3 gap-6">
+            {skills.map((skill, i) => (
+              <p className="block pt-3 pb-2 text-center bg-gray-700 rounded-lg shadow-lg ">
+                <div className="">
                   <img className="mx-auto w-9 h-9" src={skill.icon} alt="" />
                 </div>
-              <p className="mt-2 text-base font-medium text-white">
-                {skill.name}
+                <p className="mt-2 text-base font-medium text-white">
+                  {skill.name}
+                </p>
               </p>
-            </p>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
