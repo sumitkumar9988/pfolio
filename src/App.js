@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Landing Page
-import LandingPage from './LandingPage/Index';
+// import LandingPage from './LandingPage/Index';
 // Page Related to Auth Page
 import Login from './Dashboard/Views/Auth/LoginPage';
 import Signup from './Dashboard/Views/Auth/SignupPage';
@@ -48,7 +48,7 @@ function App() {
     <div className="custom-scrollbar">
       <Router>
         <Switch>
-        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
