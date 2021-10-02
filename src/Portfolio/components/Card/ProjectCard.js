@@ -8,6 +8,7 @@ const ProjectCard = ({
   githubLink,
   imageLink,
   rightShift,
+  theme
 }) => {
   return (
     <div>
@@ -28,27 +29,27 @@ const ProjectCard = ({
               alt=""
             />
             <div className="block lg:hidden absolute  opacity-100 mx-8 z-10 my-8 text-left">
-              <div className="text-xl font-bold font-rubik md:text-2xl text-white">
+              <div className={`text-xl font-bold font-rubik md:text-2xl ${theme.textColor1}`}>
                 {title}
               </div>
-              <div className=" my-8 text-base h-32 overflow-clip overflow-hidden rounded text-white">
+              <div className={` my-8 text-base h-32 overflow-clip overflow-hidden rounded ${theme.textColor2}`}>
                 {description}
               </div>
               <div className="flex flex-row z-50 pt-4">
                 <div className="z-10">
                   <a target="_blank" href={githubLink}>
-                    <FaGithub className="text-white  w-6 mx-2 h-8" />
+                    <FaGithub className={`${theme.textColor1}  w-6 mx-2 h-8`} />
                   </a>
                 </div>
                 <div className="z-10">
                   <a target="_blank" href={externalLink}>
-                    <FaLink className="text-white w-6 mx-2 h-8" />
+                    <FaLink className={`${theme.textColor1}  w-6 mx-2 h-8`} />
                   </a>
                 </div>
               </div>
             </div>
           </div>
-          <div className=" hidden lg:block lg:w-2/4 bg-gray-600 rounded-xl">
+          <div className={` hidden lg:block lg:w-2/4 ${theme.bgColor2} rounded-xl`}>
             <div
               className={clsx(
                 "absoulte flex flex-col mx-8 my-8",
@@ -57,10 +58,10 @@ const ProjectCard = ({
                 "text-left"
               )}
             >
-              <div className="text-xl font-bold font-rubik md:text-2xl text-white">
+              <div className={`text-xl font-bold font-rubik md:text-2xl ${theme.textColor1}`}>
                 {title}
               </div>
-              <div className=" my-8 text-base h-32 overflow-clip overflow-hidden rounded text-white">
+              <div className={` my-8 text-base h-32 overflow-clip overflow-hidden rounded ${theme.textColor2}`}>
                 {description}
               </div>
               <div className="relative">

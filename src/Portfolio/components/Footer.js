@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Footer = () => {
+const Footer = ({theme}) => {
     return (
-        <p className="py-8 text-sm font-light text-center text-white">
+        <p className={`py-8 text-sm font-light text-center ${theme.textColor1}`}>
         <p
           className="hover:opacity-80 transition-opacity"
           rel="noreferrer"
