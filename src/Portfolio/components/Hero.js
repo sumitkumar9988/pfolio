@@ -29,19 +29,19 @@ const Hero = ({theme}) => {
           </p>
           <div className="flex flex-row mt-8">
             <div className="">
-              <AiOutlineGithub className={`h-8 w-8 m-1 text-white ${theme.textColor1}`} />
+              <AiOutlineGithub className={`h-8 w-8 m-1  ${theme.textColor1}`} />
             </div>
             <div className="">
-              <AiOutlineDribbble className={`h-8 w-8 m-1 text-white ${theme.textColor1}`} />
+              <AiOutlineDribbble className={`h-8 w-8 m-1  ${theme.textColor1}`} />
             </div>{" "}
             <div className="">
-              <AiFillTwitterCircle className={`h-8 w-8 m-1 text-white ${theme.textColor1}`} />
+              <AiFillTwitterCircle className={`h-8 w-8 m-1  ${theme.textColor1}`} />
             </div>{" "}
             <div className="">
-              <AiFillBehanceCircle className={`h-8 w-8 m-1 text-white ${theme.textColor1}`} />
+              <AiFillBehanceCircle className={`h-8 w-8 m-1  ${theme.textColor1}`} />
             </div>{" "}
             <div className="">
-              <AiFillLinkedin className={`h-8 w-8 m-1 text-white ${theme.textColor1}`} />
+              <AiFillLinkedin className={`h-8 w-8 m-1  ${theme.textColor1}`} />
             </div>
           </div>
 

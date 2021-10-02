@@ -22,9 +22,9 @@ const ProjectCard = ({
             !rightShift && "lg:flex-row-reverse"
           )}
         >
-          <div className="w-full lg:w-2/4     relative">
+          <div className="w-full lg:w-2/4    relative">
             <img
-              className="absolute object-cover object-center opacity-40 lg:opacity-100 h-full w-full rounded-xl"
+              className="absolute object-cover object-center opacity-60  lg:opacity-100 h-full w-full rounded-xl"
               src={imageLink}
               alt=""
             />
