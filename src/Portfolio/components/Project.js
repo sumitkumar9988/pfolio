@@ -2,15 +2,6 @@ import React, { useState } from "react";
 import ProjectCard from "./Card/ProjectCard";
 const initialProject = [
   {
-    title: "Laddy",
-    description:
-      "Web app selects and lets you solve algorithmic problems of your level by looking at your Codeforces rating.",
-    technologies: ["React", "TypeScript", "GraphQL"],
-    externalLink: "https://laddy.app",
-    githubLink: "https://github.com/ironsoul0/laddy",
-    imageLink: `https://images.unsplash.com/photo-1457305237443-44c3d5a30b89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTgwOTN8MHwxfHNlYXJjaHwyfHx3ZWIlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE2MzI4OTczOTA&ixlib=rb-1.2.1&q=80&w=1080`,
-  },
-  {
     title: "NU Open",
     description:
       "Landing page for the largest open programming competition organized by Nazarbayev University students.",
@@ -29,6 +20,15 @@ const initialProject = [
     imageLink:
       "https://images.unsplash.com/photo-1565106430482-8f6e74349ca1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTgwOTN8MHwxfHNlYXJjaHwxMnx8d2ViJTIwZGV2ZWxvcG1lbnR8ZW58MHx8fHwxNjMyODk3Mzkw&ixlib=rb-1.2.1&q=80&w=1080",
   },
+  {
+    title: "NU Open",
+    description:
+      "Landing page for the largest open programming competition organized by Nazarbayev University students.",
+    technologies: ["React", "Gatsby", "Node.js"],
+    externalLink: "https://nuopen.kz",
+    githubLink: "https://github.com/ironsoul0/nuopen",
+    imageLink: `https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTgwOTN8MHwxfHNlYXJjaHw0fHx3ZWIlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE2MzI4OTczOTA&ixlib=rb-1.2.1&q=80&w=1080`,
+  },
 ];
 
 const Project = ({ theme }) => {
@@ -38,7 +38,9 @@ const Project = ({ theme }) => {
       <div className="w-full md:w-10/12 lg:w-8/12 mx-auto pb-12">
         <div className="mt-20 mb-4 ">
           <div>
-            <p className={`md:mt-28 ml-8 md:ml-16 lg:ml-32 text-2xl font-bold md:text-3xl font-rubik   ${theme.textColor1}`}>
+            <p
+              className={`md:mt-28 ml-8 md:ml-16 lg:ml-32 text-2xl font-bold md:text-3xl font-rubik   ${theme.textColor1}`}
+            >
               Project
             </p>
           </div>

@@ -90,13 +90,6 @@ const Index = ({ username }) => {
   //   textColor2: "text-gray-900",
   // };
 
-  //  const theme = {
-  //   bgColor1: "bg-CalPolyPomonaGreen-1",
-  //   bgColor2: "bg-CalPolyPomonaGreen-2",
-  //   bgTextColor: "bg-CalPolyPomonaGreen-3",
-  //   textColor1: "text-CalPolyPomonaGreen-3",
-  //   textColor2: "text-CalPolyPomonaGreen-4",
-  // };
 
   // PeachOrange
 
@@ -179,21 +172,21 @@ const Index = ({ username }) => {
     //   };
       // Waterspout
 
-      // const theme = {
-      //       bgColor1: "bg-Waterspout-1",
-      //       bgColor2: "bg-Waterspout-2",
-      //       bgTextColor: "bg-Waterspout-3",
-      //       textColor1: "text-Waterspout-3",
-      //       textColor2: "text-black",
-      //     };
-      // lighDark
-          const theme = {
-            bgColor1: "bg-lighDark-1",
-            bgColor2: "bg-lighDark-2",
-            bgTextColor: "bg-lighDark-3",
-            textColor1: "text-lighDark-3",
-            textColor2: "text-lighDark-4",
+      const theme = {
+            bgColor1: "bg-Waterspout-1",
+            bgColor2: "bg-Waterspout-2",
+            bgTextColor: "bg-Waterspout-3",
+            textColor1: "text-Waterspout-3",
+            textColor2: "text-black",
           };
+      // lighDark
+          // const theme = {
+          //   bgColor1: "bg-lighDark-1",
+          //   bgColor2: "bg-lighDark-2",
+          //   bgTextColor: "bg-lighDark-3",
+          //   textColor1: "text-lighDark-3",
+          //   textColor2: "text-lighDark-4",
+          // };
 
   return (
     <div>

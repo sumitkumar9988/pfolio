@@ -8,12 +8,14 @@ const ProjectCard = ({
   githubLink,
   imageLink,
   rightShift,
-  theme
+  theme,
 }) => {
   return (
     <div>
       <div
-        className={clsx("flex flex-col   items-center justify-center my-8 ")}
+        className={clsx(
+          "flex flex-col   items-center justify-center my-8 " ,theme.bgColor1
+        )}
       >
         <div
           className={clsx(
@@ -24,32 +26,38 @@ const ProjectCard = ({
         >
           <div className="w-full lg:w-2/4    relative">
             <img
-              className="absolute object-cover object-center opacity-60  lg:opacity-100 h-full w-full rounded-xl"
+              className={clsx("absolute object-cover object-center opacity-20 shadow-lg  lg:opacity-100 h-full w-full ",rightShift && "rounded-l-xl",!rightShift && "rounded-r-xl")}
               src={imageLink}
               alt=""
             />
             <div className="block lg:hidden absolute  opacity-100 mx-8 z-10 my-8 text-left">
-              <div className={`text-xl font-bold font-rubik md:text-2xl ${theme.textColor1}`}>
+              <div
+                className={`text-xl font-bold font-rubik md:text-2xl ${theme.textColor1}`}
+              >
                 {title}
               </div>
-              <div className={` my-8 text-base h-32 overflow-clip overflow-hidden rounded ${theme.textColor2}`}>
+              <div
+                className={` my-8 text-base h-32 overflow-clip overflow-hidden rounded  ${theme.textColor2}`}
+              >
                 {description}
               </div>
               <div className="flex flex-row z-50 pt-4">
                 <div className="z-10">
-                  <a target="_blank" href={githubLink}>
+                  <a target="_blank" rel="noreferrer" href={githubLink}>
                     <FaGithub className={`${theme.textColor1}  w-6 mx-2 h-8`} />
                   </a>
                 </div>
                 <div className="z-10">
-                  <a target="_blank" href={externalLink}>
+                  <a target="_blank" rel="noreferrer" href={externalLink}>
                     <FaLink className={`${theme.textColor1}  w-6 mx-2 h-8`} />
                   </a>
                 </div>
               </div>
             </div>
           </div>
-          <div className={` hidden lg:block lg:w-2/4 ${theme.bgColor2} rounded-xl`}>
+          <div
+            className={clsx(` hidden lg:block lg:w-2/4 ${theme.bgColor2} shadow-lg` ,rightShift && "rounded-r-xl",!rightShift && "rounded-l-xl")}
+          >
             <div
               className={clsx(
                 "absoulte flex flex-col mx-8 my-8",
@@ -58,10 +66,14 @@ const ProjectCard = ({
                 "text-left"
               )}
             >
-              <div className={`text-xl font-bold font-rubik md:text-2xl ${theme.textColor1}`}>
+              <div
+                className={`text-xl font-bold font-rubik md:text-2xl ${theme.textColor1}`}
+              >
                 {title}
               </div>
-              <div className={` my-8 text-base h-32 overflow-clip overflow-hidden rounded ${theme.textColor2}`}>
+              <div
+                className={` my-8 text-base h-32 overflow-clip overflow-hidden rounded ${theme.textColor2}`}
+              >
                 {description}
               </div>
               <div className="relative">
@@ -72,12 +84,12 @@ const ProjectCard = ({
                   )}
                 >
                   <div>
-                    <a target="_blank" href={githubLink}>
+                    <a target="_blank" rel="noreferrer" href={githubLink}>
                       <FaGithub className="w-6 mx-2 h-8" />
                     </a>
                   </div>
                   <div>
-                    <a target="_blank" href={externalLink}>
+                    <a target="_blank" rel="noreferrer" href={externalLink}>
                       <FaLink className="w-6 mx-2 h-8" />
                     </a>
                   </div>
