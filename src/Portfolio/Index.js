@@ -59,13 +59,13 @@ const Index = ({ username }) => {
   //   textColor2: "text-TeaGreen-3",
   // };
   // LightCyan/
-  //     const theme = {
-  //   bgColor1: "bg-LightCyan-1",
-  //   bgColor2: "bg-LightCyan-2",
-  //   bgTextColor: "bg-LightCyan-3",
-  //   textColor1: "text-LightCyan-3",
-  //   textColor2: "text-LightCyan-4",
-  // };
+      const theme = {
+    bgColor1: "bg-LightCyan-1",
+    bgColor2: "bg-LightCyan-2",
+    bgTextColor: "bg-LightCyan-3",
+    textColor1: "text-LightCyan-3",
+    textColor2: "text-LightCyan-4",
+  };
   // const theme = {
   //   bgColor1: "bg-white",
   //   bgColor2: "bg-gray-200",
@@ -172,13 +172,13 @@ const Index = ({ username }) => {
     //   };
       // Waterspout
 
-      const theme = {
-            bgColor1: "bg-Waterspout-1",
-            bgColor2: "bg-Waterspout-2",
-            bgTextColor: "bg-Waterspout-3",
-            textColor1: "text-Waterspout-3",
-            textColor2: "text-black",
-          };
+      // const theme = {
+      //       bgColor1: "bg-Waterspout-1",
+      //       bgColor2: "bg-Waterspout-2",
+      //       bgTextColor: "bg-Waterspout-3",
+      //       textColor1: "text-Waterspout-3",
+      //       textColor2: "text-black",
+      //     };
       // lighDark
           // const theme = {
           //   bgColor1: "bg-lighDark-1",

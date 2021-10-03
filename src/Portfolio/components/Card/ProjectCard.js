@@ -14,7 +14,8 @@ const ProjectCard = ({
     <div>
       <div
         className={clsx(
-          "flex flex-col   items-center justify-center my-8 " ,theme.bgColor1
+          "flex flex-col   items-center justify-center my-8 ",
+          theme.bgColor1
         )}
       >
         <div
@@ -24,13 +25,17 @@ const ProjectCard = ({
             !rightShift && "lg:flex-row-reverse"
           )}
         >
-          <div className="w-full lg:w-2/4    relative">
+          <div className="w-full lg:w-2/4   relative">
             <img
-              className={clsx("absolute object-cover object-center opacity-20 shadow-lg  lg:opacity-100 h-full w-full ",rightShift && "rounded-l-xl",!rightShift && "rounded-r-xl")}
+              className={clsx(
+                "absolute object-cover object-center opacity-20 shadow-lg  lg:opacity-100 h-full w-full ",
+                rightShift && "lg:rounded-l-xl",
+                !rightShift && "lg:rounded-r-xl"
+              )}
               src={imageLink}
               alt=""
             />
-            <div className="block lg:hidden absolute  opacity-100 mx-8 z-10 my-8 text-left">
+            <div className="block lg:hidden bg-opacity-10 absolute   mx-8 z-10 my-8 text-left">
               <div
                 className={`text-xl font-bold font-rubik md:text-2xl ${theme.textColor1}`}
               >
@@ -56,7 +61,11 @@ const ProjectCard = ({
             </div>
           </div>
           <div
-            className={clsx(` hidden lg:block lg:w-2/4 ${theme.bgColor2} shadow-lg` ,rightShift && "rounded-r-xl",!rightShift && "rounded-l-xl")}
+            className={clsx(
+              ` hidden lg:block lg:w-2/4 ${theme.bgColor2} shadow-lg`,
+              rightShift && "rounded-r-xl",
+              !rightShift && "rounded-l-xl"
+            )}
           >
             <div
               className={clsx(

@@ -2,7 +2,7 @@ import React from "react";
 
 const setting = () => {
   return (
-    <section className="py-8 ">
+    <section className="py-8 overflow-hidden">
       <div className="container px-4 mx-auto ">
         <div className="relative pt-14 bg-white  rounded">
           <button className="absolute top-0 right-0 mr-6 mt-7  ">
@@ -23,7 +23,7 @@ const setting = () => {
             src="https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
             alt=""
           />
-          <div className="px-6 text-center">
+          <div className="px-6 text-center pb-4">
             <h3 className="font-medium">Jane Thomas</h3>
             <p className="mb-6 text-sm text-gray-500">
               Designer &amp; Front-End Developer
@@ -43,29 +43,27 @@ const setting = () => {
                   ></path>
                 </svg>
               </span>
-              <p className="text-sm">jane.thomas@shuffle.dev</p>
+              <p className="text-sm font-medium">jane.thomas@shuffle.dev</p>
             </div>
             <div className="mb-6"></div>
           </div>
-          <p className=" w-full text-center py-4 border-t border-gray-50  font-normal text-sm text-gray-500 hover:text-gray-800 ">
-            Profile
-          </p>
-          <p className=" w-full py-4 text-center border-t border-gray-50 font-normal text-sm text-gray-500 hover:text-gray-800 ">
+        
+          <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
             Edit Profile
           </p>
-          <p className=" w-full py-4 text-center border-t border-gray-50 font-normal text-sm text-gray-500 hover:text-gray-800 ">
+          <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
             Social Links
           </p>
-          <p className=" w-full py-4 text-center border-t border-gray-50 font-normal text-sm text-gray-500 hover:text-gray-800 ">
+          <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
             Custom Domain
           </p>
-          <p className=" w-full py-4 text-center border-t border-gray-50 font-normal text-sm text-gray-500 hover:text-gray-800 ">
+          <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
             Change Theme
           </p>
-          <p className=" w-full py-4 text-center border-t border-gray-50 font-normal text-sm text-gray-500 hover:text-gray-800 ">
+          <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
             Change Password
           </p>
-          <p className=" w-full py-4 text-center border-t border-gray-50 font-normal text-sm text-gray-500 hover:text-gray-800 ">
+          <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
             Logout
           </p>
         </div>
