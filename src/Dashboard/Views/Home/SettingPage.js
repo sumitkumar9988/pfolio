@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const setting = () => {
   return (
     <section className="py-8 overflow-hidden">
@@ -47,22 +47,27 @@ const setting = () => {
             </div>
             <div className="mb-6"></div>
           </div>
-        
-          <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
-            Edit Profile
-          </p>
-          <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
-            Social Links
-          </p>
-          <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
-            Custom Domain
-          </p>
-          <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
-            Change Theme
-          </p>
-          <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
-            Change Password
-          </p>
+          <Link to="/home/profile/edit">
+            <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
+              Edit Profile
+            </p>
+          </Link>
+
+          <Link to="/home/custom-domain">
+            <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
+              Custom Domain
+            </p>
+          </Link>
+          <Link to="/home/theme">
+            <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
+              Change Theme
+            </p>
+          </Link>
+          <Link to="/changepassword">
+            <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
+              Change Password
+            </p>
+          </Link>
           <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
             Logout
           </p>
