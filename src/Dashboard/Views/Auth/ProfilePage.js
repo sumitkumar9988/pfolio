@@ -3,19 +3,37 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import Loader from "../../../utils/loader";
 import ToastContainer from "../../../utils/toast";
+import { updateProfileAction } from './../../../redux/action/authAction'
+import useAxios from './../../../utils/useCustomFetch'
 
 const Profile = ({ history }) => {
+  const dispatch = useDispatch();
+  // const { loading, succuss, error } = useSelector((state) => state.updateProfile)
+
+  const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [image, setImage] = useState('');
+
+  const { response, loading, error } = useAxios({
+    method: 'get',
+    url: '/user',
+  });
+  console.log(response)
+  console.log(error)
+  console.log(loading)
+
   const submitHandler = (e) => {
-    e.preventDefault();    
+    e.preventDefault();
     console.log('Click')
-    history.push('/home?bio=true')
-    
+    history.push('/home/Get-started/bio')
   };
 
   return (
     <div>
       <div>
-        {/* {loading && <Loader/>} */}
+        {loading && <Loader />}
+        <ToastContainer />
         <section class="relative py-20">
           <div class="container px-4 mx-auto">
             <div class="max-w-md mx-auto py-6 lg:py-12 px-4 lg:px-8 bg-white border rounded-xl text-center">

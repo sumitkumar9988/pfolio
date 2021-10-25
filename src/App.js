@@ -33,58 +33,60 @@ import ImportProject from './Dashboard/Views/Forms/project/ImportProject';
 import EditProject from './Dashboard/Views/Forms/project/EditProject';
 import CustomDomain from './Dashboard/Views/Forms/profile/CustomDomain';
 import skills from './utils/AllSkills';
+import Bio from './Dashboard/components/Card/bio'
+import Profile from './Dashboard/components/Card/Profile'
+import UploadResume from './Dashboard/components/Card/UploadResume'
+import Thankyou from './Dashboard/components/Card/Thankyou'
 
-const DashboardRoute = ({component: Component, ...rest}) => {  
-  return (  
-    <Route {...rest} render={matchProps => (  
-      <Sidebar>  
-          <Component {...matchProps} />  
-      </Sidebar>  
-    )} />  
-  )  
-};  
+const DashboardRoute = ({ component: Component, ...rest }) => {
+  return (
+    <Route {...rest} render={matchProps => (
+      <Sidebar>
+        <Component {...matchProps} />
+      </Sidebar>
+    )} />
+  )
+};
 
 function App() {
   return (
     <div className="custom-scrollbar">
       <Router>
         <Switch>
-        <Route exact path="/" component={LandingPage} />
+          <Route exact path="/" component={LandingPage} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/changepassword" component={ChangePassword} />
           <Route path="/forgetpassword" component={ForgetPassword} />
           <Route path="/resetpassword/:id" component={ResetPassword} />
-          <Route path="/create-profile" component={CreateProfile} />
           <Route path="/sumit" component={Portfolio} />
 
           <DashboardRoute path="/home/education/new" component={AddEducation} />
           <DashboardRoute path="/home/education/:id" component={EditEducation} />
-
           <DashboardRoute path="/home/experience/new" component={AddExperience} />
           <DashboardRoute path="/home/experience/:id" component={EditExperience} />
           <DashboardRoute path="/home/background" component={Background} />
-
           <DashboardRoute path="/home/project/import-project" component={ImportProject} />
           <DashboardRoute path="/home/project/new" component={AddProject} />
           <DashboardRoute path="/home/project/:id" component={EditProject} />
           <DashboardRoute path="/home/project" component={Project} />
-
           <DashboardRoute path="/home/profile/link" component={AddLink} />
           <DashboardRoute path="/home/profile/edit" component={EditProfile} />
           <DashboardRoute path="/home/profile/view" component={ViewProfile} />
-
           <DashboardRoute path="/home/setting" component={Setting} />
           <DashboardRoute path="/home/custom-domain" component={CustomDomain} />
-
           <DashboardRoute path="/home/explore" component={JobPage} />
           <DashboardRoute path="/home/analytics" component={Analtics} />
           <DashboardRoute path="/home/theme" component={Theme} />
+          <DashboardRoute path="/home/Get-started/bio" component={Bio} />
+          <DashboardRoute path="/home/Get-started/upload-resume" component={UploadResume} />
+          <DashboardRoute path="/home/Get-started/on-board" component={Thankyou} />
+          <Route path="/home/Get-started" component={CreateProfile} />
           <DashboardRoute path="/home" component={Home} />
-          <DashboardRoute path="/skills" component={skills} />
-          <Route path="*" exact  component={FourOFour} />
-         
+          <Route path="/skills" component={skills} />
+          <Route path="*" exact component={FourOFour} />
+
         </Switch>
       </Router>
     </div>

@@ -7,6 +7,8 @@ import {
   forgetPasswordReducer,
   resetPasswordReducer,
   changePasswordReducer,
+  updatProfileReducer,
+  getProfileReducer,
 } from "./redux/reducer/authReducer";
 
 const reducer = combineReducers({
@@ -15,10 +17,12 @@ const reducer = combineReducers({
   forgetPassword: forgetPasswordReducer,
   resetPassword: resetPasswordReducer,
   changePassword: changePasswordReducer,
+  updateProfile: updatProfileReducer,
+  getProfile: getProfileReducer,
 });
 
-const userInfoFromStorage = localStorage.getItem("token")
-  ? JSON.parse(localStorage.getItem("token"))
+const userInfoFromStorage = localStorage.getItem("user")
+  ? JSON.parse(localStorage.getItem("user"))
   : null;
 
 const initialState = {

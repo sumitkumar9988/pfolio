@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { baseURL } from '../../utils/url';
+import { baseURL, profileURL } from '../../utils/url';
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -16,15 +16,12 @@ import {
   FORGET_PASSWORD_REQUEST,
   FORGET_PASSWORD_SUCCESS,
   FORGET_PASSWORD_FAILURE,
-  GET_ALL_USER_DETAILS_REQUEST,
-  GET_ALL_USER_DETAILS_SUCCESS,
-  GET_ALL_USER_DETAILS_FAILURE,
-  UPDATE_DETAILS_REQUEST,
-  UPDATE_DETAILS_SUCCESS,
-  UPDATE_DETAILS_FAILURE,
-  UPDATE_SOCIAL_ACCOUNT_REQUEST,
-  UPDATE_SOCIAL_ACCOUNT_SUCCESS,
-  UPDATE_SOCIAL_ACCOUNT_FAIL,
+  GET_PROFILE_REQUEST,
+  GET_PROFILE_SUCESS,
+  GET_PROFILE_FAILURE,
+  UPDATE_PROFILE_REQUEST,
+  UPDATE_PROFILE_SUCESS,
+  UPDATE_PROFILE_FAILURE,
 } from '../constant';
 
 export const userLogin = (input, path = 'login') => async (dispatch) => {
@@ -32,7 +29,7 @@ export const userLogin = (input, path = 'login') => async (dispatch) => {
     dispatch({ type: LOGIN_REQUEST });
     let { data } = await axios.post(`${baseURL}/${path}`, input);
     dispatch({ type: LOGIN_SUCCESS, payload: data });
-    localStorage.setItem('token', JSON.stringify(data.token));
+    localStorage.setItem('user', JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: LOGIN_FAILURE,
@@ -48,9 +45,9 @@ export const userSignup = (input, path = 'signup') => async (dispatch) => {
     let { data } = await axios.post(`${baseURL}/${path}`, input);
     dispatch({ type: SIGNUP_SUCCESS, payload: data });
     dispatch({ type: LOGIN_SUCCESS, payload: data });
-    localStorage.setItem('token', JSON.stringify(data.token));
+    localStorage.setItem('user', JSON.stringify(data));
   } catch (error) {
-      console.log(error);
+    console.log(error);
     dispatch({
       type: SIGNUP_FAILURE,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
@@ -61,9 +58,7 @@ export const userSignup = (input, path = 'signup') => async (dispatch) => {
 export const userChangePassword = (input) => async (dispatch, getState) => {
   dispatch({ type: CHANGE_PASSWORD_REQUEST });
   try {
-    const {
-      login: { user },
-    } = getState();
+    const { login: { user } } = getState();
     const config = {
       headers: {
         'Content-Type': 'application/json',
@@ -82,7 +77,7 @@ export const userChangePassword = (input) => async (dispatch, getState) => {
       type: LOGIN_SUCCESS,
       payload: data,
     });
-    localStorage.setItem('token', JSON.stringify(data.token));
+    localStorage.setItem('user', JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: CHANGE_PASSWORD_FAILURE,
@@ -111,7 +106,7 @@ export const userResetPassword = (input, id) => async (dispatch) => {
       type: LOGIN_SUCCESS,
       payload: data,
     });
-    localStorage.setItem('token', JSON.stringify(data.token));
+    localStorage.setItem('user', JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: RESET_PASSWORD_FAILURE,
@@ -142,39 +137,41 @@ export const userforgetPassword = (input) => async (dispatch) => {
   }
 };
 
-export const userProfile = () => async (dispatch, getState) => {
-  dispatch({ type: GET_ALL_USER_DETAILS_REQUEST });
+export const getUserProfileAction = () => async (dispatch, getState) => {
+  dispatch({ type: GET_PROFILE_REQUEST });
   try {
-    const {
-      userLogin: { token },
-    } = getState();
+    const { login: { user } } = getState();
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${user.token}`,
       },
     };
 
-    const { data } = await axios.get(`${baseURL}/`, config);
-
+    const { data } = await axios.get(`${profileURL}/`, config);
+    console.log(data)
     dispatch({
-      type: GET_ALL_USER_DETAILS_SUCCESS,
+      type: GET_PROFILE_SUCESS,
       payload: data,
     });
   } catch (error) {
+    console.log("error");
+    
     dispatch({
-      type: GET_ALL_USER_DETAILS_FAILURE,
+      type: GET_PROFILE_FAILURE,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
     });
+    console.log(error.response.status);
+    if(error.response.status===404){
+      document.location.href = '/home/Get-started'
+    }
   }
 };
 
 export const updateProfileAction = (input) => async (dispatch, getState) => {
-  dispatch({ type: UPDATE_DETAILS_REQUEST });
+  dispatch({ type: UPDATE_PROFILE_REQUEST });
   try {
-    const {
-      userLogin: { token },
-    } = getState();
+    const { login: { token } } = getState();
     const config = {
       headers: {
         'Content-Type': 'application/json',
@@ -182,47 +179,22 @@ export const updateProfileAction = (input) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.patch(`${baseURL}/`, input, config);
+    const { data } = await axios.patch(`${profileURL}/`, input, config);
 
     dispatch({
-      type: UPDATE_DETAILS_SUCCESS,
+      type: UPDATE_PROFILE_SUCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: UPDATE_DETAILS_FAILURE,
+      type: UPDATE_PROFILE_FAILURE,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
     });
   }
 };
 
-export const updateSocialProfileAction = (input) => async (dispatch, getState) => {
-  dispatch({ type: UPDATE_SOCIAL_ACCOUNT_REQUEST });
-  try {
-    const {
-      userLogin: { token },
-    } = getState();
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const { data } = await axios.patch(`${baseURL}/social`, input, config);
-
-    dispatch({
-      type: UPDATE_SOCIAL_ACCOUNT_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    dispatch({
-      type: UPDATE_SOCIAL_ACCOUNT_FAIL,
-      payload: error.response && error.response.data.message ? error.response.data.message : error.message,
-    });
-  }
-};
 
 export const logout = () => (dispatch) => {
-  localStorage.removeItem('token');
+  localStorage.removeItem('user');
   document.location.href = '/';
 };

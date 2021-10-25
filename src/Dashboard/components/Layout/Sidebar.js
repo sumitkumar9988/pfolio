@@ -1,72 +1,37 @@
-import React from "react";
-import {
-  AiFillHome,
-  AiFillRightSquare,
-  AiFillProject,
-  AiFillRocket,
-  AiOutlineAreaChart,
-  AiFillSetting,
-  AiFillLayout,
-  AiOutlineLogout,
-} from "react-icons/ai";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, getUserProfileAction } from './../../../redux/action/authAction'
+import "./style.css";
+import Loader from './../../../utils/loader'
 import TopBar from "../Card/TopBar";
 import SidebarItem from "../SidebarItem";
-import "./style.css";
+import SidebarItemList from "./SidebarItemList";
 
-const initialItemInSideBar = [
-  {
-    name: "Home",
-    icon: <AiFillHome className="" size="24px" />,
-    link: "/home",
-  },
-  {
-    name: "Project",
-    icon: <AiFillRightSquare className="" size="24px" />,
-    link: "/home/project",
-  },
-  {
-    name: "Background",
-    icon: <AiFillProject className="" size="24px" />,
-    link: "/home/background",
-  },
-  {
-    name: "Explore",
-    icon: <AiFillRocket className="" size="24px" />,
-    link: "/home/explore",
-  },
-  {
-    name: "Analytics",
-    icon: <AiOutlineAreaChart className="" size="24px" />,
-    link: "/home/analytics",
-  },
-  {
-    name: "Setting",
-    icon: <AiFillSetting className="" size="24px" />,
-    link: "/home/setting",
-  },
-  {
-    name: "Themes",
-    icon: <AiFillLayout className="" size="24px" />,
-    link: "/home/theme",
-  },
-  {
-    name: "Logout",
-    icon: <AiOutlineLogout className="" size="24px" />,
-    link: "",
-    logout: true,
-  },
-];
 
 const Sidebar = (props) => {
-  const [open, setOpen] = React.useState(false);
-  const [sidebarItem, setItem] = React.useState(initialItemInSideBar);
 
-  const onflipSide = () => {
-    setOpen(!open);
-  };
+  const dispatch = useDispatch();
+  const history =useHistory();
+
+  const [open, setOpen] = React.useState(false);
+  const [sidebarItem, setItem] = React.useState(SidebarItemList);
+
+  const { user, loading, error } = useSelector((state) => state.login);
+  const { profile, loading: profileLoading, error: profileError } = useSelector((state) => state.getProfile);
+
+  useEffect(() => {
+    dispatch(getUserProfileAction());
+    if (!user) { dispatch(logout())}
+  }, [dispatch, user]);
+
+  const onflipSide = () => {setOpen(!open);};
 
   return (
     <div>
+      {loading && <Loader />}
+      {profileLoading && <Loader />}
+
       <body className="antialiased bg-body text-body font-body">
         <div>
           <div>
@@ -149,7 +114,7 @@ const Sidebar = (props) => {
               </nav>
             </div>
             <div className="mx-auto lg:ml-80 ">
-              <TopBar />
+              {profile &&<TopBar name={profile.name} profession={profile.profession} image={profile.image}/>}
               <div className=" h-full">{props.children}</div>
             </div>
           </div>

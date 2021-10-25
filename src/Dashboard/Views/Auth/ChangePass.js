@@ -79,7 +79,7 @@ const ChangePassword = ({ history, match }) => {
                     placeholder="******"
                   />
                   <span class="absolute top-0 left-0 ml-4 -mt-2 px-1 inline-block bg-white text-gray-500 text-xs">
-                      New Password
+                    New Password
                   </span>
                 </div>
                 <button

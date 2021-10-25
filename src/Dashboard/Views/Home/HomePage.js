@@ -1,15 +1,11 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import UploadResume from "../../components/Card/uploadResume";
-import Bio from "../../components/Card/bio";
 import CustomDomain from "../../components/Card/CustomDomain";
 import Discord from "../../components/Card/Discord";
 import LivePreview from "../../components/Card/LivePreview";
 import SocialMedia from "../../components/Card/SocialMedia";
 import Feedback from "../../components/Card/Feedback";
-import mixpanel from 'mixpanel-browser';
-mixpanel.init('a1590672c1769cbb672d7ec1b20e145a', {debug: true}); 
 const initialUser = {
   username: "sumit",
   email: "s@pfolio.me",
@@ -18,14 +14,9 @@ const initialUser = {
 
 const Home = () => {
   const [user, setUser] = useState(initialUser);
-  useEffect(()=>{
-    mixpanel.track('Testing');
-  })
 
   return (
     <div className="">
-      {/* <UploadResume/> */}
-      {/* <Bio/> */}
 
       <div className="w-full rounded ">
         <LivePreview user={user} />

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { google_clientID } from "../../../utils/url";
 import { userLogin } from "../../../redux/action/authAction";
 import Loader from "../../../utils/loader";
 import ToastContainer from "../../../utils/toast";
@@ -61,7 +60,6 @@ const Login = ({ history }) => {
       email,
       password,
     };
-    console.log(data);
     dispatch(userLogin(data));
   };
 
@@ -85,7 +83,7 @@ const Login = ({ history }) => {
             <form action="#">
               <p class="flex items-center justify-center pb-8  rounded">
                 <GoogleLogin
-                  clientId={google_clientID}
+                  clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                   render={(renderProps) => (
                     // eslint-disable-next-line jsx-a11y/no-redundant-roles
                     <button
@@ -156,7 +154,7 @@ const Login = ({ history }) => {
                 </span>
               </div>
               <button onClick={submitHandler} class="w-full inline-block py-4 mb-4 text-sm text-white font-medium leading-normal bg-red-400 hover:bg-red-300 rounded transition duration-200">
-                Get Started
+               Login
               </button>
               <p class="block pb-6 mb-6 text-sm font-semibold hover:underline ">
                 Forgot password?

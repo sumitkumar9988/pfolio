@@ -1,22 +1,23 @@
-let baseURL, homeURL, portfolioURL, google_clientID, github_url;
+let api,baseURL, homeURL, profileURL;
 if (process.env.REACT_APP_NODE_ENV === 'production') {
+  api='https://api.sumitk.site/api/v1'
   baseURL = 'https://api.sumitk.site/api/v1/user';
-  homeURL = 'https://api.sumitk.site/api/v1/home';
-  portfolioURL = 'https://api.sumitk.site/api/v1/profile';
-  google_clientID = '905781434968-a39oe1dq0rnsu8hcib2dei44s9ilq5nr.apps.googleusercontent.com';
-  github_url = 'https://github.com/login/oauth/authorize?client_id=7befdbe2c69ddcb7658f';
+  profileURL = 'https://api.sumitk.site/api/v1/profile';
+
 } else {
-  baseURL = 'http://localhost:4000/api/v1/user';
-  homeURL = 'http://localhost:4000/api/v1/home';
-  portfolioURL = 'http://localhost:4000/api/v1/profile';
-  google_clientID = '71989194000-96fsiacaer3ggn1bhhk9364l1ctpijir.apps.googleusercontent.com';
-  github_url = 'https://github.com/login/oauth/authorize?client_id=66cfc66a4b84d65fe880';
+  api='http://localhost:3000/api/v1'
+  baseURL = 'http://localhost:3000/api/v1/user';
+  profileURL = 'http://localhost:3000/api/v1/profile';
+
 }
 
-export { baseURL, homeURL, portfolioURL, google_clientID, github_url };
+export { baseURL, homeURL, profileURL ,api};
 
 
-// for development
-// 71989194000-96fsiacaer3ggn1bhhk9364l1ctpijir.apps.googleusercontent.com
-// for production 
-// 905781434968-a39oe1dq0rnsu8hcib2dei44s9ilq5nr.apps.googleusercontent.com
+// production
+// google_clientID = '905781434968-a39oe1dq0rnsu8hcib2dei44s9ilq5nr.apps.googleusercontent.com';
+// github_url = 'https://github.com/login/oauth/authorize?client_id=7befdbe2c69ddcb7658f';
+
+// development
+// google_clientID = '71989194000-96fsiacaer3ggn1bhhk9364l1ctpijir.apps.googleusercontent.com';
+// github_url = 'https://github.com/login/oauth/authorize?client_id=66cfc66a4b84d65fe880';

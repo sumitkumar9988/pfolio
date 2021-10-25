@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { google_clientID } from "../../../utils/url";
 import { userSignup } from "../../../redux/action/authAction";
 import Loader from "../../../utils/loader";
 import ToastContainer from "../../../utils/toast";
@@ -56,7 +55,7 @@ const Signup = ({ history }) => {
     }
     if (success) {
       toast.success("Your Account Created !");
-      history.push("/create-profile");
+      // history.push("/create-profile");
     }
   }, [history, success, error, user]);
 
@@ -72,7 +71,6 @@ const Signup = ({ history }) => {
       email,
       password,
     };
-    console.log(data);
     dispatch(userSignup(data));
   };
 
@@ -102,7 +100,7 @@ const Signup = ({ history }) => {
                 <form action="#">
                   <p class="flex items-center justify-center pb-8  rounded">
                     <GoogleLogin
-                      clientId={google_clientID}
+                      clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                       render={(renderProps) => (
                         // eslint-disable-next-line jsx-a11y/no-redundant-roles
                         <button

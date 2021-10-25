@@ -1,34 +1,10 @@
 import React from "react";
 
-const bio = () => {
+const Profile = () => {
   return (
     <div className="">
-      <div class="w-full overflow-hidden h-full fixed block top-0 left-0 bg-gray-100  bg-opacity-0 backdrop-filter backdrop-blur-sm z-50">
-        <div className="absolute right-0 pt-8 pr-16 ">
-          <div className="transform hover:scale-125 h-full w-full transition duration-300">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-10 w-10"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </div>
-        </div>
-        <div className="absolute bottom-0 mx-auto pb-8 w-full text-center ">
-          <p class=" text-lg font-semibold transform hover:scale-105 text-center mx-auto transition duration-300 text-blue-700 hover:underline">
-            Skip
-          </p>
-        </div>
-
-        <div className=" pt-16 ">
+      <div class="w-full overflow-hidden h-full fixed block top-0 left-0 bg-gray-100  bg-opacity-95 backdrop-filter backdrop-blur-sm z-50">
+        <div className=" pt-16">
           <form>
             <div className="container mx-auto shadow bg-white rounded">
               <div className="  w-9/12 lg:w-6/12 mx-auto">
@@ -118,4 +94,4 @@ const bio = () => {
   );
 };
 
-export default bio;
+export default Profile;
