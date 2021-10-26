@@ -21,9 +21,7 @@ const Profile = ({ history }) => {
   }, [error, profile])
 
   useEffect(() => {
-    if (!user) {
-      dispatch(getUserDetails())
-    }
+    if (!user) { dispatch(getUserDetails()) }
     if (user) {
       setImage(user.data.photo)
       setName(user.data.name)
