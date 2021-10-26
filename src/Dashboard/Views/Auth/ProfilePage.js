@@ -1,32 +1,42 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { createProfile, getUserDetails } from './../../../redux/action/dashboardAction'
 import Loader from "../../../utils/loader";
 import ToastContainer from "../../../utils/toast";
-import { updateProfileAction } from './../../../redux/action/authAction'
-import useAxios from './../../../utils/useCustomFetch'
 
 const Profile = ({ history }) => {
   const dispatch = useDispatch();
-  // const { loading, succuss, error } = useSelector((state) => state.updateProfile)
+  const { loading, error } = useSelector((state) => state.state)
+  const { profile, user } = useSelector((state) => state.store)
 
   const [username, setUsername] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [image, setImage] = useState('');
 
-  const { response, loading, error } = useAxios({
-    method: 'get',
-    url: '/user',
-  });
-  console.log(response)
-  console.log(error)
-  console.log(loading)
+  useEffect(() => {
+    error && toast.error(error);
+    profile && history.push('/home/Get-started/bio')
+  }, [error, profile])
+
+  useEffect(() => {
+    if (!user) {
+      dispatch(getUserDetails())
+    }
+    if (user) {
+      setImage(user.data.photo)
+      setName(user.data.name)
+      setEmail(user.data.email)
+    };
+  }, [user])
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log('Click')
-    history.push('/home/Get-started/bio')
+    const data = {
+      name, username, email, image
+    }
+    dispatch(createProfile(data));
   };
 
   return (
@@ -53,6 +63,8 @@ const Profile = ({ history }) => {
                   <div className="w-full  bg-gray-100 rounded-lg flex items-center justify-between p-4">
                     <input
                       placeholder="Your site"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
                       className="text-base  focus:outline-none bg-gray-100 font-medium leading-6  "
                     ></input>
                     <div className=" text-base font-medium leading-6 pr-8 text-red-400 ">

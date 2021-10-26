@@ -10,6 +10,9 @@ import {
   updatProfileReducer,
   getProfileReducer,
 } from "./redux/reducer/authReducer";
+import {
+  stateReducer, dashboardReducer
+} from './redux/reducer/dashboardReducer'
 
 const reducer = combineReducers({
   login: loginReducer,
@@ -19,6 +22,8 @@ const reducer = combineReducers({
   changePassword: changePasswordReducer,
   updateProfile: updatProfileReducer,
   getProfile: getProfileReducer,
+  state:stateReducer,
+  store:dashboardReducer
 });
 
 const userInfoFromStorage = localStorage.getItem("user")

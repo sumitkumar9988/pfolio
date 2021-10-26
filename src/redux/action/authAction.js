@@ -171,11 +171,11 @@ export const getUserProfileAction = () => async (dispatch, getState) => {
 export const updateProfileAction = (input) => async (dispatch, getState) => {
   dispatch({ type: UPDATE_PROFILE_REQUEST });
   try {
-    const { login: { token } } = getState();
+    const { login: { user } } = getState();
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${user.token}`,
       },
     };
 
