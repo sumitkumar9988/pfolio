@@ -94,6 +94,12 @@ export const ADD_SKILLS = 'ADD_SKILLS';
 export const DELETE_SKILLS = 'DELETE_SKILLS';
 
 
+export const RESET = 'RESET';
+
+
+
+
+
 
 
 

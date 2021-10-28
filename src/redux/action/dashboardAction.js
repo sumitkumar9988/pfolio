@@ -8,7 +8,9 @@ axios.defaults.baseURL = api;
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 
 const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
-axios.defaults.headers.common['Authorization'] = 'Bearer ' + user.token;
+console.log(user);
+const token = user ? user.token : null;
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 
 const s3 = new AWS.S3({
     accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
@@ -20,7 +22,6 @@ export const uploadFile = (file) => async (dispatch) => {
     if (!file) { return }
     let myFile = file.name.split('.');
     const fileType = myFile[myFile.length - 1];
-
     const params = {
         Bucket: process.env.REACT_APP_BUCKET_NAME,
         Key: `${uuidv4()}.${fileType}`,
@@ -35,6 +36,7 @@ export const uploadFile = (file) => async (dispatch) => {
             return;
         }
         dispatch({ type: alias.UPLOAD_FILE, payload: data.Location });
+        console.log(data.Location)
         dispatch({ type: alias.REMOVE_ERROR });
         dispatch({ type: alias.LOADING_DISABLE });
 
@@ -50,6 +52,7 @@ export const createProfile = (input) => async (dispatch) => {
             dispatch({ type: alias.CREATE_PROFILE, payload: res.data });
             dispatch({ type: alias.LOADING_DISABLE });
         })
+
         .catch((error) => {
             dispatch({ type: alias.ERROR, payload: error.response && error.response.data.message ? error.response.data.message : error.message });
             dispatch({ type: alias.LOADING_DISABLE });

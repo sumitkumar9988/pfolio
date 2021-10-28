@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 import dashboardImage from "./../Assets/demo.png";
 const Index = () => {
   return (
@@ -17,14 +18,18 @@ const Index = () => {
                   />
                 </p>
 
-                {/* <div class="block">
+                <div class="block">
+                  <Link to="/login">
                   <p class="mr-2 inline-block px-4 py-3 text-xs text-red-300 hover:text-red-400 font-semibold leading-none border border-red-200 hover:border-red-300 rounded">
                     Log In
                   </p>
+                  </Link>
+                  <Link to="/signup">
                   <p class="inline-block px-4 py-3 text-xs font-semibold leading-none bg-red-400 hover:bg-red-500 text-white rounded">
                     Sign Up
                   </p>
-                </div> */}
+                  </Link>
+                </div>
               </nav>
               <div class="pt-12 text-center">
                 <div class="max-w-lg mx-auto mb-8">

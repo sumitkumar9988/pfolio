@@ -70,6 +70,8 @@ export const dashboardReducer = (state = {}, action) => {
             return { addSkillStatus: action.payload }
         case alias.DELETE_SKILLS:
             return { deleteSkillStatus: action.payload }
+        case alias.RESET:
+            return {  }
         default:
             return state;
     }

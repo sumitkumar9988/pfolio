@@ -1,9 +1,44 @@
 import React from "react";
+import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import ToastContainer from "../../../utils/toast";
+import { useDispatch, useSelector } from "react-redux";
+import { updateProfile, uploadFile } from "./../../../redux/action/dashboardAction";
+import linkedin_profile_image from './../../../Assets/linkedin_profile.png'
+import Loader from "react-spinners/BeatLoader";
+import { RESET } from "../../../redux/constant";
 
-const uploadResume = () => {
+const UploadResume = ({ history }) => {
+
+  const dispatch = useDispatch();
+  const [resume, setResume] = React.useState('')
+  const { error, loading } = useSelector((state) => state.state)
+  const { file, updateProfileStatus } = useSelector((state) => state.store)
+
+  React.useEffect(() => {
+    dispatch({ type:RESET })
+  }, []);
+
+  React.useEffect(() => {
+    error && toast.error(error);
+    updateProfileStatus && history.push('/home/Get-started/on-board')
+  }, [error,updateProfileStatus])
+
+
+  React.useEffect(() => {
+    console.log(resume)
+    file && setResume(file);
+  }, [file])
+
+  const onsubmitHandler = (e) => {
+    e.preventDefault();
+    // dispatch(uploadFile(e.target.files[0]))
+  }
+
   return (
     <div>
-      <div class="w-full overflow-hidden h-full fixed block top-0 left-0 bg-gray-100 bg-opacity-90 backdrop-filter backdrop-blur-sm z-50">
+      {loading && <Loader/>}
+      <div class="w-full overflow-hidden h-full fixed block top-0 left-0  bg-opacity-90 backdrop-filter backdrop-blur-sm z-50">
         <div className="absolute right-0 pt-8 pr-8">
           <div className="transform hover:scale-125 h-full w-full transition duration-300">
             <svg
@@ -29,20 +64,21 @@ const uploadResume = () => {
         </div>
 
         <div class="flex h-screen justify-center items-center ">
-          <div className="w-full bg-white shadow rounded ">
+          <div className="w-full bg-white  rounded ">
             <div className="w-full flex items-center justify-center ">
               <h1 className="text-2xl font-bold pt-4 text-red-400">
-                Collaborate
+                Import Your Linkedin Profile
               </h1>
             </div>
-            <div className="flex items-center justify-center">
+            {/* <div className="flex items-center justify-center">
               <p className="  pt-6 w-72 text-sm font-medium  text-center text-gray-800">
-                Start discussions by adding annotation directly on design.
+                
               </p>
-            </div>
+            </div> */}
             <div className="pt-10 px-16 flex items-center justify-center">
               <img
-                src="https://i.ibb.co/3svMG6M/Group-19.png"
+                src={linkedin_profile_image}
+                className="h-44"
                 alt="set one comment"
               />
             </div>
@@ -85,4 +121,4 @@ const uploadResume = () => {
   );
 };
 
-export default uploadResume;
+export default UploadResume;

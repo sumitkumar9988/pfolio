@@ -66,7 +66,7 @@ const Login = ({ history }) => {
   return (
     <div>
       {loading && <Loader />}
-      <section class="relative py-20">
+      <section class="relative py-4 ">
         <div class="container px-4 mx-auto">
           <div class="max-w-md mx-auto py-6 lg:py-12 px-4 lg:px-8 bg-white border rounded-xl text-center">
             <span class="inline-block mb-4 text-xs text-blue-400 font-semibold">
@@ -131,7 +131,7 @@ const Login = ({ history }) => {
               <p class="block  mb-4 text-sm font-semibold ">Or</p>{" "}
               <div class="relative flex flex-wrap mb-6 pt-">
                 <input
-                  class="relative mb-2 md:mb-0 w-full py-4 pl-4 text-sm border rounded"
+                  class="relative mb-2 md:mb-0 w-full bg-gray-100 focus:outline-none  py-4 pl-4 text-sm  rounded"
                   type="email"
                   placeholder="e.g sumit@pfolio.me"
                   value={email}
@@ -143,7 +143,7 @@ const Login = ({ history }) => {
               </div>
               <div class="relative flex flex-wrap mb-6">
                 <input
-                  class="relative mb-2 md:mb-0 w-full py-4 pl-4 text-sm border rounded"
+                  class="relative mb-2 md:mb-0 w-full bg-gray-100 focus:outline-none py-4 pl-4 text-sm border rounded"
                   type="password"
                   placeholder="******"
                   value={password}
@@ -154,16 +154,23 @@ const Login = ({ history }) => {
                 </span>
               </div>
               <button onClick={submitHandler} class="w-full inline-block py-4 mb-4 text-sm text-white font-medium leading-normal bg-red-400 hover:bg-red-300 rounded transition duration-200">
-               Login
+                Login
               </button>
-              <p class="block pb-6 mb-6 text-sm font-semibold hover:underline ">
-                Forgot password?
-              </p>{" "}
+              <Link to="/forgetpassword">
+                <p class="block pb-2 mb-2 text-sm font-semibold hover:underline ">
+                  Forgot password?
+                </p>
+              </Link >
+              <Link to="/signup">
+                <p class="block pb-6 mb-6 text-sm text-red-400 font-semibold hover:underline ">
+                  Create Your Account
+                </p>
+              </Link>
             </form>
           </div>
         </div>
       </section>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };

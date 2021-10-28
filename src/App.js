@@ -79,9 +79,9 @@ function App() {
           <DashboardRoute path="/home/explore" component={JobPage} />
           <DashboardRoute path="/home/analytics" component={Analtics} />
           <DashboardRoute path="/home/theme" component={Theme} />
-          <DashboardRoute path="/home/Get-started/bio" component={Bio} />
-          <DashboardRoute path="/home/Get-started/upload-resume" component={UploadResume} />
-          <DashboardRoute path="/home/Get-started/on-board" component={Thankyou} />
+          <Route path="/home/Get-started/bio" component={Bio} />
+          <Route path="/home/Get-started/upload-resume" component={UploadResume} />
+          <Route path="/home/Get-started/on-board" component={Thankyou} />
           <Route path="/home/Get-started" component={CreateProfile} />
           <DashboardRoute path="/home" component={Home} />
           <Route path="/skills" component={skills} />

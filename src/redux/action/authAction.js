@@ -156,13 +156,13 @@ export const getUserProfileAction = () => async (dispatch, getState) => {
     });
   } catch (error) {
     console.log("error");
-    
+
     dispatch({
       type: GET_PROFILE_FAILURE,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
     });
     console.log(error.response.status);
-    if(error.response.status===404){
+    if (error.response.status === 404) {
       document.location.href = '/home/Get-started'
     }
   }

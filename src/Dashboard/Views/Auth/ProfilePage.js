@@ -8,22 +8,22 @@ import ToastContainer from "../../../utils/toast";
 const Profile = ({ history }) => {
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.state)
-  const { profile, user } = useSelector((state) => state.store)
+  const { createProfilestatus, user } = useSelector((state) => state.store)
 
   const [username, setUsername] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [image, setImage] = useState('');
+  const [photo, setPhoto] = useState('');
 
   useEffect(() => {
     error && toast.error(error);
-    profile && history.push('/home/Get-started/bio')
-  }, [error, profile])
+    createProfilestatus && history.push('/home/Get-started/bio')
+  }, [error, createProfilestatus])
 
   useEffect(() => {
     if (!user) { dispatch(getUserDetails()) }
     if (user) {
-      setImage(user.data.photo)
+      setPhoto(user.data.photo)
       setName(user.data.name)
       setEmail(user.data.email)
     };
@@ -32,7 +32,7 @@ const Profile = ({ history }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     const data = {
-      name, username, email, image
+      name, username, email, photo
     }
     dispatch(createProfile(data));
   };

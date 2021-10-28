@@ -12,20 +12,25 @@ import SidebarItemList from "./SidebarItemList";
 const Sidebar = (props) => {
 
   const dispatch = useDispatch();
-  const history =useHistory();
+  const history = useHistory();
 
   const [open, setOpen] = React.useState(false);
   const [sidebarItem, setItem] = React.useState(SidebarItemList);
 
   const { user, loading, error } = useSelector((state) => state.login);
   const { profile, loading: profileLoading, error: profileError } = useSelector((state) => state.getProfile);
+  console.log("profile", profile)
+  console.log("")
+  console.log("profileError", profileError)
+
 
   useEffect(() => {
     dispatch(getUserProfileAction());
-    if (!user) { dispatch(logout())}
-  }, [dispatch, user]);
+    console.log(user)
+    if (!user) { dispatch(logout()) }
+  }, [user]);
 
-  const onflipSide = () => {setOpen(!open);};
+  const onflipSide = () => { setOpen(!open); };
 
   return (
     <div>
@@ -62,7 +67,7 @@ const Sidebar = (props) => {
               </div>
             </nav>
             {open ? (
-              <div className=" lg:block navbar-menu relative z-50">
+              <div className=" lg:block navbar-menu relative z-30">
                 <div
                   onClick={onflipSide}
                   className="navbar-backdrop fixed lg:hidden inset-0 bg-black opacity-10"
@@ -88,7 +93,7 @@ const Sidebar = (props) => {
                 </nav>
               </div>
             ) : null}
-            <div className="hidden lg:block navbar-menu relative z-50">
+            <div className="hidden lg:block navbar-menu relative z-30">
               <div
                 onClick={onflipSide}
                 className="navbar-backdrop fixed lg:hidden inset-0 bg-gray-800 opacity-10"
@@ -114,7 +119,7 @@ const Sidebar = (props) => {
               </nav>
             </div>
             <div className="mx-auto lg:ml-80 ">
-              {profile &&<TopBar name={profile.name} profession={profile.profession} image={profile.image}/>}
+              {profile && <TopBar name={profile.data.name} profession={profile.data.profession} image={profile.data.photo} />}
               <div className=" h-full">{props.children}</div>
             </div>
           </div>

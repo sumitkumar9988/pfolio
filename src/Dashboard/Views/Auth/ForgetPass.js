@@ -53,7 +53,7 @@ const ForgetPassword = () => {
               <form action="#">
                 <div class="relative flex flex-wrap mb-6 pt-">
                   <input
-                    class="relative mb-2 md:mb-0 w-full py-4 pl-4 text-sm border rounded"
+                    class="relative mb-2 md:mb-0 bg-gray-100 focus:outline-none w-full py-4 pl-4 text-sm border rounded"
                     type="email"
                     value={email}
                     onChange={(e)=>setEmail(e.target.value)}

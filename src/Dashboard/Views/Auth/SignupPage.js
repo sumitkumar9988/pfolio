@@ -80,7 +80,7 @@ const Signup = ({ history }) => {
       {loading && <Loader />}
       <body class="antialiased bg-body text-body font-body">
         <div>
-          <section class="relative py-20">
+          <section class="relative ">
             <div class="container px-4 mx-auto">
               <div class="max-w-md mx-auto py-6 lg:py-12 px-4 lg:px-8 bg-white border rounded-xl text-center">
                 <span class="inline-block mb-4 text-xs text-blue-400 font-semibold">
@@ -148,7 +148,7 @@ const Signup = ({ history }) => {
                   <p class="block  mb-6 text-sm font-semibold ">Or</p>{" "}
                   <div class="relative flex flex-wrap mb-6">
                     <input
-                      class="relative mb-2 md:mb-0 w-full py-4 pl-4 text-sm border rounded"
+                      class="relative mb-2 md:mb-0 w-full bg-gray-100 focus:outline-none py-4 pl-4 text-sm border rounded"
                       type="name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
@@ -160,7 +160,7 @@ const Signup = ({ history }) => {
                   </div>
                   <div class="relative flex flex-wrap mb-6">
                     <input
-                      class="relative mb-2 md:mb-0 w-full py-4 pl-4 text-sm border rounded"
+                      class="relative mb-2 md:mb-0 w-full bg-gray-100 focus:outline-none py-4 pl-4 text-sm border rounded"
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
@@ -172,7 +172,7 @@ const Signup = ({ history }) => {
                   </div>
                   <div class="relative flex flex-wrap mb-6">
                     <input
-                      class="relative mb-2 md:mb-0 w-full py-4 pl-4 text-sm border rounded"
+                      class="relative mb-2 md:mb-0 bg-gray-100 focus:outline-none w-full py-4 pl-4 text-sm border rounded"
                       type="password"
                       placeholder="********"
                       value={password}

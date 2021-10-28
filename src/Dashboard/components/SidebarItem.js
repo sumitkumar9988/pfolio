@@ -15,7 +15,7 @@ const SidebarItem = ({ item }) => {
       <li>
         {item.logout && (
           <div className="flex items-center pl-3 py-3 pr-4  rounded" onClick={logoutHandler}>
-            <p className="flex items-center text-gray-500 ">
+            <p className="flex items-center cursor-pointer text-gray-500 ">
               <span className="inline-block mr-3">
                 {item.icon}
               </span>
