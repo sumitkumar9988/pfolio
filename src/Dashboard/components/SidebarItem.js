@@ -29,7 +29,6 @@ const SidebarItem = ({ item }) => {
             activeClassName={clsx("bg-red-300 text-white")}
             to={item.link}
             exact
-
             className="flex items-center pl-3 py-3 pr-4  rounded"
           >
             <p className="flex items-center text-gray-500 " >

@@ -22,10 +22,10 @@ const Discord = () => {
             Join Our Community and connect with people know anout new product
             feature and update
           </p>
-          <div>
-            <button className="text-base font-medium leading-4 py-4 px-7 text-white bg-red-400 rounded mt-12 hover:bg-red-500 ">
+          <div className="pt-8">
+            <a className="text-base font-medium leading-4  py-4 px-7 text-white bg-red-400 rounded mt-12 hover:bg-red-500 " target="_blank" href="https://discord.gg/fCC3kkwC8H">
               Join Now
-            </button>
+            </a>
           </div>
         </div>
       </div>

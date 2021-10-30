@@ -1,9 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+
 const CustomDomain = () => {
+
+
   return (
     <div>
-      <div className="w-80 h-80 flex flex-col items-center rounded-xl justify-center text-center shadow-xl">
+      <div className="h-80 flex flex-col items-center rounded-xl justify-center text-center ">
         <div className="bg-white rounded  ">
           <img src="https://i.ibb.co/3k97G48/card-1.png" alt="empty" />
           <div className="w-20 bg-black mx-auto rounded-full">

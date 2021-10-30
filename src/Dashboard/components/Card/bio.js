@@ -10,7 +10,7 @@ const BioCard = ({ history }) => {
 
   const dispatch = useDispatch();
   const { error, loading } = useSelector((state) => state.state)
-  const { profile, updateProfileStatus, file } = useSelector((state) => state.store)
+  const { profile, file } = useSelector((state) => state.store)
 
   const [bio, setBio] = React.useState('');
   const [photo, setPhoto] = React.useState('');
@@ -19,22 +19,24 @@ const BioCard = ({ history }) => {
 
   React.useEffect(() => {
     error && toast.error(error);
-    updateProfileStatus && history.push('/home/Get-started/upload-resume')
     if (!profile) {
-      dispatch(getprofile())
-    } else {
-      setPhoto(profile.data.photo);
+    dispatch(getprofile())
+    }else{
+      setPhoto(profile.data.photo)
     }
-  }, [dispatch, updateProfileStatus])
+  }, [dispatch])
 
   React.useEffect(() => {
-    file && setPhoto(file);
-  }, [file])
+    if (profile ) {
+      setPhoto(profile.data.photo)
+    }
+  }, [profile,])
+
 
   console.log(photo)
   const onChangePicture = (e) => {
     console.log(e.target.files[0])
-    dispatch(uploadFile(e.target.files[0]))
+    dispatch(uploadFile(e.target.files[0],setPhoto))
   };
 
   const onSubmitHandler = (e) => {
@@ -46,7 +48,7 @@ const BioCard = ({ history }) => {
       bio: bio
     }
     console.log(data)
-    dispatch(updateProfile(data))
+    dispatch(updateProfile(data, history, "/home/Get-started/upload-resume"))
   }
 
   return (

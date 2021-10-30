@@ -17,7 +17,7 @@ const s3 = new AWS.S3({
     secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
 });
 
-export const uploadFile = (file) => async (dispatch) => {
+export const uploadFile = (file, setPhoto) => async (dispatch) => {
 
     if (!file) { return }
     let myFile = file.name.split('.');
@@ -36,7 +36,7 @@ export const uploadFile = (file) => async (dispatch) => {
             return;
         }
         dispatch({ type: alias.UPLOAD_FILE, payload: data.Location });
-        console.log(data.Location)
+        setPhoto(data.Location)
         dispatch({ type: alias.REMOVE_ERROR });
         dispatch({ type: alias.LOADING_DISABLE });
 
@@ -73,12 +73,13 @@ export const getUserDetails = () => async (dispatch) => {
 
 };
 
-export const updateProfile = (data) => async (dispatch) => {
+export const updateProfile = (data, history, path = null) => async (dispatch) => {
     dispatch({ type: alias.LOADING_ENABLE });
     axios.patch('/profile', data)
         .then((res) => {
             dispatch({ type: alias.UPDATE_PROFILE, payload: res.data });
             dispatch({ type: alias.LOADING_DISABLE });
+            if (path) { history.push(path) }
         })
         .catch((error) => {
             dispatch({ type: alias.ERROR, payload: error.response && error.response.data.message ? error.response.data.message : error.message });
@@ -96,6 +97,9 @@ export const getprofile = () => async (dispatch) => {
         .catch((error) => {
             dispatch({ type: alias.ERROR, payload: error.response && error.response.data.message ? error.response.data.message : error.message });
             dispatch({ type: alias.LOADING_DISABLE });
+            if (error.response.status === 404) {
+                document.location.href = '/home/Get-started'
+            }
         })
 };
 

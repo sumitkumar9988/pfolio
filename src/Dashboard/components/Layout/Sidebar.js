@@ -19,9 +19,7 @@ const Sidebar = (props) => {
 
   const { user, loading, error } = useSelector((state) => state.login);
   const { profile, loading: profileLoading, error: profileError } = useSelector((state) => state.getProfile);
-  console.log("profile", profile)
-  console.log("")
-  console.log("profileError", profileError)
+
 
 
   useEffect(() => {
@@ -67,13 +65,13 @@ const Sidebar = (props) => {
               </div>
             </nav>
             {open ? (
-              <div className=" lg:block navbar-menu relative z-30">
+              <div className=" lg:block navbar-menu relative z-40">
                 <div
                   onClick={onflipSide}
                   className="navbar-backdrop fixed lg:hidden inset-0 bg-black opacity-10"
                 ></div>
                 <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-3/4 lg:w-80 sm:max-w-xs pt-6 pb-8 bg-white  overflow-y-auto">
-                  <div className="flex w-full items-center px-6 pb-6 mb-6 lg:border-b border-blue-50">
+                  <div className="flex w-full items-center px-6 pb-6 mb-6  ">
                     <p className="text-xl flex item-center text-center font-semibold">
                       <img
                         src="https://res.cloudinary.com/sumit9988/image/upload/v1626467520/Peach_Abstract_Design_Brand_Letter_P_Logo_1_pp0dmw.svg"
@@ -98,8 +96,8 @@ const Sidebar = (props) => {
                 onClick={onflipSide}
                 className="navbar-backdrop fixed lg:hidden inset-0 bg-gray-800 opacity-10"
               ></div>
-              <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-3/4 lg:w-80 sm:max-w-xs pt-6 pb-8 bg-white border-r overflow-y-auto">
-                <div className="flex w-full items-center px-6 pb-6 mb-6  border-blue-50">
+              <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-3/4 lg:w-80 sm:max-w-xs pt-6 pb-8 bg-white  overflow-y-auto">
+                <div className="flex w-full items-center px-6 pb-6 mb-6  ">
                   <p className="text-xl flex item-center text-center font-semibold">
                     <img
                       src="https://res.cloudinary.com/sumit9988/image/upload/v1626467520/Peach_Abstract_Design_Brand_Letter_P_Logo_1_pp0dmw.svg"

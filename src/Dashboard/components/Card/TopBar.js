@@ -3,7 +3,7 @@ import React from "react";
 const TopBar = ({name,profession,image}) => {
   return (
     <>
-      <section className="py-6 px-6 bg-white shadow-sm">
+      <section className="py-6 px-6 bg-white ">
         <nav className="relative">
           <div className="flex items-center">
             <div className="flex items-center mr-auto"> </div>

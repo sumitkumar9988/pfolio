@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import dashboardImage from "./../Assets/demo.png";
 const Index = () => {
   return (
@@ -19,7 +19,7 @@ const Index = () => {
                 </p>
 
                 <div class="block">
-                  <Link to="/login">
+                  {/* <Link to="/login">
                   <p class="mr-2 inline-block px-4 py-3 text-xs text-red-300 hover:text-red-400 font-semibold leading-none border border-red-200 hover:border-red-300 rounded">
                     Log In
                   </p>
@@ -28,29 +28,28 @@ const Index = () => {
                   <p class="inline-block px-4 py-3 text-xs font-semibold leading-none bg-red-400 hover:bg-red-500 text-white rounded">
                     Sign Up
                   </p>
-                  </Link>
+                  </Link> */}
                 </div>
               </nav>
-              <div class="pt-12 text-center">
-                <div class="max-w-lg mx-auto mb-8">
-                  <h1 class="focus:outline-none text-4xl lg:text-5xl pt-4 font-extrabold text-center leading-tight text-gray-800 ">
+              <div class="pt-20 text-center">
+                <div class=" mx-auto mb-8">
+                  <h1 class="focus:outline-none text-4xl lg:text-7xl pt-4 font-extrabold text-center leading-tight text-gray-800 ">
                     Build Your
                     <br /> Portfolio Site
                   </h1>
 
-                  <p class="text-gray-400 leading-relaxed pt-8">
-                    Showcase Your work, project, Skills and find a new
-                    opportunity
-                  </p>
+                  <h2 class="text-gray-900 font-bold text-2xl leading-relaxed pt-8">
+                    on Custom Domain for free
+                  </h2>
                 </div>
                 <div>
-                  <p class=" inline-block py-4 px-8 mb-4 sm:mb-0 sm:mr-3 text-xs text-white text-center font-semibold leading-none bg-red-400 hover:bg-red-500 rounded">
-                    Check Now
-                  </p>
+                  <a href="https://tally.so/r/wQB1Yn" class=" inline-block py-4 px-8 mb-4 sm:mb-0 sm:mr-3 text-xs text-white text-center font-semibold leading-none bg-red-400 hover:bg-red-500 rounded">
+                    Get Early Access
+                  </a>
                 </div>
               </div>
             </div>
-            <div class=" max-w-6xl mt-16 md:mt-8 mb-8 mx-auto pb-24">
+            <div class=" max-w-6xl mt-16 md:mt-44 mb-8 mx-auto pb-24">
               <div class="">
                 <img class="rounded" src={dashboardImage} alt="" />
               </div>
