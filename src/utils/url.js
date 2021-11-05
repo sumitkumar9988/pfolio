@@ -1,18 +1,15 @@
-let api,baseURL, homeURL, profileURL;
-if (process.env.REACT_APP_NODE_ENV === 'production') {
-  api='https://api.sumitk.site/api/v1'
-  baseURL = 'https://api.sumitk.site/api/v1/user';
-  profileURL = 'https://api.sumitk.site/api/v1/profile';
-
+let api, baseURL, homeURL, profileURL;
+if (process.env.REACT_APP_NODE_ENV === "production") {
+  api = "https://api.sumitk.site/api/v1";
+  baseURL = "https://api.sumitk.site/api/v1/user";
+  profileURL = "https://api.sumitk.site/api/v1/profile";
 } else {
-  api='http://localhost:3000/api/v1'
-  baseURL = 'http://localhost:3000/api/v1/user';
-  profileURL = 'http://localhost:3000/api/v1/profile';
-
+  api = "http://localhost:3000/api/v1";
+  baseURL = "http://localhost:3000/api/v1/user";
+  profileURL = "http://localhost:3000/api/v1/profile";
 }
 
-export { baseURL, homeURL, profileURL ,api};
-
+export { baseURL, homeURL, profileURL, api };
 
 // production
 // google_clientID = '905781434968-a39oe1dq0rnsu8hcib2dei44s9ilq5nr.apps.googleusercontent.com';

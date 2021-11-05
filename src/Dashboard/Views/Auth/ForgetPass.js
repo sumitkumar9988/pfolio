@@ -1,41 +1,38 @@
-import React,{useState,useEffect} from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { userforgetPassword } from "../../../redux/action/authAction";
 import Loader from "../../../utils/loader";
 import ToastContainer from "../../../utils/toast";
 
 const ForgetPassword = () => {
-
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const dispatch = useDispatch();
 
-  
   const forgetPassword = useSelector((state) => state.forgetPassword);
   const { loading, error, success } = forgetPassword;
 
-  useEffect(()=>{
-      if(error){
-        toast.error(error)
-      }
-      if(success){
-        toast.success(success)
-      }
-  },[error,success])
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+    }
+    if (success) {
+      toast.success(success);
+    }
+  }, [error, success]);
   const submitHandler = (e) => {
-    e.preventDefault();    
+    e.preventDefault();
     const data = {
-      email
+      email,
     };
     console.log(data);
     dispatch(userforgetPassword(data));
-    
   };
 
   return (
     <div>
       <div>
-        {loading && <Loader/>}
+        {loading && <Loader />}
         <section class="relative py-20">
           <div class="container px-4 mx-auto">
             <div class="max-w-md mx-auto py-6 lg:py-12 px-4 lg:px-8 bg-white border rounded-xl text-center">
@@ -56,7 +53,7 @@ const ForgetPassword = () => {
                     class="relative mb-2 md:mb-0 bg-gray-100 focus:outline-none w-full py-4 pl-4 text-sm border rounded"
                     type="email"
                     value={email}
-                    onChange={(e)=>setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="e.g sumit@pfolio.me"
                   />
                   <span class="absolute top-0 left-0 ml-4 -mt-2 px-1 inline-block bg-white text-gray-500 text-xs">
@@ -64,7 +61,10 @@ const ForgetPassword = () => {
                   </span>
                 </div>
 
-                <button onClick={submitHandler} class="w-full inline-block py-4 mb-4 text-sm text-white font-medium leading-normal bg-red-400 hover:bg-red-300 rounded transition duration-200">
+                <button
+                  onClick={submitHandler}
+                  class="w-full inline-block py-4 mb-4 text-sm text-white font-medium leading-normal bg-red-400 hover:bg-red-300 rounded transition duration-200"
+                >
                   Send Verification
                 </button>
               </form>
@@ -72,7 +72,7 @@ const ForgetPassword = () => {
           </div>
         </section>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };

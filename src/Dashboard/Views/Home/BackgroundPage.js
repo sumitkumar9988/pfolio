@@ -15,7 +15,7 @@ const Background = () => {
       </section>
 
       <section class="py-8 px-6">
-          <Skills/>
+        <Skills />
       </section>
     </div>
   );

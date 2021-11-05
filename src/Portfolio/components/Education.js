@@ -7,7 +7,6 @@ const data = [
     date: "Jun 2018 - Aug 2018",
   },
 
-
   {
     course: "B.tech",
     institute: "IIT Delhi",

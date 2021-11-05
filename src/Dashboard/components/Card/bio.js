@@ -1,42 +1,47 @@
 import React from "react";
-import Loader from '../../../utils/loader'
+import Loader from "../../../utils/loader";
 import { toast } from "react-toastify";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import ToastContainer from "../../../utils/toast";
 import { useDispatch, useSelector } from "react-redux";
-import { getprofile, updateProfile, uploadFile } from './../../../redux/action/dashboardAction'
+import {
+  getprofile,
+  updateProfile,
+  uploadFile,
+} from "./../../../redux/action/dashboardAction";
 
 const BioCard = ({ history }) => {
-
   const dispatch = useDispatch();
-  const { error, loading } = useSelector((state) => state.state)
-  const { profile, file } = useSelector((state) => state.store)
+  const { error, loading } = useSelector((state) => state.state);
+  const { profile, file } = useSelector((state) => state.store);
 
-  const [bio, setBio] = React.useState('');
-  const [photo, setPhoto] = React.useState('');
-  const [currentJob, setCurrentJob] = React.useState('');
-  const [profession, setProfession] = React.useState('');
+  const [bio, setBio] = React.useState("");
+  const [photo, setPhoto] = React.useState("");
+  const [currentJob, setCurrentJob] = React.useState("");
+  const [profession, setProfession] = React.useState("");
 
   React.useEffect(() => {
     error && toast.error(error);
-    if (!profile) {
-    dispatch(getprofile())
-    }else{
-      setPhoto(profile.data.photo)
+
+    dispatch(getprofile());
+
+    if (profile && profile.data) {
+      console.log(profile.data);
+      setPhoto(profile.data.photo);
     }
-  }, [dispatch])
+  }, [dispatch]);
 
   React.useEffect(() => {
-    if (profile ) {
-      setPhoto(profile.data.photo)
+    if (profile && profile.data) {
+      console.log(profile);
+      setPhoto(profile.data.photo);
     }
-  }, [profile,])
+  }, [profile]);
 
-
-  console.log(photo)
+  console.log(photo);
   const onChangePicture = (e) => {
-    console.log(e.target.files[0])
-    dispatch(uploadFile(e.target.files[0],setPhoto))
+    console.log(e.target.files[0]);
+    dispatch(uploadFile(e.target.files[0], setPhoto));
   };
 
   const onSubmitHandler = (e) => {
@@ -45,11 +50,11 @@ const BioCard = ({ history }) => {
       photo: photo,
       profession: profession,
       aboutYou: currentJob,
-      bio: bio
-    }
-    console.log(data)
-    dispatch(updateProfile(data, history, "/home/Get-started/upload-resume"))
-  }
+      bio: bio,
+    };
+    console.log(data);
+    dispatch(updateProfile(data, history, "/home/Get-started/upload-resume"));
+  };
 
   return (
     <div className="">
@@ -92,7 +97,9 @@ const BioCard = ({ history }) => {
                             className="w-full h-full object-cover overflow-hidden absolute z-0 rounded-full shadow"
                           />
                           <label
-                            htmlFor="image" className="bg-white   h-6 w-6 rounded-full flex items-center justify-center right-0 absolute cursor-pointer text-gray-600 ">
+                            htmlFor="image"
+                            className="bg-white   h-6 w-6 rounded-full flex items-center justify-center right-0 absolute cursor-pointer text-gray-600 "
+                          >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               className="icon icon-tabler icon-tabler-edit"
@@ -110,7 +117,13 @@ const BioCard = ({ history }) => {
                               <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
                               <line x1={16} y1={5} x2={19} y2={8} />
                             </svg>
-                            <input type="file" className="hidden" id="image" onChange={onChangePicture} accept="image/*" />
+                            <input
+                              type="file"
+                              className="hidden"
+                              id="image"
+                              onChange={onChangePicture}
+                              accept="image/*"
+                            />
                           </label>
                         </div>
                       </div>
@@ -122,9 +135,24 @@ const BioCard = ({ history }) => {
                           Profession
                         </label>
                         <div className="w-full  bg-white  rounded bg-gray-100 py-3 px-3">
-                          <select className="text-sm text-gray-900 bg-gray-100 w-full  focus:outline-none" defaultValue="Developer" onChange={(e) => setProfession(e.target.value)} value={profession}>
-                            <option value="Designer" className="bg-gray-100 py-2 px-3 ">Designer</option>
-                            <option value="Developer" className="bg-gray-100 py-2 px-3">Developer</option>
+                          <select
+                            className="text-sm text-gray-900 bg-gray-100 w-full  focus:outline-none"
+                            defaultValue="Developer"
+                            onChange={(e) => setProfession(e.target.value)}
+                            value={profession}
+                          >
+                            <option
+                              value="Designer"
+                              className="bg-gray-100 py-2 px-3 "
+                            >
+                              Designer
+                            </option>
+                            <option
+                              value="Developer"
+                              className="bg-gray-100 py-2 px-3"
+                            >
+                              Developer
+                            </option>
                           </select>
                         </div>
                       </div>
@@ -172,7 +200,6 @@ const BioCard = ({ history }) => {
                     </div>
                     <div className="flex items-center justify-center pb-8 pt-8">
                       <button
-
                         className="bg-red-400 transition duration-150 ease-in-out hover:bg-red-500 rounded text-white px-8 py-2 text-sm "
                         type="submit"
                       >

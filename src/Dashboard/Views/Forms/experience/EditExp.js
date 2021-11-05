@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React ,{useState} from 'react'
+import React, { useState } from "react";
 
 const EditExperience = () => {
-    const [image, setimage] = useState("https://images.unsplash.com/photo-1606788168382-08d45b491332?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=721&q=80");
-    return (
-        <div>
-             <div className=" mx-auto flex justify-center w-full h-full ">
+  const [image, setimage] = useState(
+    "https://images.unsplash.com/photo-1606788168382-08d45b491332?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=721&q=80"
+  );
+  return (
+    <div>
+      <div className=" mx-auto flex justify-center w-full h-full ">
         <div className="mt-8 w-full sm:w-8/12 m-4 md:w-3/6">
           <div class="w-full ">
             <h2 class="text-2xl font-bold text-center">Project Name</h2>
@@ -80,33 +82,34 @@ const EditExperience = () => {
                   />
                 )}
                 <div class="bg-white m-3 p-4 rounded-lg">
-                <div className="flex items-center justify-start mx-auto  w-full  border border-dashed border-red-400 rounded-lg p-3">
-              <div className="cursor-pointer text-red-400 ">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="icon icon-tabler icon-tabler-cloud-upload"
-                  width={48}
-                  height={48}
-                  viewBox="0 0 24 24"
-                  strokeWidth={1}
-                  stroke="currentColor"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" />
-                  <path d="M7 18a4.6 4.4 0 0 1 0 -9h0a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7h-1" />
-                  <polyline points="9 15 12 12 15 15" />
-                  <line x1={12} y1={12} x2={12} y2={21} />
-                </svg>
-              </div>
-              <p className="text-base font-normal tracking-normal text-gray-800 dark:text-gray-100 text-left ml-4">
-                Drag and drop here or
-                <span className="cursor-pointer text-red-500 dark:text-red-600">
-                  {" "}browse
-                </span>
-              </p>
-            </div>
+                  <div className="flex items-center justify-start mx-auto  w-full  border border-dashed border-red-400 rounded-lg p-3">
+                    <div className="cursor-pointer text-red-400 ">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="icon icon-tabler icon-tabler-cloud-upload"
+                        width={48}
+                        height={48}
+                        viewBox="0 0 24 24"
+                        strokeWidth={1}
+                        stroke="currentColor"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" />
+                        <path d="M7 18a4.6 4.4 0 0 1 0 -9h0a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7h-1" />
+                        <polyline points="9 15 12 12 15 15" />
+                        <line x1={12} y1={12} x2={12} y2={21} />
+                      </svg>
+                    </div>
+                    <p className="text-base font-normal tracking-normal text-gray-800 dark:text-gray-100 text-left ml-4">
+                      Drag and drop here or
+                      <span className="cursor-pointer text-red-500 dark:text-red-600">
+                        {" "}
+                        browse
+                      </span>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -118,7 +121,8 @@ const EditExperience = () => {
           </div>
         </div>
       </div>
-    </div>)
-}
+    </div>
+  );
+};
 
-export default EditExperience
+export default EditExperience;

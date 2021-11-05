@@ -1,6 +1,6 @@
 import React from "react";
 
-const TopBar = ({name,profession,image}) => {
+const TopBar = ({ name, profession, image }) => {
   return (
     <>
       <section className="py-6 px-6 bg-white ">
@@ -9,12 +9,8 @@ const TopBar = ({name,profession,image}) => {
             <div className="flex items-center mr-auto"> </div>
 
             <ul className="flex lg:justify-end ml-auto mr-6">
-              <li className="mr-6">
-             
-              </li>
-              <li>
-              
-              </li>
+              <li className="mr-6"></li>
+              <li></li>
             </ul>
             <div>
               <button className="flex items-center ">

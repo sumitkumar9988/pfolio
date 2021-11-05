@@ -1,6 +1,6 @@
 import React from "react";
 
-const Heading = ({title,number}) => {
+const Heading = ({ title, number }) => {
   return (
     <div>
       <div class="flex justify-between">

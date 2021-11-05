@@ -1,10 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
 const CustomDomain = () => {
-
-
   return (
     <div>
       <div className="h-80 flex flex-col items-center rounded-xl justify-center text-center ">

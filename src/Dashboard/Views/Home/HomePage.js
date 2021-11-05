@@ -10,28 +10,25 @@ import Discord from "../../components/Card/Discord";
 import LivePreview from "../../components/Card/LivePreview";
 import SocialMedia from "../../components/Card/SocialMedia";
 
-
-
 const Home = () => {
-
   const dispatch = useDispatch();
-  const { loading, error } = useSelector((state) => state.state)
-  const { profile } = useSelector((state) => state.store)
+  const { loading, error } = useSelector((state) => state.state);
+  const { profile } = useSelector((state) => state.store);
 
-  const [username, setUsername] = React.useState('');
+  const [username, setUsername] = React.useState("");
   useEffect(() => {
-    dispatch(getprofile());
     error && toast.error(error);
-    if (profile) {
-      setUsername(profile.data.username)
+    Object.keys(profile).length === 0 && dispatch(getprofile());
+    if (profile && profile.data) {
+      setUsername(profile.data.username);
     }
-  }, [dispatch])
-
-
+  }, [dispatch]);
 
   return (
     <div className="">
-      {loading ? <Loader /> : (
+      {loading ? (
+        <Loader />
+      ) : (
         <div>
           <ToastContainer />
           <div className="w-full rounded ">
@@ -51,9 +48,6 @@ const Home = () => {
           </section>
         </div>
       )}
-
-
-
     </div>
   );
 };

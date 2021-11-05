@@ -153,14 +153,17 @@ const Login = ({ history }) => {
                   Password
                 </span>
               </div>
-              <button onClick={submitHandler} class="w-full inline-block py-4 mb-4 text-sm text-white font-medium leading-normal bg-red-400 hover:bg-red-300 rounded transition duration-200">
+              <button
+                onClick={submitHandler}
+                class="w-full inline-block py-4 mb-4 text-sm text-white font-medium leading-normal bg-red-400 hover:bg-red-300 rounded transition duration-200"
+              >
                 Login
               </button>
               <Link to="/forgetpassword">
                 <p class="block pb-2 mb-2 text-sm font-semibold hover:underline ">
                   Forgot password?
                 </p>
-              </Link >
+              </Link>
               <Link to="/signup">
                 <p class="block pb-6 mb-6 text-sm text-red-400 font-semibold hover:underline ">
                   Create Your Account

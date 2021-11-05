@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
+import reduxReset from "redux-reset";
 import { composeWithDevTools } from "redux-devtools-extension";
 import {
   signupReducer,
@@ -11,8 +12,65 @@ import {
   getProfileReducer,
 } from "./redux/reducer/authReducer";
 import {
-  stateReducer, dashboardReducer
-} from './redux/reducer/dashboardReducer'
+  stateReducer,
+  getEducationListReducer,
+  getExperienceListReducer,
+  getEducationByIDReducer,
+  GetUserReducer,
+  UploadFileReducer,
+  GetProfileReducer,
+  createProfileReducer,
+  updateProfileReducer,
+  getAnalticsReducer,
+  createEducationReducer,
+  deleteEducationReducer,
+  updateEducationReducer,
+  createExperienceReducer,
+  getExperienceByIDReducer,
+  deleteExperienceByIDReducer,
+  updateExperienceByIDReducer,
+  createProjectReducer,
+  getProjectProjectReducer,
+  getProjectByIDReducer,
+  deleteProjectByIDReducer,
+  updateProjectByIDReducer,
+  getSkillsReducer,
+  addSkillsReducer,
+  getSkillByIDReducer,
+  deleteSkillsReducer,
+  updateDomainReducer,
+  domainReducer,
+} from "./redux/reducer/dashboardReducer";
+
+const dashboardReducer = combineReducers({
+  educations: getEducationListReducer,
+  experiences: getExperienceListReducer,
+  education: getEducationByIDReducer,
+  user: GetUserReducer,
+  file: UploadFileReducer,
+  profile: GetProfileReducer,
+  createProfilestatus: createProfileReducer,
+  updateProfileStatus: updateProfileReducer,
+  analtics: getAnalticsReducer,
+  createEducationStatus: createEducationReducer,
+  deleteEducationStatus: deleteEducationReducer,
+  updateEducationStatus: updateEducationReducer,
+  createExperienceStatus: createExperienceReducer,
+  experience: getExperienceByIDReducer,
+  deleteExperienceStatus: deleteExperienceByIDReducer,
+  updateExperienceStatus: updateExperienceByIDReducer,
+  createprojectStatus: createProjectReducer,
+  projects: getProjectProjectReducer,
+  project: getProjectByIDReducer,
+  deleteprojectStatus: deleteProjectByIDReducer,
+  updateprojectStatus: updateProjectByIDReducer,
+  skills: getSkillsReducer,
+  skill: getSkillByIDReducer,
+  addSkillStatus: addSkillsReducer,
+  deleteSkillStatus: deleteSkillsReducer,
+  updateDomainStatus: updateDomainReducer,
+  domain: domainReducer,
+});
 
 const reducer = combineReducers({
   login: loginReducer,
@@ -22,8 +80,8 @@ const reducer = combineReducers({
   changePassword: changePasswordReducer,
   updateProfile: updatProfileReducer,
   getProfile: getProfileReducer,
-  state:stateReducer,
-  store:dashboardReducer
+  state: stateReducer,
+  store: dashboardReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("user")
@@ -36,12 +94,12 @@ const initialState = {
 
 const middleware = [thunk];
 
-const composeEnhancers = composeWithDevTools({trace:true});
+const composeEnhancers = composeWithDevTools({ trace: true });
 
 const store = createStore(
   reducer,
   initialState,
-  composeEnhancers(
-    applyMiddleware(...middleware))
+
+  composeEnhancers(applyMiddleware(...middleware), reduxReset())
 );
 export default store;

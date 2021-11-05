@@ -23,7 +23,11 @@ const Discord = () => {
             feature and update
           </p>
           <div className="pt-8">
-            <a className="text-base font-medium leading-4  py-4 px-7 text-white bg-red-400 rounded mt-12 hover:bg-red-500 " target="_blank" href="https://discord.gg/fCC3kkwC8H">
+            <a
+              className="text-base font-medium leading-4  py-4 px-7 text-white bg-red-400 rounded mt-12 hover:bg-red-500 "
+              target="_blank"
+              href="https://discord.gg/fCC3kkwC8H"
+            >
               Join Now
             </a>
           </div>

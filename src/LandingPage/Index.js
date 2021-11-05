@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import dashboardImage from "./../Assets/demo.png";
 const Index = () => {
   return (
@@ -33,17 +33,20 @@ const Index = () => {
               </nav>
               <div class="pt-20 text-center">
                 <div class=" mx-auto mb-8">
-                  <h1 class="focus:outline-none text-4xl lg:text-7xl pt-4 font-extrabold text-center leading-tight text-gray-800 ">
+                  <h1 class="focus:outline-none text-4xl lg:text-7xl pt-4 font-extrabold font-rubik text-center leading-tight text-gray-800 ">
                     Build Your
                     <br /> Portfolio Site
                   </h1>
 
-                  <h2 class="text-gray-900 font-bold text-2xl leading-relaxed pt-8">
+                  <h2 class="text-gray-900 font-bold font-rubik  text-2xl leading-relaxed pt-8">
                     on Custom Domain for free
                   </h2>
                 </div>
                 <div>
-                  <a href="https://tally.so/r/wQB1Yn" class=" inline-block py-4 px-8 mb-4 sm:mb-0 sm:mr-3 text-xs text-white text-center font-semibold leading-none bg-red-400 hover:bg-red-500 rounded">
+                  <a
+                    href="https://tally.so/r/wQB1Yn"
+                    class=" inline-block py-4 px-8 mb-4 sm:mb-0 sm:mr-3 text-xs text-white text-center font-semibold leading-none bg-red-400 hover:bg-red-500 rounded"
+                  >
                     Get Early Access
                   </a>
                 </div>

@@ -1,44 +1,46 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
-import { logout, getUserProfileAction } from './../../../redux/action/authAction'
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "./../../../redux/action/authAction";
+import { getprofile } from "./../../../redux/action/dashboardAction";
 import "./style.css";
-import Loader from './../../../utils/loader'
+import Loader from "./../../../utils/loader";
 import TopBar from "../Card/TopBar";
 import SidebarItem from "../SidebarItem";
 import SidebarItemList from "./SidebarItemList";
 
-
 const Sidebar = (props) => {
-
   const dispatch = useDispatch();
   const history = useHistory();
 
   const [open, setOpen] = React.useState(false);
   const [sidebarItem, setItem] = React.useState(SidebarItemList);
 
-  const { user, loading, error } = useSelector((state) => state.login);
-  const { profile, loading: profileLoading, error: profileError } = useSelector((state) => state.getProfile);
-
-
+  const { user } = useSelector((state) => state.login);
+  const { loading, error } = useSelector((state) => state.state);
+  const { profile } = useSelector((state) => state.store);
 
   useEffect(() => {
-    dispatch(getUserProfileAction());
-    console.log(user)
-    if (!user) { dispatch(logout()) }
-  }, [user]);
+    if (!profile) {
+      dispatch(getprofile());
+    }
+    if (!user) {
+      dispatch(logout());
+    }
+  }, [dispatch]);
 
-  const onflipSide = () => { setOpen(!open); };
+  const onflipSide = () => {
+    setOpen(!open);
+  };
 
   return (
     <div>
       {loading && <Loader />}
-      {profileLoading && <Loader />}
 
       <body className="antialiased bg-body text-body font-body">
-        <div>
-          <div>
-            <nav className="lg:hidden py-6 px-6 ">
+        <div className="">
+          <div className="">
+            <nav className="lg:hidden  py-6 px-6 ">
               <div className="flex items-center justify-between">
                 <p className="text-2xl font-semibold">
                   <img
@@ -65,7 +67,7 @@ const Sidebar = (props) => {
               </div>
             </nav>
             {open ? (
-              <div className=" lg:block navbar-menu relative z-40">
+              <div className=" lg:block navbar-menu relative z-40 ">
                 <div
                   onClick={onflipSide}
                   className="navbar-backdrop fixed lg:hidden inset-0 bg-black opacity-10"
@@ -91,7 +93,7 @@ const Sidebar = (props) => {
                 </nav>
               </div>
             ) : null}
-            <div className="hidden lg:block navbar-menu relative z-30">
+            <div className="hidden lg:block navbar-menu relative z-30 ">
               <div
                 onClick={onflipSide}
                 className="navbar-backdrop fixed lg:hidden inset-0 bg-gray-800 opacity-10"
@@ -117,7 +119,13 @@ const Sidebar = (props) => {
               </nav>
             </div>
             <div className="mx-auto lg:ml-80 ">
-              {profile && <TopBar name={profile.data.name} profession={profile.data.profession} image={profile.data.photo} />}
+              {profile.data && (
+                <TopBar
+                  name={profile.data.name}
+                  profession={profile.data.profession}
+                  image={profile.data.photo}
+                />
+              )}
               <div className=" h-full">{props.children}</div>
             </div>
           </div>

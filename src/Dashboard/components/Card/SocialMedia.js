@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   LinkedinShareButton,
   TwitterShareButton,
@@ -6,8 +6,8 @@ import {
   LinkedinIcon,
 } from "react-share";
 const SocialMedia = () => {
-  const shareUrl = 'http://github.com';
-  const title = 'GitHub';
+  const shareUrl = "http://github.com";
+  const title = "GitHub";
   return (
     <div className="justify-center mx-auto">
       <div className="h-80    flex justify-center items-center flex-col w-full md:w-4/6 lg:w-3/6 rounded-xl">
@@ -16,7 +16,10 @@ const SocialMedia = () => {
         </h3>
         <div className="flex justify-center items-center w-full mb-5 mt-4">
           <div className="p-4">
-            <LinkedinShareButton url={shareUrl} className="Demo__some-network__share-button">
+            <LinkedinShareButton
+              url={shareUrl}
+              className="Demo__some-network__share-button"
+            >
               <LinkedinIcon size={44} round />
             </LinkedinShareButton>
           </div>
@@ -30,10 +33,9 @@ const SocialMedia = () => {
             </TwitterShareButton>
           </div>
         </div>
-
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SocialMedia
+export default SocialMedia;

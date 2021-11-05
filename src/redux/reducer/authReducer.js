@@ -24,7 +24,7 @@ import {
   UPDATE_PROFILE_REQUEST,
   UPDATE_PROFILE_SUCESS,
   UPDATE_PROFILE_FAILURE,
-} from '../constant';
+} from "../constant";
 
 export const loginReducer = (state = {}, action) => {
   switch (action.type) {
@@ -54,7 +54,10 @@ export const signupReducer = (state = { user: {} }, action) => {
   }
 };
 
-export const changePasswordReducer = (state = { data: { user: {} } }, action) => {
+export const changePasswordReducer = (
+  state = { data: { user: {} } },
+  action
+) => {
   switch (action.type) {
     case CHANGE_PASSWORD_REQUEST:
       return { loading: true };
@@ -131,5 +134,3 @@ export const updatProfileReducer = (state = {}, action) => {
       return state;
   }
 };
-
-

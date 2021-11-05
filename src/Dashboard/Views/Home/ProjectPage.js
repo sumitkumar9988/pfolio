@@ -84,27 +84,25 @@ const Project = () => {
 
         <div className="flex flex-wrap pt-8">
           {project.map((item, i) => (
-           
             <div className="mb-4 w-full md:w-1/2 lg:w-1/3 px-3 rounded-lg">
-               <Link to={`/home/project/${item.id}`}>
-              <div className="h-72 transform hover:scale-105 transition duration-300 rounded-xl bg-white justify-center items-center flex flex-col  shadow-xl text-center">
-                <div className="h-32 p-4">
-                  <img
-                    className="mx-auto mb-4 h-full w-full object-contain"
-                    src={item.image}
-                    alt=""
-                  />
+              <Link to={`/home/project/${item.id}`}>
+                <div className="h-72 transform hover:scale-105 transition duration-300 rounded-xl bg-white justify-center items-center flex flex-col  shadow-xl text-center">
+                  <div className="h-32 p-4">
+                    <img
+                      className="mx-auto mb-4 h-full w-full object-contain"
+                      src={item.image}
+                      alt=""
+                    />
+                  </div>
+
+                  <h4 className="mb-2 pt-2 text-gray-800 text-2xl font-bold font-heading">
+                    {item.name}
+                  </h4>
+                  <p className="text-gray-500 truncate  w-8/12">
+                    {item.description}
+                  </p>
                 </div>
-
-                <h4 className="mb-2 pt-2 text-gray-800 text-2xl font-bold font-heading">
-                  {item.name}
-                </h4>
-                <p className="text-gray-500 truncate  w-8/12">
-                  {item.description}
-                </p>
-              </div>
-            </Link>
-
+              </Link>
             </div>
           ))}
 

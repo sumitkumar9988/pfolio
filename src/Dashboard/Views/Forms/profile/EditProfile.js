@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const editProfile = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return <div></div>;
+};
 
-export default editProfile
+export default editProfile;

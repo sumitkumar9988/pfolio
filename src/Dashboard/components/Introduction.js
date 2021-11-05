@@ -1,6 +1,6 @@
 import React from "react";
 
-const Introduction = ({name}) => {
+const Introduction = ({ name }) => {
   return (
     <div>
       <div class="py-8 px-6">

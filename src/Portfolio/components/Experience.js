@@ -33,18 +33,19 @@ const data = [
   // },
 ];
 
-const Experience = ({theme}) => {
+const Experience = ({ theme }) => {
   let x, y, z;
   x = 0;
   y = data.length - parseInt(data.length / 2);
   z = data.length;
 
-
   return (
     <div className="w-full md:w-10/12 lg:w-7/12 mx-auto pb-12">
       <div className="mt-20 mb-4 md:mt-28 ml-4 md:ml-16">
         <div>
-          <p className={` text-2xl font-bold md:text-3xl font-rubik ${theme.textColor1}`}>
+          <p
+            className={` text-2xl font-bold md:text-3xl font-rubik ${theme.textColor1}`}
+          >
             Experience
           </p>
         </div>

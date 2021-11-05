@@ -2,8 +2,7 @@ import React from "react";
 import { LineChart } from "react-chartkick";
 import "chartkick/chart.js";
 
-
-const data={
+const data = {
   "2021-05-01": 2,
   "2021-05-02": 51,
   "2021-05-03": 2123,
@@ -33,7 +32,7 @@ const data={
   "2021-05-27": 523,
   "2021-05-28": 2534,
   "2021-05-29": 534,
-}
+};
 
 const analtics = () => {
   return (
@@ -43,10 +42,10 @@ const analtics = () => {
           <div class=" rounded">
             <div class="flex flex-wrap justify-between items-center py-5 px-6">
               <div>
-              <h3 class="w-full md:w-auto mb-4 md:mb-0 text-2xl font-bold">
-                Daily Visitiors
-              </h3>
-          </div>
+                <h3 class="w-full md:w-auto mb-4 md:mb-0 text-2xl font-bold">
+                  Daily Visitiors
+                </h3>
+              </div>
               <div class="ml-2 inline-block py-2 px-3 border rounded text-xs text-gray-500">
                 <select class="pr-1" name="" id="">
                   <option value="1">Daily</option>
@@ -58,11 +57,14 @@ const analtics = () => {
           </div>
         </div>
         <div className="pt-16 m-4">
-        <LineChart
-          data={data}  colors={["#ff5252"]} download={{background: "#fff"}} label="Value" loading="Loading..." 
-        />
+          <LineChart
+            data={data}
+            colors={["#ff5252"]}
+            download={{ background: "#fff" }}
+            label="Value"
+            loading="Loading..."
+          />
         </div>
-       
       </section>
       <section class="py-8">
         <div class="container px-4 mx-auto">
@@ -151,7 +153,6 @@ const analtics = () => {
                 </span>
               </div>
             </div>
-          
           </div>
         </div>
       </section>

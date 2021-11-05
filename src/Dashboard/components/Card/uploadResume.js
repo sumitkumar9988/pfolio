@@ -3,33 +3,33 @@ import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import ToastContainer from "../../../utils/toast";
 import { useDispatch, useSelector } from "react-redux";
-import { updateProfile, uploadFile } from "./../../../redux/action/dashboardAction";
-import linkedin_profile_image from './../../../Assets/linkedin_profile.png'
+import {
+  updateProfile,
+  uploadFile,
+} from "./../../../redux/action/dashboardAction";
+import linkedin_profile_image from "./../../../Assets/linkedin_profile.png";
 import Loader from "./../../../utils/loader";
 
 const UploadResume = ({ history }) => {
-
   const dispatch = useDispatch();
-  const [resume, setResume] = React.useState('')
-  const { error, loading } = useSelector((state) => state.state)
-
+  const [resume, setResume] = React.useState("");
+  const { error, loading } = useSelector((state) => state.state);
 
   React.useEffect(() => {
     error && toast.error(error);
-  }, [error])
-
+  }, [error]);
 
   const onsubmitHandler = (e) => {
     e.preventDefault();
     const data = {
-      resume: resume
-    }
-    console.log(data)
-    dispatch(updateProfile(data, history, "/home/Get-started/on-board"))
-  }
+      resume: resume,
+    };
+    console.log(data);
+    dispatch(updateProfile(data, history, "/home/Get-started/on-board"));
+  };
   const onFileUpload = (e) => {
-    console.log(e.target.files[0])
-    dispatch(uploadFile(e.target.files[0], setResume))
+    console.log(e.target.files[0]);
+    dispatch(uploadFile(e.target.files[0], setResume));
   };
 
   return (
@@ -65,8 +65,6 @@ const UploadResume = ({ history }) => {
           </Link>
         </div>
 
-
-
         <div class="flex h-screen justify-center items-center ">
           <div className="w-full bg-white  rounded ">
             <div className="w-full flex items-center justify-center ">
@@ -87,7 +85,10 @@ const UploadResume = ({ history }) => {
               />
             </div>
             <label className="flex items-center justify-start mx-auto cursor-pointer w-96 mt-8 mb-8 border border-dashed border-indigo-700 rounded-lg p-3">
-              <div htmlfor="resume" className="cursor-pointer text-indigo-700 dark:text-indigo-600">
+              <div
+                htmlfor="resume"
+                className="cursor-pointer text-indigo-700 dark:text-indigo-600"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="icon icon-tabler icon-tabler-cloud-upload"
@@ -105,24 +106,39 @@ const UploadResume = ({ history }) => {
                   <polyline points="9 15 12 12 15 15" />
                   <line x1={12} y1={12} x2={12} y2={21} />
                 </svg>
-                <input type="file" className="hidden" id="resume" onChange={onFileUpload} accept="application/pdf" />
+                <input
+                  type="file"
+                  className="hidden"
+                  id="resume"
+                  onChange={onFileUpload}
+                  accept="application/pdf"
+                />
               </div>
               <p className="text-base font-normal tracking-normal text-gray-800 dark:text-gray-100 text-left ml-4">
                 Drag and drop here or
                 <span className="cursor-pointer text-indigo-700 dark:text-indigo-600">
-                  {" "}browse
+                  {" "}
+                  browse
                 </span>
               </p>
-
             </label>
 
-            {resume ? (<div className="flex items-center justify-center"><p className="   w-72 text-xs font-medium  text-center text-gray-800">
-              {resume.replace('https://firstletter-multimedia.s3.amazonaws.com/', ' ')}
-            </p>
-            </div>) : null}
+            {resume ? (
+              <div className="flex items-center justify-center">
+                <p className="   w-72 text-xs font-medium  text-center text-gray-800">
+                  {resume.replace(
+                    "https://firstletter-multimedia.s3.amazonaws.com/",
+                    " "
+                  )}
+                </p>
+              </div>
+            ) : null}
 
             <div className="flex items-center justify-center mt-7 mb-6">
-              <button onClick={onsubmitHandler} className=" focus:outline-none focus:ring-2 focus:ring-offset-2  hover:bg-red-500 text-sm font-medium leading-none text-center text-white bg-red-400 rounded px-5 py-3">
+              <button
+                onClick={onsubmitHandler}
+                className=" focus:outline-none focus:ring-2 focus:ring-offset-2  hover:bg-red-500 text-sm font-medium leading-none text-center text-white bg-red-400 rounded px-5 py-3"
+              >
                 Next
               </button>
             </div>

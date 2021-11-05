@@ -20,7 +20,7 @@ const Index = ({ username }) => {
   //   textColor1: "text-white",
   //   textColor2: "text-gray-100",
   // };
- 
+
   // const theme = {
   //   bgColor1: "bg-black",
   //   bgColor2: "bg-gray-900",
@@ -59,13 +59,13 @@ const Index = ({ username }) => {
   //   textColor2: "text-TeaGreen-3",
   // };
   // LightCyan/
-      const theme = {
-    bgColor1: "bg-LightCyan-1",
-    bgColor2: "bg-LightCyan-2",
-    bgTextColor: "bg-LightCyan-3",
-    textColor1: "text-LightCyan-3",
-    textColor2: "text-LightCyan-4",
-  };
+  //     const theme = {
+  //   bgColor1: "bg-LightCyan-1",
+  //   bgColor2: "bg-LightCyan-2",
+  //   bgTextColor: "bg-LightCyan-3",
+  //   textColor1: "text-LightCyan-3",
+  //   textColor2: "text-LightCyan-4",
+  // };
   // const theme = {
   //   bgColor1: "bg-white",
   //   bgColor2: "bg-gray-200",
@@ -90,7 +90,6 @@ const Index = ({ username }) => {
   //   textColor2: "text-gray-900",
   // };
 
-
   // PeachOrange
 
   // const theme = {
@@ -110,7 +109,6 @@ const Index = ({ username }) => {
   //   textColor2: "text-PearlAqua-4",
   // };
 
-
   // // BeauBlue
   // const theme = {
   //   bgColor1: "bg-BeauBlue-1",
@@ -119,34 +117,33 @@ const Index = ({ username }) => {
   //   textColor1: "text-BeauBlue-3",
   //   textColor2: "text-BeauBlue-4",
   // };
-    // BeauBlue
-    // const theme = {
-    //   bgColor1: "bg-BeauBlueRev-1",
-    //   bgColor2: "bg-BeauBlueRev-2",
-    //   bgTextColor: "bg-BeauBlueRev-3",
-    //   textColor1: "text-BeauBlueRev-3",
-    //   textColor2: "text-BeauBlueRev-4",
-    // };
+  // BeauBlue
+  // const theme = {
+  //   bgColor1: "bg-BeauBlueRev-1",
+  //   bgColor2: "bg-BeauBlueRev-2",
+  //   bgTextColor: "bg-BeauBlueRev-3",
+  //   textColor1: "text-BeauBlueRev-3",
+  //   textColor2: "text-BeauBlueRev-4",
+  // };
 
-    // // PearlAqua
-    // const theme = {
-    //   bgColor1: "bg-MistyRose-1",
-    //   bgColor2: "bg-MistyRose-2",
-    //   bgTextColor: "bg-MistyRose-3",
-    //   textColor1: "text-MistyRose-3",
-    //   textColor2: "text-MistyRose-4",
-    // };
+  // // PearlAqua
+  // const theme = {
+  //   bgColor1: "bg-MistyRose-1",
+  //   bgColor2: "bg-MistyRose-2",
+  //   bgTextColor: "bg-MistyRose-3",
+  //   textColor1: "text-MistyRose-3",
+  //   textColor2: "text-MistyRose-4",
+  // };
 
-
-      // PearlAqua
-      // const theme = {
-      //   bgColor1: "bg-MoonstoneBlue-1",
-      //   bgColor2: "bg-MoonstoneBlue-2",
-      //   bgTextColor: "bg-MoonstoneBlue-3",
-      //   textColor1: "text-MoonstoneBlue-3",
-      //   textColor2: "text-MoonstoneBlue-4",
-      // };
-      // DeepKoamaru
+  // PearlAqua
+  // const theme = {
+  //   bgColor1: "bg-MoonstoneBlue-1",
+  //   bgColor2: "bg-MoonstoneBlue-2",
+  //   bgTextColor: "bg-MoonstoneBlue-3",
+  //   textColor1: "text-MoonstoneBlue-3",
+  //   textColor2: "text-MoonstoneBlue-4",
+  // };
+  // DeepKoamaru
   //  const theme = {
   //       bgColor1: "bg-DeepKoamaru-1",
   //       bgColor2: "bg-DeepKoamaru-2",
@@ -155,38 +152,38 @@ const Index = ({ username }) => {
   //       textColor2: "text-DeepKoamaru-4",
   //     };
 
-    //  const theme = {
-    //     bgColor1: "bg-ChineseWhite-1",
-    //     bgColor2: "bg-ChineseWhite-2",
-    //     bgTextColor: "bg-ChineseWhite-3",
-    //     textColor1: "text-ChineseWhite-3",
-    //     textColor2: "text-ChineseWhite-4",
-    //   };
+  //  const theme = {
+  //     bgColor1: "bg-ChineseWhite-1",
+  //     bgColor2: "bg-ChineseWhite-2",
+  //     bgTextColor: "bg-ChineseWhite-3",
+  //     textColor1: "text-ChineseWhite-3",
+  //     textColor2: "text-ChineseWhite-4",
+  //   };
 
-    //  const theme = {
-    //     bgColor1: "bg-PalePink-1",
-    //     bgColor2: "bg-PalePink-2",
-    //     bgTextColor: "bg-PalePink-3",
-    //     textColor1: "text-PalePink-3",
-    //     textColor2: "text-black",
-    //   };
-      // Waterspout
+  //  const theme = {
+  //     bgColor1: "bg-PalePink-1",
+  //     bgColor2: "bg-PalePink-2",
+  //     bgTextColor: "bg-PalePink-3",
+  //     textColor1: "text-PalePink-3",
+  //     textColor2: "text-black",
+  //   };
+  // Waterspout
 
-      // const theme = {
-      //       bgColor1: "bg-Waterspout-1",
-      //       bgColor2: "bg-Waterspout-2",
-      //       bgTextColor: "bg-Waterspout-3",
-      //       textColor1: "text-Waterspout-3",
-      //       textColor2: "text-black",
-      //     };
-      // lighDark
-          // const theme = {
-          //   bgColor1: "bg-lighDark-1",
-          //   bgColor2: "bg-lighDark-2",
-          //   bgTextColor: "bg-lighDark-3",
-          //   textColor1: "text-lighDark-3",
-          //   textColor2: "text-lighDark-4",
-          // };
+  const theme = {
+    bgColor1: "bg-Waterspout-1",
+    bgColor2: "bg-Waterspout-2",
+    bgTextColor: "bg-Waterspout-3",
+    textColor1: "text-Waterspout-3",
+    textColor2: "text-black",
+  };
+  // lighDark
+  // const theme = {
+  //   bgColor1: "bg-lighDark-1",
+  //   bgColor2: "bg-lighDark-2",
+  //   bgTextColor: "bg-lighDark-3",
+  //   textColor1: "text-lighDark-3",
+  //   textColor2: "text-lighDark-4",
+  // };
 
   return (
     <div>

@@ -3,14 +3,15 @@ import { toast } from "react-toastify";
 import Loader from "../../../../utils/loader";
 import ToastContainer from "../../../../utils/toast";
 import { useSelector, useDispatch } from "react-redux";
-import { getprofile, updateProfile } from "../../../../redux/action/dashboardAction";
-import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
+import {
+  getprofile,
+  updateDomain,
+} from "../../../../redux/action/dashboardAction";
+import "react-confirm-alert/src/react-confirm-alert.css";
 const CustomDomain = ({ history }) => {
-
   const dispatch = useDispatch();
-  const { loading, error } = useSelector((state) => state.state)
-  const { profile } = useSelector((state) => state.store)
+  const { loading, error } = useSelector((state) => state.state);
+  const { profile } = useSelector((state) => state.store);
 
   const [website, setWebsite] = React.useState("www");
 
@@ -19,44 +20,36 @@ const CustomDomain = ({ history }) => {
     if (!profile) {
       dispatch(getprofile());
     }
-  }, [dispatch, error])
+    profile && setWebsite(profile.data.domain);
+  }, [dispatch, error]);
 
   const CheckIsValidDomain = (domain) => {
-    if (/^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/.test(domain)) {
+    if (
+      /^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/.test(
+        domain
+      )
+    ) {
       return true;
     } else {
       return false;
     }
-  }
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
     if (!CheckIsValidDomain(website)) {
-      toast.error('Enter Valid Domain')
+      toast.error("Enter Valid Domain");
     } else {
-      if (website.split('.').length < 3) {
-        toast.error('Include subdomain also like www')
+      if (website.split(".").length < 3) {
+        toast.error("Include subdomain also like www.");
       } else {
         const data = {
-          website: website
-        }
-        confirmAlert({
-          title: 'Title',
-          message: 'Message',
-          childrenElement: () => <div ><h1 className="text-red-400">Custom Domain1</h1></div>,
-          buttons: [
-            {
-              label: 'Done!',
-            },
-
-          ]
-        });
-        console.log(data);
+          domain: website,
+        };
+        dispatch(updateDomain(data, toast));
       }
-
     }
-
-  }
+  };
 
   return (
     <div>
@@ -85,7 +78,10 @@ const CustomDomain = ({ history }) => {
               * We not supporting root domain right now make sure to add
               subomain like www or something else
             </div>
-            <div onClick={submitHandler} className="flex cursor-pointer pt-8 items-center justify-center">
+            <div
+              onClick={submitHandler}
+              className="flex cursor-pointer pt-8 items-center justify-center"
+            >
               <p className="inline-block py-3 px-6 leading-none text-white bg-red-400 hover:bg-red-500 rounded shadow">
                 Save
               </p>

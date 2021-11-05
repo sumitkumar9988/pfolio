@@ -1,52 +1,49 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { userResetPassword } from "../../../redux/action/authAction";
 import Loader from "../../../utils/loader";
 import ToastContainer from "../../../utils/toast";
 
-const ResetPassword = ({history,match}) => {
-
-  const [password, setPassword] = useState('');
-  const [confimPassword, setConfimPassword] = useState('');
+const ResetPassword = ({ history, match }) => {
+  const [password, setPassword] = useState("");
+  const [confimPassword, setConfimPassword] = useState("");
 
   const dispatch = useDispatch();
 
   const resetPassword = useSelector((state) => state.resetPassword);
-  const { success ,loading,error} = resetPassword;
+  const { success, loading, error } = resetPassword;
 
   const userLogin = useSelector((state) => state.login);
   const { user } = userLogin;
 
   useEffect(() => {
-    if(user){
-      history.push('/home');
+    if (user) {
+      history.push("/home");
     }
-    if(success){
-      toast.success(success)
+    if (success) {
+      toast.success(success);
     }
-    if(error){
-      toast.error(error)
+    if (error) {
+      toast.error(error);
     }
-  }, [user,success,error,history]);
-
-
+  }, [user, success, error, history]);
 
   const submitHandler = (e) => {
     e.preventDefault();
     const data = {
       password,
     };
-    if(password!==confimPassword){
-      toast.error("password Don't match Confirm your Password")
+    if (password !== confimPassword) {
+      toast.error("password Don't match Confirm your Password");
     }
     console.log(data);
-    dispatch(userResetPassword(data,match.params.id));
+    dispatch(userResetPassword(data, match.params.id));
   };
 
   return (
     <div>
-      {loading && <Loader/>}
+      {loading && <Loader />}
       <div>
         <section class="relative py-20">
           <div class="container px-4 mx-auto">
@@ -87,7 +84,10 @@ const ResetPassword = ({history,match}) => {
                     Confirm Password
                   </span>
                 </div>
-                <button onClick={submitHandler} class="w-full inline-block py-4 mb-4 text-sm text-white font-medium leading-normal bg-red-400 hover:bg-red-300 rounded transition duration-200">
+                <button
+                  onClick={submitHandler}
+                  class="w-full inline-block py-4 mb-4 text-sm text-white font-medium leading-normal bg-red-400 hover:bg-red-300 rounded transition duration-200"
+                >
                   Reset Password
                 </button>
               </form>
