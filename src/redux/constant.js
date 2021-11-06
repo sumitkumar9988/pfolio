@@ -92,3 +92,5 @@ export const DELETE_SKILLS = "DELETE_SKILLS";
 export const SETDOMAIN = "SETDOMAIN";
 
 export const RESET = "RESET";
+export const RESET_EXPERIENCE='RESET_EXPERIENCE';
+export const RESET_EDUCATION='RESET_EDUCATION';

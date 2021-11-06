@@ -153,13 +153,15 @@ export const getprofile = () => async (dispatch, getState) => {
     });
 };
 
-export const addEducation = (data) => async (dispatch, getState) => {
+export const addEducation = (data,history,path=null,toast) => async (dispatch, getState) => {
   dispatch({ type: alias.LOADING_ENABLE });
   axios
     .post("/profile/education", data, getHeader(getState))
     .then((res) => {
       dispatch({ type: alias.CREATE_EDUCATION, payload: res.data });
       dispatch({ type: alias.LOADING_DISABLE });
+      toast.success('New Education Add Succuss !');
+      path && history.push(path) ;
     })
     .catch((error) => {
       dispatch({
@@ -178,6 +180,7 @@ export const getEducation = () => async (dispatch, getState) => {
     .get("/profile/education", getHeader(getState))
     .then((res) => {
       dispatch({ type: alias.GET_EDUCATION, payload: res.data });
+      
     })
     .catch((error) => {
       dispatch({
@@ -193,7 +196,7 @@ export const getEducation = () => async (dispatch, getState) => {
 export const getEducationByID = (id) => async (dispatch, getState) => {
   dispatch({ type: alias.LOADING_ENABLE });
   axios
-    .get(`/profile/education${id}`, getHeader(getState))
+    .get(`/profile/education/${id}`, getHeader(getState))
     .then((res) => {
       dispatch({ type: alias.GET_EDUCATION_BY_ID, payload: res.data });
       dispatch({ type: alias.LOADING_DISABLE });
@@ -210,13 +213,14 @@ export const getEducationByID = (id) => async (dispatch, getState) => {
     });
 };
 
-export const updateEducation = (id, data) => async (dispatch, getState) => {
+export const updateEducation = (id, data,history,path=null,toast) => async (dispatch, getState) => {
   dispatch({ type: alias.LOADING_ENABLE });
   axios
-    .get(`/profile/education${id}`, data, getHeader(getState))
+    .patch(`/profile/education/${id}`, data, getHeader(getState))
     .then((res) => {
       dispatch({ type: alias.UPDATE_EDUCATION_BY_ID, payload: res.data });
       dispatch({ type: alias.LOADING_DISABLE });
+      path && history.push(path);
     })
     .catch((error) => {
       dispatch({
@@ -230,13 +234,14 @@ export const updateEducation = (id, data) => async (dispatch, getState) => {
     });
 };
 
-export const deleteEducation = (id, data) => async (dispatch, getState) => {
+export const deleteEducation = (id, history,path=null) => async (dispatch, getState) => {
   dispatch({ type: alias.LOADING_ENABLE });
   axios
-    .get(`/profile/education${id}`, data, getHeader(getState))
+    .delete(`/profile/education/${id}`, getHeader(getState))
     .then((res) => {
       dispatch({ type: alias.DELETE_EDUCATION_BY_ID, payload: res.data });
       dispatch({ type: alias.LOADING_DISABLE });
+      path && history.push(path);
     })
     .catch((error) => {
       dispatch({
@@ -252,13 +257,15 @@ export const deleteEducation = (id, data) => async (dispatch, getState) => {
 
 //
 
-export const addExperience = (data) => async (dispatch, getState) => {
+export const addExperience = (data,history,path=null,toast) => async (dispatch, getState) => {
   dispatch({ type: alias.LOADING_ENABLE });
   axios
     .post("/profile/experience", data, getHeader(getState))
     .then((res) => {
       dispatch({ type: alias.CREATE_EXPERIENCE, payload: res.data });
       dispatch({ type: alias.LOADING_DISABLE });
+      toast.success('New Experience Add Succuss !');
+      path && history.push(path) ;
     })
     .catch((error) => {
       dispatch({
@@ -309,13 +316,16 @@ export const getExperienceByID = (id) => async (dispatch, getState) => {
     });
 };
 
-export const updateExperience = (id, data) => async (dispatch, getState) => {
+export const updateExperience = (id, data,history,path=null,toast) => async (dispatch, getState) => {
   dispatch({ type: alias.LOADING_ENABLE });
+  console.log("data",data);
   axios
-    .get(`/profile/experience/${id}`, data, getHeader(getState))
+    .patch(`/profile/experience/${id}`, data, getHeader(getState))
     .then((res) => {
       dispatch({ type: alias.UPDATE_EXPERIENCE_BY_ID, payload: res.data });
       dispatch({ type: alias.LOADING_DISABLE });
+      path && history.push(path);
+      toast.success('Experience Update Succussfully!')
     })
     .catch((error) => {
       dispatch({
@@ -329,13 +339,15 @@ export const updateExperience = (id, data) => async (dispatch, getState) => {
     });
 };
 
-export const deleteExperience = (id, data) => async (dispatch, getState) => {
+export const deleteExperience = (id, history,path=null,toast) => async (dispatch, getState) => {
   dispatch({ type: alias.LOADING_ENABLE });
   axios
-    .get(`/profile/experience/${id}`, data, getHeader(getState))
+    .delete(`/profile/experience/${id}`, getHeader(getState))
     .then((res) => {
       dispatch({ type: alias.DELETE_EXPERIENCE_BY_ID, payload: res.data });
+      toast.success('Experience delete succussfully !')
       dispatch({ type: alias.LOADING_DISABLE });
+      path && history.push(path);
     })
     .catch((error) => {
       dispatch({
@@ -565,13 +577,15 @@ export const getAnaltics = () => async (dispatch, getState) => {
     });
 };
 
-export const gitHubCallBack = (data) => async (dispatch, getState) => {
+export const gitHubCallBack = (data,toast) => async (dispatch, getState) => {
   dispatch({ type: alias.LOADING_ENABLE });
   axios
-    .post(`/github/callback`, data, getHeader(getState))
+    .post(`/profile/github/callback`, data, getHeader(getState))
     .then((res) => {
       dispatch({ type: alias.GITHUB_CALLBACK, payload: res.data });
       dispatch({ type: alias.LOADING_DISABLE });
+      dispatch(resfreshProject());
+      toast.success('GitHub Username Update Successfully! ')
     })
     .catch((error) => {
       dispatch({
@@ -581,6 +595,7 @@ export const gitHubCallBack = (data) => async (dispatch, getState) => {
             ? error.response.data.message
             : error.message,
       });
+      console.log(error)
       dispatch({ type: alias.LOADING_DISABLE });
     });
 };

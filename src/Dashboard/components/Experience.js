@@ -33,7 +33,7 @@ const Experience = () => {
                 key={item._id}
                 className="mb-4 w-full md:w-1/2 lg:w-1/3 px-3 rounded-lg"
               >
-                <Link to={`/home/education/${item._id}`}>
+                <Link to={`/home/experience/${item._id}`}>
                   <ExperienceCard
                     heading={item.jobTitle}
                     subheading={item.organization}

@@ -43,7 +43,9 @@ export const getExperienceListReducer = (state = {}, action) => {
 export const getEducationByIDReducer = (state = {}, action) => {
   switch (action.type) {
     case alias.GET_EDUCATION_BY_ID:
-      return { education: action.payload };
+      return  action.payload ;
+    case alias.RESET_EDUCATION:
+      return { };
     default:
       return state;
   }
@@ -142,6 +144,8 @@ export const getExperienceByIDReducer = (state = {}, action) => {
   switch (action.type) {
     case alias.GET_EXPERIENCE_BY_ID:
       return action.payload;
+    case alias.RESET_EXPERIENCE:
+      return {};
     default:
       return state;
   }

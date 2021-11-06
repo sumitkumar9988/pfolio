@@ -1,32 +1,30 @@
 import React from "react";
+import { toast } from "react-toastify";
+import { useDispatch,useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-const initialProject = [
-  {
-    name: "Ladddy",
-    id: "1",
-    description:
-      "Laborum ut consectetur ipsum laborum est exercitation exercitation.",
-    image:
-      "https://www.logolynx.com/images/logolynx/99/9960052cf2f5d09d075ab2c1fec5f2ea.jpeg",
-    link: "",
-    sourceLink: "",
-  },
-  {
-    name: "Ladddy2",
-    id: "2Quis exercitation est proident aute eiusmod occaecat dolor qui.",
-    description:
-      "Laborum ut consectetur ipsum laborum est exercitation exercitation.",
-    image:
-      "https://www.logolynx.com/images/logolynx/99/9960052cf2f5d09d075ab2c1fec5f2ea.jpeg",
-    link: "",
-    sourceLink: "",
-  },
-];
+import {getProject} from './../../../redux/action/dashboardAction'
+import ToastConatiner from './../../../utils/toast'
+import Loader from './../../../utils/loader'
+
 
 const Project = () => {
-  const [project, setProject] = React.useState(initialProject);
+
+  const dispatch = useDispatch();
+  const {error,loading}= useSelector(state => state.state)
+  const {projects}= useSelector(state => state.store)
+
+  React.useEffect(()=>{
+    error && toast.error(error)
+  },[error])
+
+  React.useEffect(()=>{
+      dispatch(getProject());
+  },[dispatch])
+
   return (
     <div class="min-h-screen">
+      {loading && <Loader/>}
+      <ToastConatiner/>
       <section class="py-8 px-6">
         <div class="flex flex-wrap -mx-3 items-center">
           <div class="w-full lg:w-1/2 flex items-center mb-5 lg:mb-0 px-3">
@@ -83,14 +81,14 @@ const Project = () => {
         </div>
 
         <div className="flex flex-wrap pt-8">
-          {project.map((item, i) => (
+          {( projects && projects.data) && projects.data.projects.map((item, i) => (
             <div className="mb-4 w-full md:w-1/2 lg:w-1/3 px-3 rounded-lg">
-              <Link to={`/home/project/${item.id}`}>
+              <Link to={`/home/project/${item._id}`}>
                 <div className="h-72 transform hover:scale-105 transition duration-300 rounded-xl bg-white justify-center items-center flex flex-col  shadow-xl text-center">
                   <div className="h-32 p-4">
                     <img
                       className="mx-auto mb-4 h-full w-full object-contain"
-                      src={item.image}
+                      src={item.logo}
                       alt=""
                     />
                   </div>
