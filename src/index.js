@@ -6,10 +6,19 @@ import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 import store from "./store";
 import ReactGA from "react-ga";
+import PortfolioPage from './Portfolio/Route'
 // UA-209183733-1
-// google analtics tracking ID
-import mixpanel from "mixpanel-browser";
-mixpanel.init("a1590672c1769cbb672d7ec1b20e145a", { debug: true });
+
+const parsedData = window.location.host.split('.');
+
+if (parsedData.length >= 3) {
+  const subDomain = parsedData[0];
+  console.log('subdomin', subDomain);
+  if (subDomain === 'www') {
+    window.location.assign('https://firstletter.tech');
+  }
+  ReactDOM.render(<PortfolioPage username={subDomain} />, document.getElementById('root'));
+} else {
 
 ReactDOM.render(
   <Provider store={store}>
@@ -17,6 +26,7 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

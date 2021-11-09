@@ -1,43 +1,13 @@
 import React from "react";
 import Item from "./Card/Experience";
-const data = [
-  {
-    title: "React Native Participant",
-    place: "N17R Incubator, Almaty",
-    date: "Jun 2018 - Aug 2018",
-  },
-  {
-    title: "SWE Intern",
-    place: "Yandex, Moscow",
-    date: "Jun 2019 - Aug 2019",
-  },
-  {
-    title: "React Native Participant",
-    place: "N17R Incubator, Almaty",
-    date: "Jun 2018 - Aug 2018",
-  },
-  {
-    title: "React Native Participant 4",
-    place: "N17R Incubator, Almaty",
-    date: "Jun 2018 - Aug 2018",
-  },
-  // {
-  //   title: "React Native Participant 5",
-  //   place: "N17R Incubator, Almaty",
-  //   date: "Jun 2018 - Aug 2018",
-  // },
-  // {
-  //   title: "React Native Participant",
-  //   place: "N17R Incubator, Almaty",
-  //   date: "Jun 2018 - Aug 2018",
-  // },
-];
 
-const Experience = ({ theme }) => {
+
+const Experience = ({ theme ,user}) => {
+  const [experience,setExperience]=React.useState(user.experience)
   let x, y, z;
   x = 0;
-  y = data.length - parseInt(data.length / 2);
-  z = data.length;
+  y = experience.length - parseInt(experience.length / 2);
+  z = experience.length;
 
   return (
     <div className="w-full md:w-10/12 lg:w-7/12 mx-auto pb-12">
@@ -51,12 +21,12 @@ const Experience = ({ theme }) => {
         </div>
         <div className="">
           <div className="flex flex-col md:hidden ">
-            {data.map((item, i) => (
+            {experience.map((item, i) => (
               <Item
                 {...item}
                 key={i}
                 first={i === 0}
-                last={i === data.length - 1}
+                last={i === experience.length - 1}
                 custom={i}
                 theme={theme}
               />
@@ -65,24 +35,24 @@ const Experience = ({ theme }) => {
           <div className="hidden md:block">
             <div className="flex justify-between ">
               <div>
-                {data.slice(x, y).map((item, i) => (
+                {experience.slice(x, y).map((item, i) => (
                   <Item
                     {...item}
                     key={i}
                     first={i === 0}
-                    last={i === data.length - parseInt(data.length / 2) - 1}
+                    last={i === experience.length - parseInt(experience.length / 2) - 1}
                     custom={i}
                     theme={theme}
                   />
                 ))}
               </div>
               <div>
-                {data.slice(y, z).map((item, i) => (
+                {experience.slice(y, z).map((item, i) => (
                   <Item
                     {...item}
                     key={i}
                     first={i === 0}
-                    last={i === (data.length % 2 === 0 ? y - 1 : y - 2)}
+                    last={i === (experience.length % 2 === 0 ? y - 1 : y - 2)}
                     custom={i}
                     theme={theme}
                   />

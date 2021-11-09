@@ -1,54 +1,7 @@
 import React from "react";
-const skills = [
-  {
-    name: "TypeScript",
-    href: "https://typescriptlang.org",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-  },
-  {
-    name: "React",
-    href: "https://reactjs.org",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-  },
-  {
-    name: "Golang",
-    href: "https://golang.org",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-original.svg",
-  },
-  {
-    name: "Node.js",
-    href: "https://nodejs.org",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  },
-  {
-    name: "nextjs",
-    href: "next js",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-  },
 
-  {
-    name: "Golang",
-    href: "https://golang.org",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-original.svg",
-  },
-  {
-    name: "Node.js",
-    href: "https://nodejs.org",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  },
-  {
-    name: "nextjs",
-    href: "next js",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-  },
-  {
-    name: "GraphQL",
-    href: "https://graphql.org",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg",
-  },
-];
+const Skills = ({ theme,user }) => {
 
-const Skills = ({ theme }) => {
   return (
     <div>
       <div className="w-full mt-20 md:mt-4  md:w-10/12 lg:w-7/12 mx-auto ">
@@ -60,18 +13,18 @@ const Skills = ({ theme }) => {
               Skills
             </p>
           </div>
-          <div className="max-w-md mt-8 grid grid-cols-2 sm:grid-cols-3 gap-6">
-            {skills.map((skill, i) => (
-              <p
-                className={`block pt-3 pb-2 text-center ${theme.bgColor2} rounded-lg shadow-xl `}
+          <div className="max-w-md  mt-8 pl-2 grid grid-cols-2 sm:grid-cols-3 gap-2">
+            {user.skills.map((skill, i) => (
+              <div
+                className={`block pt-3 pb-2 p-1 text-center ${theme.bgColor2} rounded-lg shadow-xl `}
               >
                 <div className="">
-                  <img className="mx-auto w-9 h-9" src={skill.icon} alt="" />
+                  <img className="mx-auto w-9 h-9" src={skill.logo} alt="" />
                 </div>
                 <p className={`mt-2 text-base font-medium ${theme.textColor1}`}>
-                  {skill.name}
+                  {skill.skill}
                 </p>
-              </p>
+              </div>
             ))}
           </div>
         </div>

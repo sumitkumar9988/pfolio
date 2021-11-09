@@ -62,8 +62,6 @@ function App() {
           <Route path="/changepassword" component={ChangePassword} />
           <Route path="/forgetpassword" component={ForgetPassword} />
           <Route path="/resetpassword/:id" component={ResetPassword} />
-          <Route path="/profile/:username" component={Portfolio} />
-
           <DashboardRoute path="/home/education/new" component={AddEducation} />
           <DashboardRoute
             path="/home/education/:id"
@@ -102,6 +100,8 @@ function App() {
           <Route path="/home/Get-started" component={CreateProfile} />
           <DashboardRoute path="/home" component={Home} />
           <Route path="/skills" component={skills} />
+          <Route exact path="/error"  component={FourOFour} />
+          <Route path="/:username" component={Portfolio} />
           <Route path="*" exact component={FourOFour} />
         </Switch>
       </Router>

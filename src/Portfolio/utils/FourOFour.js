@@ -1,6 +1,6 @@
 import React from "react";
 import FourOFourSVG from './../../Assets/404.svg'
-const FourOFour = ({status,message}) => {
+const FourOFour = ({location,status,message}) => {
   return (
     <div>
       <section class="py-20 overflow-hidden">
