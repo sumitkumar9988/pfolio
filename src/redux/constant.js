@@ -94,3 +94,5 @@ export const SETDOMAIN = "SETDOMAIN";
 export const RESET = "RESET";
 export const RESET_EXPERIENCE='RESET_EXPERIENCE';
 export const RESET_EDUCATION='RESET_EDUCATION';
+export const RESET_PROJECT='RESET_PROJECT';
+

@@ -25,7 +25,6 @@ const Login = ({ history }) => {
       action: "Account Created",
     });
 
-    console.log(response.tokenId);
     const inputData = {
       tokenID: response.tokenId,
     };
@@ -33,7 +32,6 @@ const Login = ({ history }) => {
   };
 
   const onFailGoogleResponse = (response) => {
-    console.log(response);
   };
 
   useEffect(() => {

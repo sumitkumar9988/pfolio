@@ -106,7 +106,7 @@ export const getUserDetails = () => async (dispatch, getState) => {
 };
 
 export const updateProfile =
-  (data, history, path = null) =>
+  (data, history, path = null,toast,message=null) =>
   async (dispatch, getState) => {
     dispatch({ type: alias.LOADING_ENABLE });
     axios
@@ -117,6 +117,7 @@ export const updateProfile =
         if (path) {
           history.push(path);
         }
+        message && toast.success(message)
       })
       .catch((error) => {
         dispatch({
@@ -318,7 +319,6 @@ export const getExperienceByID = (id) => async (dispatch, getState) => {
 
 export const updateExperience = (id, data,history,path=null,toast) => async (dispatch, getState) => {
   dispatch({ type: alias.LOADING_ENABLE });
-  console.log("data",data);
   axios
     .patch(`/profile/experience/${id}`, data, getHeader(getState))
     .then((res) => {
@@ -383,13 +383,14 @@ export const getProject = () => async (dispatch, getState) => {
     });
 };
 
-export const addProject = (data) => async (dispatch, getState) => {
+export const addProject = (data,history,path=null) => async (dispatch, getState) => {
   dispatch({ type: alias.LOADING_ENABLE });
   axios
     .post("/profile/project", data, getHeader(getState))
     .then((res) => {
       dispatch({ type: alias.CREATE_PROJECT, payload: res.data });
       dispatch({ type: alias.LOADING_DISABLE });
+      path && history.push(path)
     })
     .catch((error) => {
       dispatch({
@@ -443,13 +444,14 @@ export const getProjectByID = (id) => async (dispatch, getState) => {
     });
 };
 
-export const updateproject = (id, data) => async (dispatch, getState) => {
+export const updateproject = (id, data,history,path=null) => async (dispatch, getState) => {
   dispatch({ type: alias.LOADING_ENABLE });
   axios
     .patch(`/profile/project/${id}`, data, getHeader(getState))
     .then((res) => {
       dispatch({ type: alias.UPDATE_PROJECT_BY_ID, payload: res.data });
       dispatch({ type: alias.LOADING_DISABLE });
+      path && history.push(path);
     })
     .catch((error) => {
       dispatch({
@@ -463,13 +465,14 @@ export const updateproject = (id, data) => async (dispatch, getState) => {
     });
 };
 
-export const deleteProject = (id) => async (dispatch, getState) => {
+export const deleteProject = (id,history,path) => async (dispatch, getState) => {
   dispatch({ type: alias.LOADING_ENABLE });
   axios
     .delete(`/profile/project/${id}`, getHeader(getState))
     .then((res) => {
       dispatch({ type: alias.DELETE_PROJECT_BY_ID, payload: res.data });
       dispatch({ type: alias.LOADING_DISABLE });
+      path && history.push(path);
     })
     .catch((error) => {
       dispatch({
@@ -595,7 +598,6 @@ export const gitHubCallBack = (data,toast) => async (dispatch, getState) => {
             ? error.response.data.message
             : error.message,
       });
-      console.log(error)
       dispatch({ type: alias.LOADING_DISABLE });
     });
 };

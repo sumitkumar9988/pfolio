@@ -1,40 +1,13 @@
 import React from "react";
 import Item from "./Card/Education";
-const data = [
-  {
-    course: "B.tech",
-    institute: "IIT Delhi",
-    date: "Jun 2018 - Aug 2018",
-  },
 
-  {
-    course: "B.tech",
-    institute: "IIT Delhi",
-    date: "Jun 2018 - Aug 2018",
-  },
-  {
-    course: "MBA ",
-    institute: "IIM Banglore",
-    date: "Jun 2019 - Aug 2019",
-  },
-  {
-    course: "B.tech",
-    institute: "IIT Delhi",
-    date: "Jun 2018 - Aug 2018",
-  },
-  {
-    course: "MBA ",
-    institute: "IIM Banglore",
-    date: "Jun 2019 - Aug 2019",
-  },
-];
 
-const Experience = ({ theme }) => {
-  console.log(data.length);
+const Experience = ({ theme,user }) => {
+  const [education,setEducation]=React.useState(user.education)
   let x, y, z;
   x = 0;
-  y = data.length - parseInt(data.length / 2);
-  z = data.length;
+  y = education.length - parseInt(education.length / 2);
+  z = education.length;
 
   return (
     <div className="w-full md:w-10/12 lg:w-7/12 mx-auto pb-12">
@@ -48,12 +21,12 @@ const Experience = ({ theme }) => {
         </div>
         <div className="">
           <div className="flex flex-col md:hidden ">
-            {data.map((item, i) => (
+            {education.map((item, i) => (
               <Item
                 {...item}
                 key={i}
                 first={i === 0}
-                last={i === data.length - 1}
+                last={i === education.length - 1}
                 custom={i}
                 theme={theme}
               />
@@ -62,24 +35,24 @@ const Experience = ({ theme }) => {
           <div className="hidden md:block">
             <div className="flex justify-between ">
               <div>
-                {data.slice(x, y).map((item, i) => (
+                {education.slice(x, y).map((item, i) => (
                   <Item
                     {...item}
                     key={i}
                     first={i === 0}
-                    last={i === data.length - parseInt(data.length / 2) - 1}
+                    last={i === education.length - parseInt(education.length / 2) - 1}
                     custom={i}
                     theme={theme}
                   />
                 ))}
               </div>
               <div>
-                {data.slice(y, z).map((item, i) => (
+                {education.slice(y, z).map((item, i) => (
                   <Item
                     {...item}
                     key={i}
                     first={i === 0}
-                    last={i === (data.length % 2 === 0 ? y - 1 : y - 2)}
+                    last={i === (education.length % 2 === 0 ? y - 1 : y - 2)}
                     custom={i}
                     theme={theme}
                   />

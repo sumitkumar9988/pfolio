@@ -62,7 +62,7 @@ function App() {
           <Route path="/changepassword" component={ChangePassword} />
           <Route path="/forgetpassword" component={ForgetPassword} />
           <Route path="/resetpassword/:id" component={ResetPassword} />
-          <Route path="/sumit" component={Portfolio} />
+          <Route path="/profile/:username" component={Portfolio} />
 
           <DashboardRoute path="/home/education/new" component={AddEducation} />
           <DashboardRoute

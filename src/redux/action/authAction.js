@@ -49,13 +49,11 @@ export const userSignup =
   async (dispatch) => {
     dispatch({ type: SIGNUP_REQUEST });
     try {
-      console.log(baseURL);
       let { data } = await axios.post(`${baseURL}/${path}`, input);
       dispatch({ type: SIGNUP_SUCCESS, payload: data });
       dispatch({ type: LOGIN_SUCCESS, payload: data });
       localStorage.setItem("user", JSON.stringify(data));
     } catch (error) {
-      console.log(error);
       dispatch({
         type: SIGNUP_FAILURE,
         payload:
@@ -119,7 +117,6 @@ export const userResetPassword = (input, id) => async (dispatch) => {
       input,
       config
     );
-    console.log(data);
 
     dispatch({
       type: RESET_PASSWORD_SUCCESS,
@@ -184,13 +181,11 @@ export const getUserProfileAction = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(`${profileURL}/`, config);
-    console.log(data);
     dispatch({
       type: GET_PROFILE_SUCESS,
       payload: data,
     });
   } catch (error) {
-    console.log("error");
 
     dispatch({
       type: GET_PROFILE_FAILURE,
@@ -199,7 +194,6 @@ export const getUserProfileAction = () => async (dispatch, getState) => {
           ? error.response.data.message
           : error.message,
     });
-    console.log(error.response.status);
     if (error.response.status === 404) {
       document.location.href = "/home/Get-started";
     }

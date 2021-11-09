@@ -37,7 +37,6 @@ const ResetPassword = ({ history, match }) => {
     if (password !== confimPassword) {
       toast.error("password Don't match Confirm your Password");
     }
-    console.log(data);
     dispatch(userResetPassword(data, match.params.id));
   };
 

@@ -17,7 +17,6 @@ const Skills = () => {
 
   React.useEffect(() => {
     dispatch(getSkills());
-    console.log("éffect");
   }, [dispatch, editSkill,addSkillCard]);
 
   React.useEffect(() => {

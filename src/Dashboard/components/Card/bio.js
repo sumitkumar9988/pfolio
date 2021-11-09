@@ -26,21 +26,17 @@ const BioCard = ({ history }) => {
     dispatch(getprofile());
 
     if (profile && profile.data) {
-      console.log(profile.data);
       setPhoto(profile.data.photo);
     }
   }, [dispatch]);
 
   React.useEffect(() => {
     if (profile && profile.data) {
-      console.log(profile);
       setPhoto(profile.data.photo);
     }
   }, [profile]);
 
-  console.log(photo);
   const onChangePicture = (e) => {
-    console.log(e.target.files[0]);
     dispatch(uploadFile(e.target.files[0], setPhoto));
   };
 
@@ -52,8 +48,7 @@ const BioCard = ({ history }) => {
       aboutYou: currentJob,
       bio: bio,
     };
-    console.log(data);
-    dispatch(updateProfile(data, history, "/home/Get-started/upload-resume"));
+    dispatch(updateProfile(data, history, "/home/Get-started/upload-resume",toast,null));
   };
 
   return (

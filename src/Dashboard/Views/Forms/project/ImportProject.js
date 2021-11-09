@@ -15,8 +15,6 @@ const ImportProject = ({location,history}) => {
 
   let params = queryString.parse(location.search);
   const { code } = params;
-  console.log('code', code);
-  console.log('   ',process.env.REACT_APP_GITHUB)
 
   React.useEffect(() => {
     error && toast.error(error)

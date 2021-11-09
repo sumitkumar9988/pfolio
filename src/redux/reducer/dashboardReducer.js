@@ -91,6 +91,8 @@ export const updateProfileReducer = (state = {}, action) => {
   switch (action.type) {
     case alias.UPDATE_PROFILE:
       return action.payload;
+    case 'RESET_PROFILE_UPDATE':
+        return ;
     default:
       return state;
   }
@@ -184,6 +186,8 @@ export const getProjectProjectReducer = (state = {}, action) => {
       return action.payload;
     case alias.REFRESH_PROJECT:
       return action.payload;
+    case alias.RESET_PROJECT:
+      return {}
     default:
       return state;
   }

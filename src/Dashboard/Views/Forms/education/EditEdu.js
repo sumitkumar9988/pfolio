@@ -15,7 +15,6 @@ const EditEducation = ({history,match}) => {
 
   const dispatch = useDispatch();
   const id = match.params.id;
-  console.log(id);
 
   const [institute, setInstitute] = useState("");
   const [degree, setDegree] = useState("");
@@ -48,7 +47,6 @@ const EditEducation = ({history,match}) => {
     }
   }, [education, id]);
 
-  console.log(education.data)
 
   const uploadImage = (e) => {
     e.preventDefault();

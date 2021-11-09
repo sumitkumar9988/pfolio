@@ -1,9 +1,30 @@
-import React, { useState } from "react";
+import React,{useState,useEffect} from "react";
+import { toast } from "react-toastify";
+import { useDispatch,useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import {updateProfile} from './../../../redux/action/dashboardAction'
+import ToastConatiner from './../../../utils/toast'
+import Loader from './../../../utils/loader'
 import themeData from "./../../../utils/themeData.json";
-const Index = () => {
-  const [theme, setTheme] = useState();
-  console.log(theme);
+const Index = ({history}) => {
+  const [theme, setTheme] = useState({});
+  const dispatch =useDispatch();
+  const {loading ,error}=useSelector((state)=>state.state);
+
+  useEffect(()=>{
+    error && toast.error(error);
+  },[error])
+
+  const onSave=(e)=>{
+    e.preventDefault();
+    dispatch(updateProfile(theme,history,null,toast,'Theme Updated visit Your Profile'));
+  }
+
+  
   return (
+    <div>
+    {loading && <Loader/>}
+    <ToastConatiner/>
     <div className=" w-full sm:w-11/12 md:w-8/12 lg:w-6/12 mt-8 mx-auto">
       <div className="container mx-auto grid grid-cols-4 p-8">
         {themeData.map((item, i) => (
@@ -21,10 +42,11 @@ const Index = () => {
         ))}
       </div>
       <div className="flex justify-center items-center mx-auto">
-        <button className="w-36 h-12 shadow-lg text-white bg-gradient-to-l from-red-400 to-red-500 rounded-xl ">
+        <button onClick={onSave} className="w-36 h-12 shadow-lg text-white bg-gradient-to-l from-red-400 to-red-500 rounded-xl ">
           Save
         </button>
       </div>
+    </div>
     </div>
   );
 };

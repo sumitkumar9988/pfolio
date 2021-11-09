@@ -1,14 +1,80 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
+import Loader from "./../../../../utils/loader";
+import { useDispatch, useSelector } from "react-redux";
+import ToastContainer from "./../../../../utils/toast";
+import {
+  updateproject,
+  getProjectByID,
+  deleteProject,
+  uploadFile,
+} from "./../../../../redux/action/dashboardAction";
 
-const AddProject = () => {
-  const [image, setimage] = useState();
+const EditProject = ({ history, match }) => {
+  const dispatch = useDispatch();
+  const id = match.params.id;
 
-  // DemoUrl
-  // updated_at
-  // included
+  const { loading, error } = useSelector((state) => state.state);
+  const { project } = useSelector((state) => state.store);
+
+  const [image, setImage] = useState("");
+  const [included, isIncluded] = useState(false);
+  const [name, setName] = useState("");
+  const [demo, setDemoURL] = useState("");
+  const [updated_at, setUpdatedAt] = useState("");
+  const [description, setDescription] = useState("");
+
+  useEffect(() => {
+    error && toast.error(error);
+  }, [error]);
+
+  useEffect(() => {
+    dispatch({ type: "RESET_PROJECT" });
+    dispatch(getProjectByID(id));
+  }, [id]);
+
+  useEffect(() => {
+    if (project && project.data) {
+      isIncluded(project.data.included);
+      setImage(project.data.logo);
+      setName(project.data.name);
+      setDemoURL(project.data.DemoUrl);
+      setUpdatedAt(project.data.updated_at);
+      setDescription(project.data.description);
+    }
+    if (!project && !project.data && !project.data.jobTitle) {
+      dispatch(getProjectByID(id));
+    }
+  }, [project, id]);
+
+  const uploadImage = (e) => {
+    e.preventDefault();
+    dispatch(uploadFile(e.target.files[0], setImage));
+  };
+
+  const onSave = (e) => {
+    e.preventDefault();
+    const data = {
+      name: name,
+      logo: image,
+      DemoUrl: demo,
+      included: included,
+      updated_at: updated_at,
+      description: description,
+    };
+    dispatch(updateproject(id, data, history, "/home/project"));
+  };
+
+  const onDeleteProject = (e) => {
+    e.preventDefault();
+    dispatch(deleteProject(id, history, "/home/project"));
+  };
+
   return (
     <div>
+      {loading && <Loader />}
+      <ToastContainer />
       <div className=" mx-auto flex justify-center w-full h-full ">
         <div className="mt-8 w-full sm:w-8/12 m-4 md:w-3/6">
           <div class="w-full ">
@@ -24,6 +90,8 @@ const AddProject = () => {
                 id="name-with-label"
                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 name="name"
+                onChange={(e) => setName(e.target.value)}
+                value={name}
                 placeholder="Project Name"
               />
             </div>
@@ -33,6 +101,8 @@ const AddProject = () => {
               </label>
               <input
                 type="text"
+                value={demo}
+                onChange={(e) => setDemoURL(e.target.value)}
                 id="name-with-label"
                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 name="DemoUrl"
@@ -40,33 +110,24 @@ const AddProject = () => {
               />
             </div>
             <div class=" mt-4 mb-4 ">
-              <label for="name-with-label" class="text-gray-700">
-                Source of Project
-              </label>
-              <input
-                type="text"
-                id="name-with-label"
-                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
-                name="DemoUrl"
-                placeholder="Link of github or behance"
-              />
-            </div>
-            <div class=" mt-4 mb-4 ">
               <div className="mx-auto grid sm:grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label class="text-gray-700" for="time">
-                    Include in Portfolio List
+                    Include in Website
                   </label>
                   <select
                     type="text"
+                    defaultValue={included}
+                    value={included}
+                    onChange={(e)=>isIncluded(e.target.value)}
                     id="name-with-label"
                     class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
                     name="DemoUrl"
                   >
-                    <option className="p-1 font-semibold font-rubik text-base">
+                    <option value={true} className="p-1 w-full font-semibold font-rubik text-base">
                       Yes
                     </option>
-                    <option className="p-1 font-semibold font-rubik text-base">
+                    <option value={false} className="p-1 w-full font-semibold font-rubik text-base">
                       No
                     </option>
                   </select>
@@ -77,6 +138,8 @@ const AddProject = () => {
                   </label>
                   <input
                     type="date"
+                    value={updated_at}
+                    onChange={(e)=>setUpdatedAt(e.target.value)}
                     class="appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent flex-1"
                   />
                 </div>
@@ -90,6 +153,8 @@ const AddProject = () => {
                 class="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 id="description"
                 name="description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
                 placeholder="About Project"
                 rows="5"
                 cols="40"
@@ -127,7 +192,10 @@ const AddProject = () => {
                   </div>
                 )}
                 <div class="bg-white m-3 p-4 rounded-lg">
-                  <div className="flex items-center justify-start mx-auto  w-full  border border-dashed border-red-400 rounded-lg p-3">
+                  <label
+                    htmlFor="image"
+                    className="flex cursor-pointer items-center justify-start mx-auto  w-full  border border-dashed border-red-400 rounded-lg p-3"
+                  >
                     <div className="cursor-pointer text-red-400 ">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -146,6 +214,13 @@ const AddProject = () => {
                         <polyline points="9 15 12 12 15 15" />
                         <line x1={12} y1={12} x2={12} y2={21} />
                       </svg>
+                      <input
+                        type="file"
+                        className="hidden"
+                        id="image"
+                        onChange={uploadImage}
+                        accept="image/*"
+                      />
                     </div>
                     <p className="text-base font-normal tracking-normal text-gray-800 dark:text-gray-100 text-left ml-4">
                       Drag and drop here or
@@ -154,17 +229,20 @@ const AddProject = () => {
                         browse
                       </span>
                     </p>
-                  </div>
+                  </label>
                 </div>
               </div>
             </div>
             <div className="flex items-center flex-row  pt-4 justify-between lg:mx-20">
-              <div class="inline-block py-3 px-4 leading-none text-black bg-white border-red-400 border-2 rounded shadow">
-                Delete Project
+              <div
+                onClick={onDeleteProject}
+                class="cursor-pointer cursor-pointer inline-block py-3 px-4 leading-none text-black bg-white border-red-400 border-2 rounded shadow"
+              >
+                Delete
               </div>
-              <p class="inline-block py-3 px-4  leading-none text-white bg-red-400 hover:bg-red-500 rounded shadow">
-                Add Project
-              </p>
+              <div onClick={onSave} class="inline-block cursor-pointer py-3 px-4  leading-none text-white bg-red-400 hover:bg-red-500 rounded shadow">
+                Update
+              </div>
             </div>
           </div>
         </div>
@@ -173,4 +251,4 @@ const AddProject = () => {
   );
 };
 
-export default AddProject;
+export default EditProject;

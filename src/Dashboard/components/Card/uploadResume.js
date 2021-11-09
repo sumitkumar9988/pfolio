@@ -24,11 +24,9 @@ const UploadResume = ({ history }) => {
     const data = {
       resume: resume,
     };
-    console.log(data);
-    dispatch(updateProfile(data, history, "/home/Get-started/on-board"));
+    dispatch(updateProfile(data, history, "/home/Get-started/on-board",toast,null));
   };
   const onFileUpload = (e) => {
-    console.log(e.target.files[0]);
     dispatch(uploadFile(e.target.files[0], setResume));
   };
 
