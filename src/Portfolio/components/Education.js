@@ -1,9 +1,8 @@
 import React from "react";
 import Item from "./Card/Education";
 
-
-const Experience = ({ theme,user }) => {
-  const [education,setEducation]=React.useState(user.education)
+const Experience = ({ theme, user }) => {
+  const [education, setEducation] = React.useState(user.education);
   let x, y, z;
   x = 0;
   y = education.length - parseInt(education.length / 2);
@@ -40,7 +39,10 @@ const Experience = ({ theme,user }) => {
                     {...item}
                     key={i}
                     first={i === 0}
-                    last={i === education.length - parseInt(education.length / 2) - 1}
+                    last={
+                      i ===
+                      education.length - parseInt(education.length / 2) - 1
+                    }
                     custom={i}
                     theme={theme}
                   />

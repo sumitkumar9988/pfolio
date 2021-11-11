@@ -5,57 +5,50 @@ import Loader from "./../../../../utils/loader";
 import ToastContainer from "./../../../../utils/toast";
 import option from "../../../../utils/skills.json";
 import { useDispatch, useSelector } from "react-redux";
-import {addSkills} from './../../../../redux/action/dashboardAction'
+import { addSkills } from "./../../../../redux/action/dashboardAction";
 
 const AddNewSkills = ({ flipAddScreen }) => {
-
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.state);
-  const [skill,setNewSkill]=React.useState(null);
+  const [skill, setNewSkill] = React.useState(null);
 
-  React.useEffect(()=>{
-    error && toast.error(error)
-  },[])
-  
+  React.useEffect(() => {
+    error && toast.error(error);
+  }, []);
 
-  const onSaveSkills=()=>{
-      if(skill===null){
-        toast.error('Select Any Skills')
-      }else{
-        const data={
-          skill:skill.label,
-          logo:skill.image
-        }
-        dispatch(addSkills(data,toast));
-
-
-      }
-  }
-
+  const onSaveSkills = () => {
+    if (skill === null) {
+      toast.error("Select Any Skills");
+    } else {
+      const data = {
+        skill: skill.label,
+        logo: skill.image,
+      };
+      dispatch(addSkills(data, toast));
+    }
+  };
 
   const customStyles = {
     option: (provided, state) => ({
       ...provided,
       padding: 10,
-      backgroundColor:'#fff',
-      color:'#111',
-      fontSize:14,
-      width:'100%'
-
+      backgroundColor: "#fff",
+      color: "#111",
+      fontSize: 14,
+      width: "100%",
     }),
     control: () => ({
       // none of react-select's styles are passed to <Control />
       width: 400,
-      backgroundColor:'#f9fafb',
-      height:40
+      backgroundColor: "#f9fafb",
+      height: 40,
     }),
-    
   };
 
   return (
     <div>
-      {loading && <Loader/>}
-      <ToastContainer/>
+      {loading && <Loader />}
+      <ToastContainer />
       <div class="w-full overflow-hidden h-full fixed block top-0 left-0 bg-gray-100 bg-opacity-90 backdrop-filter backdrop-blur-sm z-30">
         <div className="absolute right-0 pt-8 pr-8">
           <div
@@ -94,12 +87,18 @@ const AddNewSkills = ({ flipAddScreen }) => {
                 styles={customStyles}
                 className="basic-single"
                 classNamePrefix="select"
-                components={{ DropdownIndicator:() => null, IndicatorSeparator:() => null }}
+                components={{
+                  DropdownIndicator: () => null,
+                  IndicatorSeparator: () => null,
+                }}
               />
             </div>
 
             <div className="flex items-center justify-center mt-7 mb-6">
-              <button onClick={onSaveSkills} className=" focus:outline-none focus:ring-2 focus:ring-offset-2  hover:bg-red-500 text-sm font-medium leading-none text-center text-white bg-red-400 rounded px-5 py-3">
+              <button
+                onClick={onSaveSkills}
+                className=" focus:outline-none focus:ring-2 focus:ring-offset-2  hover:bg-red-500 text-sm font-medium leading-none text-center text-white bg-red-400 rounded px-5 py-3"
+              >
                 Add
               </button>
             </div>

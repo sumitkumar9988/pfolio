@@ -37,8 +37,7 @@ const Signup = ({ history }) => {
     dispatch(userSignup(inputData, "signupGoogleOauth"));
   };
 
-  const onFailGoogleResponse = (response) => {
-  };
+  const onFailGoogleResponse = (response) => {};
 
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);

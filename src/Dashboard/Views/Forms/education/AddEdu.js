@@ -8,7 +8,7 @@ import {
   uploadFile,
 } from "./../../../../redux/action/dashboardAction";
 
-const AddEducation = ({history}) => {
+const AddEducation = ({ history }) => {
   const dispatch = useDispatch();
 
   const [institute, setInstitute] = useState("");
@@ -42,7 +42,7 @@ const AddEducation = ({history}) => {
 
   return (
     <div>
-          {loading && <Loader />}
+      {loading && <Loader />}
       <ToastContainer />
       <div className=" mx-auto flex justify-center w-full h-full ">
         <div className="mt-8 w-full sm:w-8/12 m-4 md:w-3/6">
@@ -58,19 +58,19 @@ const AddEducation = ({history}) => {
                 type="text"
                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 value={institute}
-                onChange={(e)=>setInstitute(e.target.value)}
+                onChange={(e) => setInstitute(e.target.value)}
                 placeholder="IIT Delhi"
               />
             </div>
             <div class=" mt-4 mb-4 ">
               <label for="name-with-label" class="text-gray-700">
-                Course 
+                Course
               </label>
               <input
                 type="text"
                 id="name-with-label"
                 value={degree}
-                onChange={(e)=>setDegree(e.target.value)}
+                onChange={(e) => setDegree(e.target.value)}
                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 name="email"
                 placeholder="B.tech (CSE)"
@@ -80,23 +80,23 @@ const AddEducation = ({history}) => {
               <div className="mx-auto grid sm:grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label class="text-gray-700" for="time">
-                   Start Date
+                    Start Date
                   </label>
                   <input
-                   type="date"
-                   value={startDate}
-                   onChange={(e)=>setStartDate(e.target.value)}
+                    type="date"
+                    value={startDate}
+                    onChange={(e) => setStartDate(e.target.value)}
                     class="appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent flex-1"
                   />
                 </div>
                 <div>
                   <label class="text-gray-700" for="time">
-                  End Date{" "}
+                    End Date{" "}
                   </label>
                   <input
-                      type="date"
-                      value={endDate}
-                      onChange={(e)=>setEndDate(e.target.value)}
+                    type="date"
+                    value={endDate}
+                    onChange={(e) => setEndDate(e.target.value)}
                     class="appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent flex-1"
                   />
                 </div>
@@ -111,7 +111,7 @@ const AddEducation = ({history}) => {
                     class="w-32 h-32 mb-4 mx-auto rounded-full object-cover object-right"
                   />
                 )}
-             <div class="bg-white m-3 p-4 rounded-lg">
+                <div class="bg-white m-3 p-4 rounded-lg">
                   <label
                     htmlFor="image"
                     className="flex cursor-pointer items-center justify-start mx-auto  w-full  border border-dashed border-red-400 rounded-lg p-3"

@@ -17,7 +17,7 @@ const Skills = () => {
 
   React.useEffect(() => {
     dispatch(getSkills());
-  }, [dispatch, editSkill,addSkillCard]);
+  }, [dispatch, editSkill, addSkillCard]);
 
   React.useEffect(() => {
     error && toast.error(error);

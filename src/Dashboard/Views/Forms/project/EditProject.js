@@ -119,15 +119,21 @@ const EditProject = ({ history, match }) => {
                     type="text"
                     defaultValue={included}
                     value={included}
-                    onChange={(e)=>isIncluded(e.target.value)}
+                    onChange={(e) => isIncluded(e.target.value)}
                     id="name-with-label"
                     class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
                     name="DemoUrl"
                   >
-                    <option value={true} className="p-1 w-full font-semibold font-rubik text-base">
+                    <option
+                      value={true}
+                      className="p-1 w-full font-semibold font-rubik text-base"
+                    >
                       Yes
                     </option>
-                    <option value={false} className="p-1 w-full font-semibold font-rubik text-base">
+                    <option
+                      value={false}
+                      className="p-1 w-full font-semibold font-rubik text-base"
+                    >
                       No
                     </option>
                   </select>
@@ -139,7 +145,7 @@ const EditProject = ({ history, match }) => {
                   <input
                     type="date"
                     value={updated_at}
-                    onChange={(e)=>setUpdatedAt(e.target.value)}
+                    onChange={(e) => setUpdatedAt(e.target.value)}
                     class="appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent flex-1"
                   />
                 </div>
@@ -240,7 +246,10 @@ const EditProject = ({ history, match }) => {
               >
                 Delete
               </div>
-              <div onClick={onSave} class="inline-block cursor-pointer py-3 px-4  leading-none text-white bg-red-400 hover:bg-red-500 rounded shadow">
+              <div
+                onClick={onSave}
+                class="inline-block cursor-pointer py-3 px-4  leading-none text-white bg-red-400 hover:bg-red-500 rounded shadow"
+              >
                 Update
               </div>
             </div>

@@ -48,7 +48,15 @@ const BioCard = ({ history }) => {
       aboutYou: currentJob,
       bio: bio,
     };
-    dispatch(updateProfile(data, history, "/home/Get-started/upload-resume",toast,null));
+    dispatch(
+      updateProfile(
+        data,
+        history,
+        "/home/Get-started/upload-resume",
+        toast,
+        null
+      )
+    );
   };
 
   return (

@@ -3,10 +3,10 @@ import { LiveProvider, LivePreview } from "react-live";
 import PortfolioSite from "../../../Portfolio/Index";
 
 const LivePreviewofSite = ({ user }) => {
-  let username = user.username;
-  const scope = { PortfolioSite, username };
+  console.log("view", user);
+  const scope = { PortfolioSite, user };
   const code = `
-  <div><PortfolioSite username={username}/></div>
+  <div><PortfolioSite username={user}/></div>
   `;
 
   return (

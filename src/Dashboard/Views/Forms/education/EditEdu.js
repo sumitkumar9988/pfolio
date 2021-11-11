@@ -7,12 +7,10 @@ import {
   updateEducation,
   deleteEducation,
   uploadFile,
-  getEducationByID
+  getEducationByID,
 } from "./../../../../redux/action/dashboardAction";
 
-
-const EditEducation = ({history,match}) => {
-
+const EditEducation = ({ history, match }) => {
   const dispatch = useDispatch();
   const id = match.params.id;
 
@@ -42,21 +40,20 @@ const EditEducation = ({history,match}) => {
       setEndDate(education.data.endDate);
       setImage(education.data.logo);
     }
-    if(!education && !education.data && !education.data.institute){
-         dispatch(getEducationByID(id));
+    if (!education && !education.data && !education.data.institute) {
+      dispatch(getEducationByID(id));
     }
   }, [education, id]);
-
 
   const uploadImage = (e) => {
     e.preventDefault();
     dispatch(uploadFile(e.target.files[0], setImage));
   };
 
-  const deleteExp=(e)=>{
+  const deleteExp = (e) => {
     e.preventDefault();
-    dispatch(deleteEducation(id,history,"/home/background",toast))
-  }
+    dispatch(deleteEducation(id, history, "/home/background", toast));
+  };
 
   const onSave = (e) => {
     e.preventDefault();
@@ -65,13 +62,13 @@ const EditEducation = ({history,match}) => {
       degree,
       startDate,
       endDate,
-      logo:image,
+      logo: image,
     };
-    dispatch(updateEducation(id,data, history, "/home/background", toast));
+    dispatch(updateEducation(id, data, history, "/home/background", toast));
   };
   return (
     <div>
-          {loading && <Loader />}
+      {loading && <Loader />}
       <ToastContainer />
       <div className=" mx-auto flex justify-center w-full h-full ">
         <div className="mt-8 w-full sm:w-8/12 m-4 md:w-3/6">
@@ -87,19 +84,19 @@ const EditEducation = ({history,match}) => {
                 type="text"
                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 value={institute}
-                onChange={(e)=>setInstitute(e.target.value)}
+                onChange={(e) => setInstitute(e.target.value)}
                 placeholder="IIT Delhi"
               />
             </div>
             <div class=" mt-4 mb-4 ">
               <label for="name-with-label" class="text-gray-700">
-                Course 
+                Course
               </label>
               <input
                 type="text"
                 id="name-with-label"
                 value={degree}
-                onChange={(e)=>setDegree(e.target.value)}
+                onChange={(e) => setDegree(e.target.value)}
                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 name="email"
                 placeholder="B.tech (CSE)"
@@ -109,23 +106,23 @@ const EditEducation = ({history,match}) => {
               <div className="mx-auto grid sm:grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label class="text-gray-700" for="time">
-                   Start Date
+                    Start Date
                   </label>
                   <input
-                   type="date"
-                   value={startDate}
-                   onChange={(e)=>setStartDate(e.target.value)}
+                    type="date"
+                    value={startDate}
+                    onChange={(e) => setStartDate(e.target.value)}
                     class="appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent flex-1"
                   />
                 </div>
                 <div>
                   <label class="text-gray-700" for="time">
-                  End Date{" "}
+                    End Date{" "}
                   </label>
                   <input
-                      type="date"
-                      value={endDate}
-                      onChange={(e)=>setEndDate(e.target.value)}
+                    type="date"
+                    value={endDate}
+                    onChange={(e) => setEndDate(e.target.value)}
                     class="appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent flex-1"
                   />
                 </div>
@@ -140,7 +137,7 @@ const EditEducation = ({history,match}) => {
                     class="w-2/4 h-32 mb-4 mx-auto  object-fill object-center"
                   />
                 )}
-             <div class="bg-white m-3 p-4 rounded-lg">
+                <div class="bg-white m-3 p-4 rounded-lg">
                   <label
                     htmlFor="image"
                     className="flex cursor-pointer items-center justify-start mx-auto  w-full  border border-dashed border-red-400 rounded-lg p-3"
@@ -183,10 +180,16 @@ const EditEducation = ({history,match}) => {
               </div>
             </div>
             <div className="flex items-center flex-row  pt-4 justify-between lg:mx-20">
-              <div onClick={deleteExp} class=" cursor-pointer inline-block py-3 px-4 leading-none text-black bg-white border-red-400 border-2 rounded shadow">
+              <div
+                onClick={deleteExp}
+                class=" cursor-pointer inline-block py-3 px-4 leading-none text-black bg-white border-red-400 border-2 rounded shadow"
+              >
                 Delete Project
               </div>
-              <p onClick={onSave} class=" cursor-pointer inline-block py-3 px-4  leading-none text-white bg-red-400 hover:bg-red-500 rounded shadow">
+              <p
+                onClick={onSave}
+                class=" cursor-pointer inline-block py-3 px-4  leading-none text-white bg-red-400 hover:bg-red-500 rounded shadow"
+              >
                 Save
               </p>
             </div>

@@ -106,7 +106,7 @@ export const getUserDetails = () => async (dispatch, getState) => {
 };
 
 export const updateProfile =
-  (data, history, path = null,toast,message=null) =>
+  (data, history, path = null, toast, message = null) =>
   async (dispatch, getState) => {
     dispatch({ type: alias.LOADING_ENABLE });
     axios
@@ -117,7 +117,7 @@ export const updateProfile =
         if (path) {
           history.push(path);
         }
-        message && toast.success(message)
+        message && toast.success(message);
       })
       .catch((error) => {
         dispatch({
@@ -154,34 +154,35 @@ export const getprofile = () => async (dispatch, getState) => {
     });
 };
 
-export const addEducation = (data,history,path=null,toast) => async (dispatch, getState) => {
-  dispatch({ type: alias.LOADING_ENABLE });
-  axios
-    .post("/profile/education", data, getHeader(getState))
-    .then((res) => {
-      dispatch({ type: alias.CREATE_EDUCATION, payload: res.data });
-      dispatch({ type: alias.LOADING_DISABLE });
-      toast.success('New Education Add Succuss !');
-      path && history.push(path) ;
-    })
-    .catch((error) => {
-      dispatch({
-        type: alias.ERROR,
-        payload:
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message,
+export const addEducation =
+  (data, history, path = null, toast) =>
+  async (dispatch, getState) => {
+    dispatch({ type: alias.LOADING_ENABLE });
+    axios
+      .post("/profile/education", data, getHeader(getState))
+      .then((res) => {
+        dispatch({ type: alias.CREATE_EDUCATION, payload: res.data });
+        dispatch({ type: alias.LOADING_DISABLE });
+        toast.success("New Education Add Succuss !");
+        path && history.push(path);
+      })
+      .catch((error) => {
+        dispatch({
+          type: alias.ERROR,
+          payload:
+            error.response && error.response.data.message
+              ? error.response.data.message
+              : error.message,
+        });
+        dispatch({ type: alias.LOADING_DISABLE });
       });
-      dispatch({ type: alias.LOADING_DISABLE });
-    });
-};
+  };
 
 export const getEducation = () => async (dispatch, getState) => {
   axios
     .get("/profile/education", getHeader(getState))
     .then((res) => {
       dispatch({ type: alias.GET_EDUCATION, payload: res.data });
-      
     })
     .catch((error) => {
       dispatch({
@@ -214,71 +215,77 @@ export const getEducationByID = (id) => async (dispatch, getState) => {
     });
 };
 
-export const updateEducation = (id, data,history,path=null,toast) => async (dispatch, getState) => {
-  dispatch({ type: alias.LOADING_ENABLE });
-  axios
-    .patch(`/profile/education/${id}`, data, getHeader(getState))
-    .then((res) => {
-      dispatch({ type: alias.UPDATE_EDUCATION_BY_ID, payload: res.data });
-      dispatch({ type: alias.LOADING_DISABLE });
-      path && history.push(path);
-    })
-    .catch((error) => {
-      dispatch({
-        type: alias.ERROR,
-        payload:
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message,
+export const updateEducation =
+  (id, data, history, path = null, toast) =>
+  async (dispatch, getState) => {
+    dispatch({ type: alias.LOADING_ENABLE });
+    axios
+      .patch(`/profile/education/${id}`, data, getHeader(getState))
+      .then((res) => {
+        dispatch({ type: alias.UPDATE_EDUCATION_BY_ID, payload: res.data });
+        dispatch({ type: alias.LOADING_DISABLE });
+        path && history.push(path);
+      })
+      .catch((error) => {
+        dispatch({
+          type: alias.ERROR,
+          payload:
+            error.response && error.response.data.message
+              ? error.response.data.message
+              : error.message,
+        });
+        dispatch({ type: alias.LOADING_DISABLE });
       });
-      dispatch({ type: alias.LOADING_DISABLE });
-    });
-};
+  };
 
-export const deleteEducation = (id, history,path=null) => async (dispatch, getState) => {
-  dispatch({ type: alias.LOADING_ENABLE });
-  axios
-    .delete(`/profile/education/${id}`, getHeader(getState))
-    .then((res) => {
-      dispatch({ type: alias.DELETE_EDUCATION_BY_ID, payload: res.data });
-      dispatch({ type: alias.LOADING_DISABLE });
-      path && history.push(path);
-    })
-    .catch((error) => {
-      dispatch({
-        type: alias.ERROR,
-        payload:
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message,
+export const deleteEducation =
+  (id, history, path = null) =>
+  async (dispatch, getState) => {
+    dispatch({ type: alias.LOADING_ENABLE });
+    axios
+      .delete(`/profile/education/${id}`, getHeader(getState))
+      .then((res) => {
+        dispatch({ type: alias.DELETE_EDUCATION_BY_ID, payload: res.data });
+        dispatch({ type: alias.LOADING_DISABLE });
+        path && history.push(path);
+      })
+      .catch((error) => {
+        dispatch({
+          type: alias.ERROR,
+          payload:
+            error.response && error.response.data.message
+              ? error.response.data.message
+              : error.message,
+        });
+        dispatch({ type: alias.LOADING_DISABLE });
       });
-      dispatch({ type: alias.LOADING_DISABLE });
-    });
-};
+  };
 
 //
 
-export const addExperience = (data,history,path=null,toast) => async (dispatch, getState) => {
-  dispatch({ type: alias.LOADING_ENABLE });
-  axios
-    .post("/profile/experience", data, getHeader(getState))
-    .then((res) => {
-      dispatch({ type: alias.CREATE_EXPERIENCE, payload: res.data });
-      dispatch({ type: alias.LOADING_DISABLE });
-      toast.success('New Experience Add Succuss !');
-      path && history.push(path) ;
-    })
-    .catch((error) => {
-      dispatch({
-        type: alias.ERROR,
-        payload:
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message,
+export const addExperience =
+  (data, history, path = null, toast) =>
+  async (dispatch, getState) => {
+    dispatch({ type: alias.LOADING_ENABLE });
+    axios
+      .post("/profile/experience", data, getHeader(getState))
+      .then((res) => {
+        dispatch({ type: alias.CREATE_EXPERIENCE, payload: res.data });
+        dispatch({ type: alias.LOADING_DISABLE });
+        toast.success("New Experience Add Succuss !");
+        path && history.push(path);
+      })
+      .catch((error) => {
+        dispatch({
+          type: alias.ERROR,
+          payload:
+            error.response && error.response.data.message
+              ? error.response.data.message
+              : error.message,
+        });
+        dispatch({ type: alias.LOADING_DISABLE });
       });
-      dispatch({ type: alias.LOADING_DISABLE });
-    });
-};
+  };
 
 export const getExperience = () => async (dispatch, getState) => {
   axios
@@ -317,49 +324,53 @@ export const getExperienceByID = (id) => async (dispatch, getState) => {
     });
 };
 
-export const updateExperience = (id, data,history,path=null,toast) => async (dispatch, getState) => {
-  dispatch({ type: alias.LOADING_ENABLE });
-  axios
-    .patch(`/profile/experience/${id}`, data, getHeader(getState))
-    .then((res) => {
-      dispatch({ type: alias.UPDATE_EXPERIENCE_BY_ID, payload: res.data });
-      dispatch({ type: alias.LOADING_DISABLE });
-      path && history.push(path);
-      toast.success('Experience Update Succussfully!')
-    })
-    .catch((error) => {
-      dispatch({
-        type: alias.ERROR,
-        payload:
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message,
+export const updateExperience =
+  (id, data, history, path = null, toast) =>
+  async (dispatch, getState) => {
+    dispatch({ type: alias.LOADING_ENABLE });
+    axios
+      .patch(`/profile/experience/${id}`, data, getHeader(getState))
+      .then((res) => {
+        dispatch({ type: alias.UPDATE_EXPERIENCE_BY_ID, payload: res.data });
+        dispatch({ type: alias.LOADING_DISABLE });
+        path && history.push(path);
+        toast.success("Experience Update Succussfully!");
+      })
+      .catch((error) => {
+        dispatch({
+          type: alias.ERROR,
+          payload:
+            error.response && error.response.data.message
+              ? error.response.data.message
+              : error.message,
+        });
+        dispatch({ type: alias.LOADING_DISABLE });
       });
-      dispatch({ type: alias.LOADING_DISABLE });
-    });
-};
+  };
 
-export const deleteExperience = (id, history,path=null,toast) => async (dispatch, getState) => {
-  dispatch({ type: alias.LOADING_ENABLE });
-  axios
-    .delete(`/profile/experience/${id}`, getHeader(getState))
-    .then((res) => {
-      dispatch({ type: alias.DELETE_EXPERIENCE_BY_ID, payload: res.data });
-      toast.success('Experience delete succussfully !')
-      dispatch({ type: alias.LOADING_DISABLE });
-      path && history.push(path);
-    })
-    .catch((error) => {
-      dispatch({
-        type: alias.ERROR,
-        payload:
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message,
+export const deleteExperience =
+  (id, history, path = null, toast) =>
+  async (dispatch, getState) => {
+    dispatch({ type: alias.LOADING_ENABLE });
+    axios
+      .delete(`/profile/experience/${id}`, getHeader(getState))
+      .then((res) => {
+        dispatch({ type: alias.DELETE_EXPERIENCE_BY_ID, payload: res.data });
+        toast.success("Experience delete succussfully !");
+        dispatch({ type: alias.LOADING_DISABLE });
+        path && history.push(path);
+      })
+      .catch((error) => {
+        dispatch({
+          type: alias.ERROR,
+          payload:
+            error.response && error.response.data.message
+              ? error.response.data.message
+              : error.message,
+        });
+        dispatch({ type: alias.LOADING_DISABLE });
       });
-      dispatch({ type: alias.LOADING_DISABLE });
-    });
-};
+  };
 
 //
 
@@ -383,26 +394,28 @@ export const getProject = () => async (dispatch, getState) => {
     });
 };
 
-export const addProject = (data,history,path=null) => async (dispatch, getState) => {
-  dispatch({ type: alias.LOADING_ENABLE });
-  axios
-    .post("/profile/project", data, getHeader(getState))
-    .then((res) => {
-      dispatch({ type: alias.CREATE_PROJECT, payload: res.data });
-      dispatch({ type: alias.LOADING_DISABLE });
-      path && history.push(path)
-    })
-    .catch((error) => {
-      dispatch({
-        type: alias.ERROR,
-        payload:
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message,
+export const addProject =
+  (data, history, path = null) =>
+  async (dispatch, getState) => {
+    dispatch({ type: alias.LOADING_ENABLE });
+    axios
+      .post("/profile/project", data, getHeader(getState))
+      .then((res) => {
+        dispatch({ type: alias.CREATE_PROJECT, payload: res.data });
+        dispatch({ type: alias.LOADING_DISABLE });
+        path && history.push(path);
+      })
+      .catch((error) => {
+        dispatch({
+          type: alias.ERROR,
+          payload:
+            error.response && error.response.data.message
+              ? error.response.data.message
+              : error.message,
+        });
+        dispatch({ type: alias.LOADING_DISABLE });
       });
-      dispatch({ type: alias.LOADING_DISABLE });
-    });
-};
+  };
 
 export const resfreshProject = () => async (dispatch, getState) => {
   dispatch({ type: alias.LOADING_ENABLE });
@@ -444,47 +457,50 @@ export const getProjectByID = (id) => async (dispatch, getState) => {
     });
 };
 
-export const updateproject = (id, data,history,path=null) => async (dispatch, getState) => {
-  dispatch({ type: alias.LOADING_ENABLE });
-  axios
-    .patch(`/profile/project/${id}`, data, getHeader(getState))
-    .then((res) => {
-      dispatch({ type: alias.UPDATE_PROJECT_BY_ID, payload: res.data });
-      dispatch({ type: alias.LOADING_DISABLE });
-      path && history.push(path);
-    })
-    .catch((error) => {
-      dispatch({
-        type: alias.ERROR,
-        payload:
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message,
+export const updateproject =
+  (id, data, history, path = null) =>
+  async (dispatch, getState) => {
+    dispatch({ type: alias.LOADING_ENABLE });
+    axios
+      .patch(`/profile/project/${id}`, data, getHeader(getState))
+      .then((res) => {
+        dispatch({ type: alias.UPDATE_PROJECT_BY_ID, payload: res.data });
+        dispatch({ type: alias.LOADING_DISABLE });
+        path && history.push(path);
+      })
+      .catch((error) => {
+        dispatch({
+          type: alias.ERROR,
+          payload:
+            error.response && error.response.data.message
+              ? error.response.data.message
+              : error.message,
+        });
+        dispatch({ type: alias.LOADING_DISABLE });
       });
-      dispatch({ type: alias.LOADING_DISABLE });
-    });
-};
+  };
 
-export const deleteProject = (id,history,path) => async (dispatch, getState) => {
-  dispatch({ type: alias.LOADING_ENABLE });
-  axios
-    .delete(`/profile/project/${id}`, getHeader(getState))
-    .then((res) => {
-      dispatch({ type: alias.DELETE_PROJECT_BY_ID, payload: res.data });
-      dispatch({ type: alias.LOADING_DISABLE });
-      path && history.push(path);
-    })
-    .catch((error) => {
-      dispatch({
-        type: alias.ERROR,
-        payload:
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message,
+export const deleteProject =
+  (id, history, path) => async (dispatch, getState) => {
+    dispatch({ type: alias.LOADING_ENABLE });
+    axios
+      .delete(`/profile/project/${id}`, getHeader(getState))
+      .then((res) => {
+        dispatch({ type: alias.DELETE_PROJECT_BY_ID, payload: res.data });
+        dispatch({ type: alias.LOADING_DISABLE });
+        path && history.push(path);
+      })
+      .catch((error) => {
+        dispatch({
+          type: alias.ERROR,
+          payload:
+            error.response && error.response.data.message
+              ? error.response.data.message
+              : error.message,
+        });
+        dispatch({ type: alias.LOADING_DISABLE });
       });
-      dispatch({ type: alias.LOADING_DISABLE });
-    });
-};
+  };
 export const getSkills = () => async (dispatch, getState) => {
   axios
     .get(`/profile/skills/`, getHeader(getState))
@@ -519,14 +535,14 @@ export const getSkillbyID = (id) => async (dispatch, getState) => {
     });
 };
 
-export const addSkills = (data,toast) => async (dispatch, getState) => {
+export const addSkills = (data, toast) => async (dispatch, getState) => {
   dispatch({ type: alias.LOADING_ENABLE });
   axios
     .post(`/profile/skills/`, data, getHeader(getState))
     .then((res) => {
       dispatch({ type: alias.ADD_SKILLS, payload: res.data });
       dispatch({ type: alias.LOADING_DISABLE });
-      toast.success('Skill Add succussfully!')
+      toast.success("Skill Add succussfully!");
     })
     .catch((error) => {
       dispatch({
@@ -580,7 +596,7 @@ export const getAnaltics = () => async (dispatch, getState) => {
     });
 };
 
-export const gitHubCallBack = (data,toast) => async (dispatch, getState) => {
+export const gitHubCallBack = (data, toast) => async (dispatch, getState) => {
   dispatch({ type: alias.LOADING_ENABLE });
   axios
     .post(`/profile/github/callback`, data, getHeader(getState))
@@ -588,7 +604,7 @@ export const gitHubCallBack = (data,toast) => async (dispatch, getState) => {
       dispatch({ type: alias.GITHUB_CALLBACK, payload: res.data });
       dispatch({ type: alias.LOADING_DISABLE });
       dispatch(resfreshProject());
-      toast.success('GitHub Username Update Successfully! ')
+      toast.success("GitHub Username Update Successfully! ");
     })
     .catch((error) => {
       dispatch({

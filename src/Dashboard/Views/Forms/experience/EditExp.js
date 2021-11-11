@@ -43,11 +43,10 @@ const EditExperience = ({ history, match }) => {
       setEndDate(experience.data.endDate);
       setImage(experience.data.logo);
     }
-    if(!experience && !experience.data && !experience.data.jobTitle){
-         dispatch(getExperienceByID(id));
+    if (!experience && !experience.data && !experience.data.jobTitle) {
+      dispatch(getExperienceByID(id));
     }
   }, [experience, id]);
-
 
   const uploadImage = (e) => {
     e.preventDefault();
@@ -67,10 +66,10 @@ const EditExperience = ({ history, match }) => {
     dispatch(updateExperience(id, data, history, "/home/background", toast));
   };
 
-  const deleteExp=(e)=>{
+  const deleteExp = (e) => {
     e.preventDefault();
-    dispatch(deleteExperience(id,history,"/home/background",toast))
-  }
+    dispatch(deleteExperience(id, history, "/home/background", toast));
+  };
 
   return (
     <div>
@@ -199,14 +198,19 @@ const EditExperience = ({ history, match }) => {
               </div>
             </div>
             <div className="flex items-center flex-row  pt-4 justify-between lg:mx-20">
-              <div onClick={deleteExp} class=" cursor-pointer inline-block py-3 px-4 leading-none text-black bg-white border-red-400 border-2 rounded shadow">
+              <div
+                onClick={deleteExp}
+                class=" cursor-pointer inline-block py-3 px-4 leading-none text-black bg-white border-red-400 border-2 rounded shadow"
+              >
                 Delete Project
               </div>
-              <p onClick={onSave} class=" cursor-pointer inline-block py-3 px-4  leading-none text-white bg-red-400 hover:bg-red-500 rounded shadow">
+              <p
+                onClick={onSave}
+                class=" cursor-pointer inline-block py-3 px-4  leading-none text-white bg-red-400 hover:bg-red-500 rounded shadow"
+              >
                 Save
               </p>
             </div>
-         
           </div>
         </div>
       </div>

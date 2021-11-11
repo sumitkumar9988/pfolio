@@ -100,7 +100,7 @@ function App() {
           <Route path="/home/Get-started" component={CreateProfile} />
           <DashboardRoute path="/home" component={Home} />
           <Route path="/skills" component={skills} />
-          <Route exact path="/error"  component={FourOFour} />
+          <Route exact path="/error" component={FourOFour} />
           <Route path="/:username" component={Portfolio} />
           <Route path="*" exact component={FourOFour} />
         </Switch>

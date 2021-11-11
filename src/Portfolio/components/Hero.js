@@ -49,7 +49,7 @@ const Hero = ({ theme, user }) => {
                 />
               </p>
             ) : null}{" "}
-               {user.behanceAccount ? (
+            {user.behanceAccount ? (
               <p className="" href={`${user.behanceAccount}`}>
                 <AiFillBehanceCircle
                   className={`h-8 w-8 m-1  ${theme.textColor1}`}
@@ -63,7 +63,7 @@ const Hero = ({ theme, user }) => {
                 />
               </p>
             ) : null}{" "}
-             {user.linkedInAccount ? (
+            {user.linkedInAccount ? (
               <p className="" href={`${user.linkedInAccount}`}>
                 <AiFillLinkedin
                   className={`h-8 w-8 m-1  ${theme.textColor1}`}

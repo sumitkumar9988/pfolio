@@ -43,9 +43,9 @@ export const getExperienceListReducer = (state = {}, action) => {
 export const getEducationByIDReducer = (state = {}, action) => {
   switch (action.type) {
     case alias.GET_EDUCATION_BY_ID:
-      return  action.payload ;
+      return action.payload;
     case alias.RESET_EDUCATION:
-      return { };
+      return {};
     default:
       return state;
   }
@@ -91,8 +91,8 @@ export const updateProfileReducer = (state = {}, action) => {
   switch (action.type) {
     case alias.UPDATE_PROFILE:
       return action.payload;
-    case 'RESET_PROFILE_UPDATE':
-        return ;
+    case "RESET_PROFILE_UPDATE":
+      return;
     default:
       return state;
   }
@@ -187,7 +187,7 @@ export const getProjectProjectReducer = (state = {}, action) => {
     case alias.REFRESH_PROJECT:
       return action.payload;
     case alias.RESET_PROJECT:
-      return {}
+      return {};
     default:
       return state;
   }

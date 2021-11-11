@@ -2,11 +2,11 @@ import React from "react";
 import { FaGithub, FaLink } from "react-icons/fa";
 import clsx from "clsx";
 const ProjectCard = ({
-  name:title,
+  name: title,
   description,
-  DemoUrl:externalLink,
-  repoUrl:githubLink,
-  logo:imageLink,
+  DemoUrl: externalLink,
+  repoUrl: githubLink,
+  logo: imageLink,
   rightShift,
   theme,
 }) => {

@@ -10,7 +10,7 @@ import Discord from "../../components/Card/Discord";
 import LivePreview from "../../components/Card/LivePreview";
 import SocialMedia from "../../components/Card/SocialMedia";
 
-const Home = () => {
+const Home = ({ history }) => {
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.state);
   const { profile } = useSelector((state) => state.store);
@@ -18,9 +18,12 @@ const Home = () => {
   const [username, setUsername] = React.useState("");
   useEffect(() => {
     error && toast.error(error);
-    Object.keys(profile).length === 0 && dispatch(getprofile());
+    dispatch(getprofile());
     if (profile && profile.data) {
+      console.log("username");
       setUsername(profile.data.username);
+    } else {
+      dispatch(getprofile());
     }
   }, [dispatch]);
 
@@ -32,7 +35,9 @@ const Home = () => {
         <div>
           <ToastContainer />
           <div className="w-full rounded ">
-            <LivePreview user={username} />
+            {profile && profile.data && (
+              <LivePreview user={profile.data.username} history={history} />
+            )}
           </div>
           <section class="py-8 px-8">
             <div class="flex flex-wrap justify-between items-center ml-2 md:ml-4">

@@ -1,9 +1,8 @@
 import React from "react";
 import Item from "./Card/Experience";
 
-
-const Experience = ({ theme ,user}) => {
-  const [experience,setExperience]=React.useState(user.experience)
+const Experience = ({ theme, user }) => {
+  const [experience, setExperience] = React.useState(user.experience);
   let x, y, z;
   x = 0;
   y = experience.length - parseInt(experience.length / 2);
@@ -40,7 +39,10 @@ const Experience = ({ theme ,user}) => {
                     {...item}
                     key={i}
                     first={i === 0}
-                    last={i === experience.length - parseInt(experience.length / 2) - 1}
+                    last={
+                      i ===
+                      experience.length - parseInt(experience.length / 2) - 1
+                    }
                     custom={i}
                     theme={theme}
                   />

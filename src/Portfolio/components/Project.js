@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProjectCard from "./Card/ProjectCard";
 
-const Project = ({ theme,user }) => {
+const Project = ({ theme, user }) => {
   const [project, setProject] = useState(user.project);
   return (
     <div>

@@ -1,7 +1,6 @@
 import React from "react";
 
-const Skills = ({ theme,user }) => {
-
+const Skills = ({ theme, user }) => {
   return (
     <div>
       <div className="w-full mt-20 md:mt-4  md:w-10/12 lg:w-7/12 mx-auto ">

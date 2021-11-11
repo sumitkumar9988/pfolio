@@ -36,7 +36,7 @@ const AddExperience = ({ history }) => {
       jobTitle: position,
       organization: organization,
       startDate: startDate,
-      website:website,
+      website: website,
       endDate: endDate,
       image: image,
     };
@@ -60,7 +60,7 @@ const AddExperience = ({ history }) => {
               <input
                 type="text"
                 value={position}
-                onChange={(e)=>setPosition(e.target.value)}
+                onChange={(e) => setPosition(e.target.value)}
                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 name="position"
                 placeholder="Software Developer"
@@ -68,12 +68,12 @@ const AddExperience = ({ history }) => {
             </div>
             <div class=" mt-4 mb-4 ">
               <label for="name-with-label" class="text-gray-700">
-              Organization
+                Organization
               </label>
               <input
                 type="text"
                 value={organization}
-                onChange={(e)=>setOrganization(e.target.value)}
+                onChange={(e) => setOrganization(e.target.value)}
                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 placeholder="Google"
               />
@@ -87,7 +87,7 @@ const AddExperience = ({ history }) => {
                   <input
                     type="date"
                     value={startDate}
-                    onChange={(e)=>setStartDate(e.target.value)}
+                    onChange={(e) => setStartDate(e.target.value)}
                     class="appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent flex-1"
                   />
                 </div>
@@ -98,7 +98,7 @@ const AddExperience = ({ history }) => {
                   <input
                     type="date"
                     value={endDate}
-                    onChange={(e)=>setEndDate(e.target.value)}
+                    onChange={(e) => setEndDate(e.target.value)}
                     class="appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent flex-1"
                   />
                 </div>
@@ -111,7 +111,7 @@ const AddExperience = ({ history }) => {
               <input
                 type="text"
                 value={website}
-                onChange={(e)=>setWebsite(e.target.value)}
+                onChange={(e) => setWebsite(e.target.value)}
                 id="name-with-label"
                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
                 name="email"

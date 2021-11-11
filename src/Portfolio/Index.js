@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Error from "./utils/FourOFour";
 import { api } from "./../utils/url";
 import clsx from "clsx";
 import Loader from "./utils/Loader";
@@ -13,12 +14,22 @@ import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
-const Index = ({ username, match, history }) => {
+const Index = ({ username, history, match }) => {
   const [loading, setLoading] = React.useState(true);
   const [user, setUser] = React.useState({});
+  const [error, setError] = React.useState();
   const [theme, setTheme] = React.useState({});
 
-  const user_name = match.params.username || username;
+  let user_name;
+  if (match && match.params && match.params.username) {
+    user_name = match.params.username;
+  } else if (username) {
+    user_name = username;
+  } else {
+    console.log("error");
+  }
+
+  console.log(user_name);
 
   const fetchProfile = () => {
     axios
@@ -38,8 +49,13 @@ const Index = ({ username, match, history }) => {
       })
       .catch((err) => {
         console.log(err);
-        console.log('before push');
-        history.push('/error')
+        let err_message;
+        err_message =
+          err.response && err.response.data.message
+            ? err.response.data.message
+            : err.message;
+        setError(err_message);
+        setLoading(false);
       });
   };
 
@@ -47,11 +63,20 @@ const Index = ({ username, match, history }) => {
     fetchProfile();
   }, []);
 
+  // loading?<Loader/>:(error?<Error/>:<Index/>)
 
   return (
     <div>
+      {/* { loading ? 
+        <h2>It is Loading.</h2>
+          : user.data ? 
+          <h2>{user}</h2>
+          :<h2>There was no result!</h2> 
+        } */}
       {loading ? (
         <Loader />
+      ) : error ? (
+        <Error message={error} />
       ) : (
         <div>
           <Helmet>

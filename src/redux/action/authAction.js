@@ -186,7 +186,6 @@ export const getUserProfileAction = () => async (dispatch, getState) => {
       payload: data,
     });
   } catch (error) {
-
     dispatch({
       type: GET_PROFILE_FAILURE,
       payload:

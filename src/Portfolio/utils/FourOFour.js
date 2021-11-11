@@ -1,6 +1,6 @@
 import React from "react";
-import FourOFourSVG from './../../Assets/404.svg'
-const FourOFour = ({location,status,message}) => {
+import FourOFourSVG from "./../../Assets/404.svg";
+const FourOFour = ({ status, message }) => {
   return (
     <div>
       <section class="py-20 overflow-hidden">
@@ -13,9 +13,7 @@ const FourOFour = ({location,status,message}) => {
           <span class="text-4xl text-red-500 font-bold font-heading">
             {status}
           </span>
-          <h2 class="mb-4 text-4xl font-bold font-heading">
-          {message}
-          </h2>
+          <h2 class="mb-4 text-4xl font-bold font-heading">{message}</h2>
           <div>
             <p
               class="block sm:inline-block py-4 px-8 mb-4 sm:mb-0 sm:mr-3 text-xs text-white text-center font-semibold leading-none bg-red-400 hover:bg-red-500 rounded"
@@ -23,7 +21,6 @@ const FourOFour = ({location,status,message}) => {
             >
               Go back to Homepage
             </p>
-            
           </div>
         </div>
       </section>

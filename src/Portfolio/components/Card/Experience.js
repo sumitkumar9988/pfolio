@@ -1,6 +1,13 @@
 import React from "react";
 
-const Experience = ({jobTitle: title, organization:place, startDate,endDate, last, theme }) => {
+const Experience = ({
+  jobTitle: title,
+  organization: place,
+  startDate,
+  endDate,
+  last,
+  theme,
+}) => {
   return (
     <div>
       <div className="relative flex items-center mt-14">
@@ -14,7 +21,7 @@ const Experience = ({jobTitle: title, organization:place, startDate,endDate, las
           <p className="text-base font-rubik font-medium">{title}</p>
           <p className="text-base">{place}</p>
           <p className={`flex items-center text-sm mt-0.5 ${theme.textColor2}`}>
-            {startDate}{" "}--{" "}{endDate}
+            {startDate} -- {endDate}
           </p>
         </div>
       </div>

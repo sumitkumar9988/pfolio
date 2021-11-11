@@ -1,23 +1,22 @@
 import React from "react";
-import { useDispatch,useSelector } from "react-redux";
-import queryString from 'query-string';
+import { useDispatch, useSelector } from "react-redux";
+import queryString from "query-string";
 import { toast } from "react-toastify";
-import Loader from './../../../../utils/loader'
-import ToastContainer from './../../../../utils/toast'
-import {gitHubCallBack} from './../../../../redux/action/dashboardAction'
+import Loader from "./../../../../utils/loader";
+import ToastContainer from "./../../../../utils/toast";
+import { gitHubCallBack } from "./../../../../redux/action/dashboardAction";
 import { AiFillGithub, AiOutlineDribbble } from "react-icons/ai";
 import { FcDribbble } from "react-icons/fc";
-const ImportProject = ({location,history}) => {
-
+const ImportProject = ({ location, history }) => {
   const dispatch = useDispatch();
 
-  const {error,loading} = useSelector((state) => state.state);
+  const { error, loading } = useSelector((state) => state.state);
 
   let params = queryString.parse(location.search);
   const { code } = params;
 
   React.useEffect(() => {
-    error && toast.error(error)
+    error && toast.error(error);
   }, [error]);
 
   React.useEffect(() => {
@@ -25,14 +24,14 @@ const ImportProject = ({location,history}) => {
       const input = {
         code: code,
       };
-      dispatch(gitHubCallBack(input,toast));
+      dispatch(gitHubCallBack(input, toast));
     }
   }, [code]);
 
   return (
     <div>
-      {loading && <Loader/>}
-      <ToastContainer/>
+      {loading && <Loader />}
+      <ToastContainer />
       <div className="flex flex-col justify-center items-center mx-auto pt-40">
         <div className="w-60">
           <a
@@ -42,7 +41,10 @@ const ImportProject = ({location,history}) => {
             className=" bg-white  py-4 px-4 border rounded-lg border-gray-400 flex items-center w-full mt-4"
           >
             <AiFillGithub size="24px" />
-            <a href={`${process.env.REACT_APP_GITHUB}`} className="text-base  font-bold ml-4 text-gray-900">
+            <a
+              href={`${process.env.REACT_APP_GITHUB}`}
+              className="text-base  font-bold ml-4 text-gray-900"
+            >
               Import from Github
             </a>
           </a>

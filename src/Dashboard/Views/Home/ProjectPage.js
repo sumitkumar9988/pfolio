@@ -1,30 +1,28 @@
 import React from "react";
 import { toast } from "react-toastify";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {getProject} from './../../../redux/action/dashboardAction'
-import ToastConatiner from './../../../utils/toast'
-import Loader from './../../../utils/loader'
-
+import { getProject } from "./../../../redux/action/dashboardAction";
+import ToastConatiner from "./../../../utils/toast";
+import Loader from "./../../../utils/loader";
 
 const Project = () => {
-
   const dispatch = useDispatch();
-  const {error,loading}= useSelector(state => state.state)
-  const {projects}= useSelector(state => state.store)
+  const { error, loading } = useSelector((state) => state.state);
+  const { projects } = useSelector((state) => state.store);
 
-  React.useEffect(()=>{
-    error && toast.error(error)
-  },[error])
+  React.useEffect(() => {
+    error && toast.error(error);
+  }, [error]);
 
-  React.useEffect(()=>{
-      dispatch(getProject());
-  },[dispatch])
+  React.useEffect(() => {
+    dispatch(getProject());
+  }, [dispatch]);
 
   return (
     <div class="min-h-screen">
-      {loading && <Loader/>}
-      <ToastConatiner/>
+      {loading && <Loader />}
+      <ToastConatiner />
       <section class="py-8 px-6">
         <div class="flex flex-wrap -mx-3 items-center">
           <div class="w-full lg:w-1/2 flex items-center mb-5 lg:mb-0 px-3">
@@ -81,28 +79,30 @@ const Project = () => {
         </div>
 
         <div className="flex flex-wrap pt-8">
-          {( projects && projects.data) && projects.data.projects.map((item, i) => (
-            <div className="mb-4 w-full md:w-1/2 lg:w-1/3 px-3 rounded-lg">
-              <Link to={`/home/project/${item._id}`}>
-                <div className="h-72 transform hover:scale-105 transition duration-300 rounded-xl bg-white justify-center items-center flex flex-col  shadow-xl text-center">
-                  <div className="h-32 p-4">
-                    <img
-                      className="mx-auto mb-4 h-full w-full object-contain"
-                      src={item.logo}
-                      alt=""
-                    />
-                  </div>
+          {projects &&
+            projects.data &&
+            projects.data.projects.map((item, i) => (
+              <div className="mb-4 w-full md:w-1/2 lg:w-1/3 px-3 rounded-lg">
+                <Link to={`/home/project/${item._id}`}>
+                  <div className="h-72 transform hover:scale-105 transition duration-300 rounded-xl bg-white justify-center items-center flex flex-col  shadow-xl text-center">
+                    <div className="h-32 p-4">
+                      <img
+                        className="mx-auto mb-4 h-full w-full object-contain"
+                        src={item.logo}
+                        alt=""
+                      />
+                    </div>
 
-                  <h4 className="mb-2 pt-2 text-gray-800 text-2xl font-bold font-heading">
-                    {item.name}
-                  </h4>
-                  <p className="text-gray-500 truncate  w-8/12">
-                    {item.description}
-                  </p>
-                </div>
-              </Link>
-            </div>
-          ))}
+                    <h4 className="mb-2 pt-2 text-gray-800 text-2xl font-bold font-heading">
+                      {item.name}
+                    </h4>
+                    <p className="text-gray-500 truncate  w-8/12">
+                      {item.description}
+                    </p>
+                  </div>
+                </Link>
+              </div>
+            ))}
 
           <div className="mb-4 w-full md:w-1/2 lg:w-1/3 px-3 rounded-lg">
             <Link to="/home/project/new">
