@@ -8,7 +8,7 @@ const Headers = ({ theme, user }) => {
     <div className="absolute z-30 w-full opacity-90 transition-top  flex items-center transform transition duration-200 justify-center mx-auto py-8">
       <div className="w-full md:w-10/12 lg:w-7/12 ">
         <div>
-          <Link href="/">
+          <Link to="/">
             <div
               className={`${theme.textColor1} text-2xl mx-8 lg:mx-16 font-rubik font-semibold `}
             >
