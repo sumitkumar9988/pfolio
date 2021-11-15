@@ -1,5 +1,5 @@
 import React from "react";
-import FourOFourSVG from "./../../Assets/404.svg";
+import FourOFourSVG from "../../Assets/404.svg";
 const FourOFour = ({ status, message }) => {
   return (
     <div>

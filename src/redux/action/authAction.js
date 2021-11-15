@@ -1,5 +1,5 @@
 import axios from "axios";
-import { baseURL, profileURL } from "../../utils/url";
+import { baseURL, profileURL ,api} from "../../utils/url";
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -29,6 +29,8 @@ export const userLogin =
   (input, path = "login") =>
   async (dispatch) => {
     try {
+      console.log("!!"+api)
+      console.log("!!"+baseURL)
       dispatch({ type: LOGIN_REQUEST });
       let { data } = await axios.post(`${baseURL}/${path}`, input);
       dispatch({ type: LOGIN_SUCCESS, payload: data });

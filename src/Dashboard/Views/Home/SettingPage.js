@@ -91,11 +91,11 @@ const Setting = () => {
                   Custom Domain
                 </p>
               </Link>
-              <Link to="/home/theme">
+              {/* <Link to="/home/theme">
                 <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
                   Change Theme
                 </p>
-              </Link>
+              </Link> */}
               <Link to="/changepassword">
                 <p className=" w-full py-4 text-center border-t text-base font-semibold font-rubik border-gray-100  transform hover:scale-110 duration-200 text-gray-500 hover:text-gray-800 ">
                   Change Password
