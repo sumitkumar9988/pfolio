@@ -15,7 +15,7 @@ if (parsedData.length >= 3) {
   const subDomain = parsedData[0];
   console.log("subdomin", subDomain);
   if (subDomain === "www") {
-    window.location.assign("https://firstletter.tech");
+    window.location.assign("https://pfolio.me");
   }
   ReactDOM.render(
     <PortfolioPage username={subDomain} />,

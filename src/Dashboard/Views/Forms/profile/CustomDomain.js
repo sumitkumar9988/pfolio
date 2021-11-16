@@ -13,15 +13,24 @@ const CustomDomain = ({ history }) => {
   const { loading, error } = useSelector((state) => state.state);
   const { profile } = useSelector((state) => state.store);
 
-  const [website, setWebsite] = React.useState("www");
+  const [website, setWebsite] = React.useState("");
 
   React.useEffect(() => {
     error && toast.error(error);
-    if (!profile) {
-      dispatch(getprofile());
+  }, [ error]);
+
+  React.useEffect(() => {
+    dispatch(getprofile());
+  }, []);
+
+  React.useEffect(() => {
+    if(profile && profile.data){
+      setWebsite(profile.data.domain);
     }
-    profile && setWebsite(profile.data.domain);
-  }, [dispatch, error]);
+  }, [profile]);
+
+
+ 
 
   const CheckIsValidDomain = (domain) => {
     if (
@@ -39,16 +48,21 @@ const CustomDomain = ({ history }) => {
     e.preventDefault();
     if (!CheckIsValidDomain(website)) {
       toast.error("Enter Valid Domain");
-    } else {
-      if (website.split(".").length < 3) {
-        toast.error("Include subdomain also like www.");
-      } else {
-        const data = {
+    } 
+    else{
+              const data = {
           domain: website,
         };
-        dispatch(updateDomain(data, toast));
-      }
+      dispatch(updateDomain(data, toast));
     }
+
+    // else {
+    //   if (website.split(".").length < 3) {
+    //     toast.error("Include subdomain also like www.");
+    //   } else {
+
+    //   }
+    // }
   };
 
   return (
@@ -69,7 +83,7 @@ const CustomDomain = ({ history }) => {
                 id="name-with-label"
                 onChange={(e) => setWebsite(e.target.value)}
                 value={website}
-                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                className=" py-4 pl-4  rounded text-sm focus:outline-none w-full  bg-gray-100 resize-none text-gray-800"
                 name="domain"
                 placeholder="Your Domain Name"
               />

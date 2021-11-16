@@ -89,7 +89,7 @@ const EditExperience = ({ history, match }) => {
                 type="text"
                 value={position}
                 onChange={(e) => setPosition(e.target.value)}
-                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                class="py-4 pl-4  rounded text-sm focus:outline-none w-full  bg-gray-100 resize-none text-gray-800"
                 name="position"
                 placeholder="Software Developer"
               />
@@ -102,7 +102,7 @@ const EditExperience = ({ history, match }) => {
                 type="text"
                 value={organization}
                 onChange={(e) => setOrganization(e.target.value)}
-                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                class="py-4 pl-4  rounded text-sm focus:outline-none w-full  bg-gray-100 resize-none text-gray-800"
                 placeholder="Google"
               />
             </div>
@@ -116,7 +116,7 @@ const EditExperience = ({ history, match }) => {
                     type="date"
                     value={startDate}
                     onChange={(e) => setStartDate(e.target.value)}
-                    class="appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent flex-1"
+                    class="py-4 pl-4  rounded text-sm focus:outline-none w-full  bg-gray-100 resize-none text-gray-800"
                   />
                 </div>
                 <div>
@@ -127,7 +127,7 @@ const EditExperience = ({ history, match }) => {
                     type="date"
                     value={endDate}
                     onChange={(e) => setEndDate(e.target.value)}
-                    class="appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent flex-1"
+                    class="py-4 pl-4  rounded text-sm focus:outline-none w-full  bg-gray-100 resize-none text-gray-800"
                   />
                 </div>
               </div>
@@ -141,7 +141,7 @@ const EditExperience = ({ history, match }) => {
                 value={website}
                 onChange={(e) => setWebsite(e.target.value)}
                 id="name-with-label"
-                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                class="py-4 pl-4  rounded text-sm focus:outline-none w-full  bg-gray-100 resize-none text-gray-800"
                 name="email"
                 placeholder="Company website Link "
               />

@@ -6,7 +6,7 @@ import Login from "./Dashboard/Views/Auth/LoginPage";
 import Signup from "./Dashboard/Views/Auth/SignupPage";
 import ChangePassword from "./Dashboard/Views/Auth/ChangePass";
 import ForgetPassword from "./Dashboard/Views/Auth/ForgetPass";
-import ResetPassword from "./Dashboard/Views/Auth/ForgetPass";
+import ResetPassword from "./Dashboard/Views/Auth/ResetPass";
 import CreateProfile from "./Dashboard/Views/Auth/ProfilePage";
 // Portfolio Page
 import Portfolio from "./Portfolio/Index";

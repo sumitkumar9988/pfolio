@@ -88,7 +88,7 @@ const EditProject = ({ history, match }) => {
               <input
                 type="text"
                 id="name-with-label"
-                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                class="py-4 pl-4  rounded text-sm focus:outline-none w-full  bg-gray-100 resize-none text-gray-800"
                 name="name"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
@@ -104,7 +104,7 @@ const EditProject = ({ history, match }) => {
                 value={demo}
                 onChange={(e) => setDemoURL(e.target.value)}
                 id="name-with-label"
-                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                class="py-4 pl-4  rounded text-sm focus:outline-none w-full  bg-gray-100 resize-none text-gray-800"
                 name="DemoUrl"
                 placeholder="URL"
               />
@@ -121,7 +121,7 @@ const EditProject = ({ history, match }) => {
                     value={included}
                     onChange={(e) => isIncluded(e.target.value)}
                     id="name-with-label"
-                    class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                    class="py-4 pl-4  rounded text-sm focus:outline-none w-full  bg-gray-100 resize-none text-gray-800"
                     name="DemoUrl"
                   >
                     <option
@@ -146,7 +146,7 @@ const EditProject = ({ history, match }) => {
                     type="date"
                     value={updated_at}
                     onChange={(e) => setUpdatedAt(e.target.value)}
-                    class="appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent flex-1"
+                    class="py-4 pl-4  rounded text-sm focus:outline-none w-full  bg-gray-100 resize-none text-gray-800"
                   />
                 </div>
               </div>
@@ -156,7 +156,7 @@ const EditProject = ({ history, match }) => {
                 Description
               </label>
               <textarea
-                class="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                class="py-4 pl-4  rounded text-sm focus:outline-none w-full  bg-gray-100 resize-none text-gray-800"
                 id="description"
                 name="description"
                 value={description}
