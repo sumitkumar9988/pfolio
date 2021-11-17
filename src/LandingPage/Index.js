@@ -19,7 +19,7 @@ const Index = () => {
                 </p>
 
                 <div class="block">
-                  {/* <Link to="/login">
+                  <Link to="/login">
                   <p class="mr-2 inline-block px-4 py-3 text-xs text-red-300 hover:text-red-400 font-semibold leading-none border border-red-200 hover:border-red-300 rounded">
                     Log In
                   </p>
@@ -28,7 +28,7 @@ const Index = () => {
                   <p class="inline-block px-4 py-3 text-xs font-semibold leading-none bg-red-400 hover:bg-red-500 text-white rounded">
                     Sign Up
                   </p>
-                  </Link> */}
+                  </Link>
                 </div>
               </nav>
               <div class="pt-20 text-center">
@@ -43,12 +43,12 @@ const Index = () => {
                   </h2>
                 </div>
                 <div>
-                  <a
-                    href="https://tally.so/r/wQB1Yn"
+                  <p
+                    to="/login"
                     class=" inline-block py-4 px-8 mb-4 sm:mb-0 sm:mr-3 text-xs text-white text-center font-semibold leading-none bg-red-400 hover:bg-red-500 rounded"
                   >
                     Get Early Access
-                  </a>
+                  </p>
                 </div>
               </div>
             </div>

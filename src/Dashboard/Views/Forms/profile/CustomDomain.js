@@ -102,12 +102,13 @@ const CustomDomain = ({ history }) => {
             </div>
             <div className="text-gray-700 pt-32 text-base  font-rubik font-normal text-start items-center">
               <div className="">
-                1. We not supporting root domain right now make sure to add
-                subomain like www or something else
+                1. After adding domain go tour dns record add CNAME www pfolio.site
               </div>
               <div className="pt-4">
-                2. We not supporting root domain right now make sure to add
-                subomain like www or something else
+                2. Add A Record to ip address 3.6.182.224
+              </div>
+              <div className="pt-4">
+                3. If you are facing any problem Please feel free to dm me <a href="https://twitter.com/Sumit_r9988" className="underline text-blue-400" target="_blank">sumit</a>
               </div>
             </div>
           </div>

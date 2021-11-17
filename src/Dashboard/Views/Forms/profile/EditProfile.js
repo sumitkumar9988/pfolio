@@ -1,40 +1,91 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getprofile } from "./../../../../redux/action/dashboardAction";
+import { getprofile ,uploadFile,updateProfile} from "./../../../../redux/action/dashboardAction";
 import Loader from "./../../../../utils/loader";
 import ToastContainer from "./../../../../utils/toast";
 import { toast } from "react-toastify";
 
-const EditProfile = () => {
+const EditProfile = ({history}) => {
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.state);
   const { profile } = useSelector((state) => state.store);
+  const [username, setUsername] = useState("");
   const [name, setName] = useState("");
-  const [image, setImage] = useState("");
-  const [profession, setProfession] = useState("");
+  const [bio, setBio] = useState("");
   const [email, setEmail] = useState("");
+  const [image, setImage] = useState("");
+  const [location, setLocation] = useState("");
+  const [aboutYou, setAboutYou] = useState("");
+  const [profession, setProfession] = useState("");
+  const [InstaAccount, setInstaAccount] = useState("");
+  const [twitterAcount, setTwitterAcount] = useState("");
+  const [dribbleAccount, setDribbleAccount] = useState("");
+  const [behanceAccount, setBehanceAccount] = useState("");
+  const [linkedInAccount, setLinkedInAccount] = useState("");
+
+  React.useEffect(()=>{
+    dispatch(getprofile());
+  },[])
 
   React.useEffect(() => {
-    dispatch(getprofile());
     error && toast.error(error);
+  }, [ error]);
+
+  React.useEffect(() => {
+    if (profile && profile.data) {
+      setName(profile.data.name);
+      setUsername(profile.data.username);
+      setLocation(profile.data.location);
+      setAboutYou(profile.data.aboutYou);
+      setBio(profile.data.bio);
+      setEmail(profile.data.email);
+      setImage(profile.data.photo);
+      setInstaAccount(profile.data.InstaAccount);
+      setTwitterAcount(profile.data.twitterAcount);
+      setDribbleAccount(profile.data.dribbleAccount);
+      setBehanceAccount(profile.data.behanceAccount);
+      setLinkedInAccount(profile.data.linkedInAccount);
+      setProfession(profile.data.profession);
+    }
     if (!profile && !profile.data) {
       dispatch(getprofile());
     }
-    if (profile && profile.data) {
-      setName(profile.data.name);
-      setProfession(profile.data.aboutYou);
-      setEmail(profile.data.email);
-      setImage(profile.data.photo);
-    }
-  }, [dispatch, error]);
+  }, [profile]);
 
-  console.log(profile);
+  const uploadImage = (e) => {
+    e.preventDefault();
+    dispatch(uploadFile(e.target.files[0], setImage));
+  };
+
+  const onUpdateProfile=(e)=>{
+      e.preventDefault()
+      const data={
+      username,
+      name,
+      bio,
+      email,
+      photo:image,
+      location,
+      aboutYou,
+      profession,
+      InstaAccount,
+      twitterAcount,
+      dribbleAccount,
+      behanceAccount,
+      linkedInAccount,
+      }
+      dispatch(updateProfile(data, history,null, toast,'Profile Update Succussfully'));
+  }
+
+  console.log(image)
+
   return (
     <div>
       {loading ? (
         <Loader />
       ) : (
         <div>
+          <ToastContainer />
           <div className="">
             <div className=" pt-16 ">
               <form>
@@ -74,13 +125,69 @@ const EditProfile = () => {
                                 type="file"
                                 className="hidden"
                                 id="image"
-                                // onChange={onChangePicture}
+                                onChange={uploadImage}
                                 accept="image/*"
                               />
                             </label>
                           </div>
                         </div>
-                        <div className="mt-16">
+                        <div className="mt-8 flex flex-col   w-full">
+                          <label className="pb-2 text-sm font-bold text-gray-800 ">
+                            Full Name
+                          </label>
+                          <input
+                            id="about"
+                            name="about"
+                            maxlength="60"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            className="  py-4 pl-4  rounded text-sm focus:outline-none  bg-gray-100 resize-none text-gray-800 "
+                            placeholder="Full Name"
+                          />
+                        </div>
+                        <div className="mt-8 flex flex-col   w-full">
+                          <label className="pb-2 text-sm font-bold text-gray-800 ">
+                            Username
+                          </label>
+                          <input
+                            id="about"
+                            name="about"
+                            maxlength="60"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            className="  py-4 pl-4  rounded text-sm focus:outline-none  bg-gray-100 resize-none text-gray-800 "
+                            placeholder="Username"
+                          />
+                        </div>
+                        <div className="mt-8 flex flex-col   w-full">
+                          <label className="pb-2 text-sm font-bold text-gray-800 ">
+                            Email
+                          </label>
+                          <input
+                            id="about"
+                            name="about"
+                            maxlength="60"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="  py-4 pl-4  rounded text-sm focus:outline-none  bg-gray-100 resize-none text-gray-800 "
+                            placeholder="e-mail"
+                          />
+                        </div>
+                        <div className="mt-8 flex flex-col   w-full">
+                          <label className="pb-2 text-sm font-bold text-gray-800 ">
+                            Address
+                          </label>
+                          <input
+                            id="about"
+                            name="about"
+                            maxlength="60"
+                            value={location}
+                            onChange={(e) => setLocation(e.target.value)}
+                            className="  py-4 pl-4  rounded text-sm focus:outline-none  bg-gray-100 resize-none text-gray-800 "
+                            placeholder="Your Address"
+                          />
+                        </div>
+                        <div className="mt-24">
                           <label
                             htmlFor="Profession"
                             className="pb-2  text-sm ite font-bold text-gray-800 "
@@ -120,10 +227,10 @@ const EditProfile = () => {
                             id="about"
                             name="about"
                             maxlength="60"
-                            // value={currentJob}
-                            // onChange={(e) => setCurrentJob(e.target.value)}
+                            value={aboutYou}
+                            onChange={(e) => setAboutYou(e.target.value)}
                             className="  py-4 pl-4  rounded text-sm focus:outline-none  bg-gray-100 resize-none text-gray-800 "
-                            placeholder="What are you Woeking on?"
+                            placeholder="What are you Working on?"
                           />
                           <p className="w-full text-right text-xs text-gray-500 pt-1">
                             Character Limit: 60
@@ -142,21 +249,80 @@ const EditProfile = () => {
                             className="  pl-3 py-2  rounded text-sm focus:outline-none  bg-gray-100 resize-none text-gray-800 "
                             placeholder="Let the world know who you are"
                             rows={5}
-                            // value={bio}
-                            // onChange={(e) => setBio(e.target.value)}
+                            value={bio}
+                            onChange={(e) => setBio(e.target.value)}
                             maxlength="500"
                           />
                           <p className="w-full text-right text-xs text-gray-500 pt-1">
                             Character Limit: 500
                           </p>
                         </div>
+                        <div className="mt-24 flex flex-col   w-full">
+                          <label className="pb-2 text-sm font-bold text-gray-800 ">
+                            Twitter Profile Link
+                          </label>
+                          <input
+                            value={twitterAcount}
+                            onChange={(e) => setTwitterAcount(e.target.value)}
+                            className="  py-4 pl-4  rounded text-sm focus:outline-none  bg-gray-100 resize-none text-gray-800 "
+                            placeholder="https://twitter.com/**********"
+                          />
+                        </div>
+                        <div className="mt-8 flex flex-col   w-full">
+                          <label className="pb-2 text-sm font-bold text-gray-800 ">
+                            Instagram Profile Link
+                          </label>
+                          <input
+                            value={InstaAccount}
+                            onChange={(e) => setInstaAccount(e.target.value)}
+                            className="  py-4 pl-4  rounded text-sm focus:outline-none  bg-gray-100 resize-none text-gray-800 "
+                            placeholder="https://www.instagram.com/*******"
+                          />
+                        </div>
+                        <div className="mt-8 flex flex-col   w-full">
+                          <label className="pb-2 text-sm font-bold text-gray-800 ">
+                            LinkedIn Profile Link
+                          </label>
+                          <input
+                            id="about"
+                            name="about"
+                            maxlength="60"
+                            value={linkedInAccount}
+                            onChange={(e) => setLinkedInAccount(e.target.value)}
+                            className="  py-4 pl-4  rounded text-sm focus:outline-none  bg-gray-100 resize-none text-gray-800 "
+                            placeholder="https://www.linkedin.com/in/********"
+                          />
+                        </div>
+                        <div className="mt-8 flex flex-col   w-full">
+                          <label className="pb-2 text-sm font-bold text-gray-800 ">
+                            Dribbble Profile Link
+                          </label>
+                          <input
+                            value={dribbleAccount}
+                            onChange={(e) => setDribbleAccount(e.target.value)}
+                            className="  py-4 pl-4  rounded text-sm focus:outline-none  bg-gray-100 resize-none text-gray-800 "
+                            placeholder="https://dribbble.com/*********"
+                          />
+                        </div>
+                        <div className="mt-8 flex flex-col   w-full">
+                          <label className="pb-2 text-sm font-bold text-gray-800 ">
+                            Behance Profile Link
+                          </label>
+                          <input
+                            value={behanceAccount}
+                            onChange={(e) => setBehanceAccount(e.target.value)}
+                            className="  py-4 pl-4  rounded text-sm focus:outline-none  bg-gray-100 resize-none text-gray-800 "
+                            placeholder="https://www.behance.net/*********"
+                          />
+                        </div>
                       </div>
                       <div className="flex items-center justify-center pb-8 pt-8">
                         <button
                           className="bg-red-400 transition duration-150 ease-in-out hover:bg-red-500 rounded text-white px-8 py-2 text-sm "
                           type="submit"
+                          onClick={onUpdateProfile}
                         >
-                          Next
+                          Save
                         </button>
                       </div>
                     </div>
