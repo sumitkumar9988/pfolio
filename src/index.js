@@ -5,11 +5,11 @@ import App from "./App";
 import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 import store from "./store";
-import ReactGA from "react-ga";
 import PortfolioPage from "./Portfolio/Route";
-// UA-209183733-1
-
+import ReactGA from "react-ga";
+ReactGA.initialize('UA-209183733-1');
 const parsedData = window.location.host.split(".");
+
 
 if (parsedData.length >= 3) {
   const subDomain = parsedData[0];

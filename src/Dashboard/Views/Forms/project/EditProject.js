@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import Loader from "./../../../../utils/loader";
+import ReactGA from "react-ga";
 import { useDispatch, useSelector } from "react-redux";
 import ToastContainer from "./../../../../utils/toast";
 import {
@@ -24,6 +25,10 @@ const EditProject = ({ history, match }) => {
   const [demo, setDemoURL] = useState("");
   const [updated_at, setUpdatedAt] = useState("");
   const [description, setDescription] = useState("");
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     error && toast.error(error);

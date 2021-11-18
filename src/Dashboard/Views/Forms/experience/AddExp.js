@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import ReactGA from "react-ga";
 import Loader from "./../../../../utils/loader";
 import { useDispatch, useSelector } from "react-redux";
 import ToastContainer from "./../../../../utils/toast";
@@ -20,6 +21,10 @@ const AddExperience = ({ history }) => {
   const [image, setImage] = useState("");
 
   const { loading, error } = useSelector((state) => state.state);
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     error && toast.error(error);

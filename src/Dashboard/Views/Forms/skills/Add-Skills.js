@@ -1,4 +1,5 @@
 import React from "react";
+import ReactGA from "react-ga";
 import Select from "react-select";
 import { toast } from "react-toastify";
 import Loader from "./../../../../utils/loader";
@@ -14,6 +15,10 @@ const AddNewSkills = ({ flipAddScreen }) => {
 
   React.useEffect(() => {
     error && toast.error(error);
+  }, []);
+
+  React.useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
 
   const onSaveSkills = () => {

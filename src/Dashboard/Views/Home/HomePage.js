@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import ReactGA from "react-ga";
 import { useDispatch, useSelector } from "react-redux";
 import { getprofile } from "./../../../redux/action/dashboardAction";
 import Loader from "./../../../utils/loader";
@@ -16,6 +17,12 @@ const Home = ({ history }) => {
   const { profile } = useSelector((state) => state.store);
 
   const [username, setUsername] = React.useState("");
+
+  React.useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
+
   useEffect(() => {
     error && toast.error(error);
     dispatch(getprofile());

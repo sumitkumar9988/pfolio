@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import ReactGA from "react-ga";
 import Loader from "./../../../../utils/loader";
 import { useDispatch, useSelector } from "react-redux";
 import ToastContainer from "./../../../../utils/toast";
@@ -22,6 +23,10 @@ const AddEducation = ({ history }) => {
   useEffect(() => {
     error && toast.error(error);
   }, [error]);
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   const uploadImage = (e) => {
     e.preventDefault();

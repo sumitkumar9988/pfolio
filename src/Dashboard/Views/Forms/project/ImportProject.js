@@ -1,4 +1,5 @@
 import React from "react";
+import ReactGA from "react-ga";
 import { useDispatch, useSelector } from "react-redux";
 import queryString from "query-string";
 import { toast } from "react-toastify";
@@ -14,6 +15,10 @@ const ImportProject = ({ location, history }) => {
 
   let params = queryString.parse(location.search);
   const { code } = params;
+
+  React.useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   React.useEffect(() => {
     error && toast.error(error);

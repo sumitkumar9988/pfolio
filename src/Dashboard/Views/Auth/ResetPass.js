@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 import { userResetPassword } from "../../../redux/action/authAction";
 import Loader from "../../../utils/loader";
 import ToastContainer from "../../../utils/toast";
+import ReactGA from "react-ga";
+
 
 const ResetPassword = ({ history, match }) => {
   const [password, setPassword] = useState("");
@@ -16,6 +18,10 @@ const ResetPassword = ({ history, match }) => {
 
   const userLogin = useSelector((state) => state.login);
   const { user } = userLogin;
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     if (user) {

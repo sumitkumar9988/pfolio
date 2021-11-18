@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { userChangePassword } from "../../../redux/action/authAction";
 import Loader from "../../../utils/loader";
 import ToastContainer from "../../../utils/toast";
+import ReactGA from "react-ga";
 
 const ChangePassword = ({ history, match }) => {
   const [passwordCurrent, setCurrentPassword] = useState("");
@@ -16,6 +17,10 @@ const ChangePassword = ({ history, match }) => {
 
   const changePassword = useSelector((state) => state.changePassword);
   const { loading, success, error } = changePassword;
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     if (!user) {

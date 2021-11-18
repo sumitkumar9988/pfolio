@@ -3,7 +3,6 @@ import * as alias from "./../constant";
 import { api } from "./../../utils/url";
 const { v4: uuidv4 } = require("uuid");
 const AWS = require("aws-sdk");
-
 axios.defaults.baseURL = api;
 // axios.defaults.headers.common['Content-Type'] = 'application/json';
 
@@ -51,6 +50,7 @@ export const uploadFile = (file, setPhoto) => async (dispatch) => {
             ? error.response.data.message
             : error.message,
       });
+   
       dispatch({ type: alias.LOADING_DISABLE });
       return;
     }
@@ -58,6 +58,7 @@ export const uploadFile = (file, setPhoto) => async (dispatch) => {
     setPhoto(data.Location);
     dispatch({ type: alias.REMOVE_ERROR });
     dispatch({ type: alias.LOADING_DISABLE });
+   
   });
 };
 
@@ -118,6 +119,7 @@ export const updateProfile =
           history.push(path);
         }
         message && toast.success(message);
+       
       })
       .catch((error) => {
         dispatch({
@@ -138,6 +140,7 @@ export const getprofile = () => async (dispatch, getState) => {
     .then((res) => {
       dispatch({ type: alias.GET_PROFILE, payload: res.data });
       dispatch({ type: alias.LOADING_DISABLE });
+  
     })
     .catch((error) => {
       dispatch({
@@ -165,6 +168,7 @@ export const addEducation =
         dispatch({ type: alias.LOADING_DISABLE });
         toast.success("New Education Add Succuss !");
         path && history.push(path);
+      
       })
       .catch((error) => {
         dispatch({
@@ -183,6 +187,7 @@ export const getEducation = () => async (dispatch, getState) => {
     .get("/profile/education", getHeader(getState))
     .then((res) => {
       dispatch({ type: alias.GET_EDUCATION, payload: res.data });
+     
     })
     .catch((error) => {
       dispatch({
@@ -225,6 +230,7 @@ export const updateEducation =
         dispatch({ type: alias.UPDATE_EDUCATION_BY_ID, payload: res.data });
         dispatch({ type: alias.LOADING_DISABLE });
         path && history.push(path);
+       
       })
       .catch((error) => {
         dispatch({
@@ -248,6 +254,7 @@ export const deleteEducation =
         dispatch({ type: alias.DELETE_EDUCATION_BY_ID, payload: res.data });
         dispatch({ type: alias.LOADING_DISABLE });
         path && history.push(path);
+      
       })
       .catch((error) => {
         dispatch({
@@ -274,6 +281,7 @@ export const addExperience =
         dispatch({ type: alias.LOADING_DISABLE });
         toast.success("New Experience Add Succuss !");
         path && history.push(path);
+       
       })
       .catch((error) => {
         dispatch({
@@ -292,6 +300,7 @@ export const getExperience = () => async (dispatch, getState) => {
     .get("/profile/experience", getHeader(getState))
     .then((res) => {
       dispatch({ type: alias.GET_EXPERIENCE, payload: res.data });
+    
     })
     .catch((error) => {
       dispatch({
@@ -359,6 +368,7 @@ export const deleteExperience =
         toast.success("Experience delete succussfully !");
         dispatch({ type: alias.LOADING_DISABLE });
         path && history.push(path);
+      
       })
       .catch((error) => {
         dispatch({
@@ -381,6 +391,7 @@ export const getProject = () => async (dispatch, getState) => {
     .then((res) => {
       dispatch({ type: alias.GET_PROJECT, payload: res.data });
       dispatch({ type: alias.LOADING_DISABLE });
+     
     })
     .catch((error) => {
       dispatch({
@@ -404,6 +415,7 @@ export const addProject =
         dispatch({ type: alias.CREATE_PROJECT, payload: res.data });
         dispatch({ type: alias.LOADING_DISABLE });
         path && history.push(path);
+      
       })
       .catch((error) => {
         dispatch({
@@ -467,6 +479,7 @@ export const updateproject =
         dispatch({ type: alias.UPDATE_PROJECT_BY_ID, payload: res.data });
         dispatch({ type: alias.LOADING_DISABLE });
         path && history.push(path);
+       
       })
       .catch((error) => {
         dispatch({
@@ -489,6 +502,7 @@ export const deleteProject =
         dispatch({ type: alias.DELETE_PROJECT_BY_ID, payload: res.data });
         dispatch({ type: alias.LOADING_DISABLE });
         path && history.push(path);
+    
       })
       .catch((error) => {
         dispatch({
@@ -506,6 +520,7 @@ export const getSkills = () => async (dispatch, getState) => {
     .get(`/profile/skills/`, getHeader(getState))
     .then((res) => {
       dispatch({ type: alias.GET_SKILLS, payload: res.data });
+  
     })
     .catch((error) => {
       dispatch({
@@ -543,6 +558,7 @@ export const addSkills = (data, toast) => async (dispatch, getState) => {
       dispatch({ type: alias.ADD_SKILLS, payload: res.data });
       dispatch({ type: alias.LOADING_DISABLE });
       toast.success("Skill Add succussfully!");
+
     })
     .catch((error) => {
       dispatch({
@@ -563,6 +579,7 @@ export const deleteSkills = (id) => async (dispatch, getState) => {
     .then((res) => {
       dispatch({ type: alias.DELETE_SKILLS, payload: res.data });
       dispatch({ type: alias.LOADING_DISABLE });
+
     })
     .catch((error) => {
       dispatch({
@@ -583,6 +600,7 @@ export const getAnaltics = () => async (dispatch, getState) => {
     .then((res) => {
       dispatch({ type: alias.GET_ANALTICS, payload: res.data });
       dispatch({ type: alias.LOADING_DISABLE });
+     
     })
     .catch((error) => {
       dispatch({
@@ -605,6 +623,7 @@ export const gitHubCallBack = (data, toast) => async (dispatch, getState) => {
       dispatch({ type: alias.LOADING_DISABLE });
       dispatch(resfreshProject());
       toast.success("GitHub Username Update Successfully! ");
+     
     })
     .catch((error) => {
       dispatch({
@@ -627,7 +646,8 @@ export const updateDomain = (data, toast) => async (dispatch, getState) => {
       dispatch({ type: alias.LOADING_DISABLE });
       dispatch({ type: alias.SETDOMAIN, payload: data.domain });
       toast.success("Domain Update Succussfully");
-    })
+     
+    })    
     .catch((error) => {
       dispatch({
         type: alias.ERROR,

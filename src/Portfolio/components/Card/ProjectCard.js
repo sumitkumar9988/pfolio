@@ -43,12 +43,12 @@ const ProjectCard = ({
               </div>
               <div className="flex flex-row z-50 pt-4">
                 <div className="z-10">
-                  <a target="_blank" rel="noreferrer" href={githubLink}>
+                  <a target="_blank" rel="noopener noreferrer" href={githubLink}>
                     <FaGithub className="  w-6 mx-2 h-8 text-white" />
                   </a>
                 </div>
                 <div className="z-10">
-                  <a target="_blank" rel="noreferrer" href={externalLink}>
+                  <a target="_blank" rel="noopener noreferrer" href={externalLink}>
                     <FaLink className="text-white  w-6 mx-2 h-8" />
                   </a>
                 </div>

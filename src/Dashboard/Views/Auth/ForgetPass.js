@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 import { userforgetPassword } from "../../../redux/action/authAction";
 import Loader from "../../../utils/loader";
 import ToastContainer from "../../../utils/toast";
+import ReactGA from "react-ga";
+
 
 const ForgetPassword = () => {
   const [email, setEmail] = useState("");
@@ -11,6 +13,10 @@ const ForgetPassword = () => {
 
   const forgetPassword = useSelector((state) => state.forgetPassword);
   const { loading, error, success } = forgetPassword;
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     if (error) {

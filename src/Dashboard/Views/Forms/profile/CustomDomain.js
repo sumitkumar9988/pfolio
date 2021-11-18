@@ -1,7 +1,8 @@
 import React from "react";
 import { toast } from "react-toastify";
 import Loader from "../../../../utils/loader";
-import ToastContainer from "../../../../utils/toast";
+import ToastContainer from "../../../../utils/toast"
+import ReactGA from "react-ga";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getprofile,
@@ -16,21 +17,22 @@ const CustomDomain = ({ history }) => {
   const [website, setWebsite] = React.useState("");
 
   React.useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
+  React.useEffect(() => {
     error && toast.error(error);
-  }, [ error]);
+  }, [error]);
 
   React.useEffect(() => {
     dispatch(getprofile());
   }, []);
 
   React.useEffect(() => {
-    if(profile && profile.data){
+    if (profile && profile.data) {
       setWebsite(profile.data.domain);
     }
   }, [profile]);
-
-
- 
 
   const CheckIsValidDomain = (domain) => {
     if (
@@ -46,15 +48,14 @@ const CustomDomain = ({ history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (!CheckIsValidDomain(website)) {
-      toast.error("Enter Valid Domain");
-    } 
-    else{
-              const data = {
-          domain: website,
-        };
-      dispatch(updateDomain(data, toast));
-    }
+    // if (!CheckIsValidDomain(website)) {
+    //   toast.error("Enter Valid Domain");
+    // } else {
+      const data = {
+        domain: website,
+      };
+      dispatch(updateDomain(data, toast,profile));
+    // }
 
     // else {
     //   if (website.split(".").length < 3) {
@@ -89,8 +90,7 @@ const CustomDomain = ({ history }) => {
               />
             </div>
             <div className="text-gray-700 text-base underline font-rubik font-semibold text-center">
-              * We not supporting root domain right now make sure to add
-              subomain like www or something else
+              * Dont add http:// or https:// in domain
             </div>
             <div
               onClick={submitHandler}
@@ -102,13 +102,22 @@ const CustomDomain = ({ history }) => {
             </div>
             <div className="text-gray-700 pt-32 text-base  font-rubik font-normal text-start items-center">
               <div className="">
-                1. After adding domain go tour dns record add CNAME www pfolio.site
+                1. After adding domain go tour dns record add CNAME www
+                pfolio.site
               </div>
               <div className="pt-4">
                 2. Add A Record to ip address 3.6.182.224
               </div>
               <div className="pt-4">
-                3. If you are facing any problem Please feel free to dm me <a href="https://twitter.com/Sumit_r9988" className="underline text-blue-400" target="_blank">sumit</a>
+                3. If you are facing any problem Please feel free to dm me{" "}
+                <a
+                  href="https://twitter.com/Sumit_r9988"
+                  className="underline text-blue-400"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  sumit
+                </a>
               </div>
             </div>
           </div>

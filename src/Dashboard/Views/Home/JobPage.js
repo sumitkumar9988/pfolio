@@ -1,6 +1,7 @@
 import React from "react";
 import exploreIllustration from "./../../../Assets/explore.svg";
 const Explore = () => {
+
   return (
     <section className="mx-auto container py-20 overflow-hidden">
       <div className="flex justify-center items-center flex-col">

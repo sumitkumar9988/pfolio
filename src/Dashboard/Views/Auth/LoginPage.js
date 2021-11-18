@@ -8,8 +8,6 @@ import { userLogin } from "../../../redux/action/authAction";
 import Loader from "../../../utils/loader";
 import ToastContainer from "../../../utils/toast";
 
-ReactGA.initialize("UA-198799173-1");
-
 const Login = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,11 +29,8 @@ const Login = ({ history }) => {
     dispatch(userLogin(inputData, "goAuthLogin"));
   };
 
-  const onFailGoogleResponse = (response) => {};
 
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
+  const onFailGoogleResponse = (response) => {};
 
   useEffect(() => {
     if (user) {
@@ -45,6 +40,10 @@ const Login = ({ history }) => {
       toast.error(error);
     }
   }, [history, error, user]);
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   const submitHandler = (e) => {
     e.preventDefault();

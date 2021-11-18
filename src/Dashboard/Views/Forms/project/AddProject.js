@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import ReactGA from "react-ga";
 import Loader from "./../../../../utils/loader";
 import { useDispatch, useSelector } from "react-redux";
 import ToastContainer from "./../../../../utils/toast";
@@ -13,12 +14,16 @@ const AddProject = ({ history }) => {
 
   const { loading, error } = useSelector((state) => state.state);
 
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
   const [included, isIncluded] = useState(false);
   const [name, setName] = useState("");
   const [demo, setDemoURL] = useState("");
   const [updated_at, setUpdatedAt] = useState("");
   const [description, setDescription] = useState("");
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     error && toast.error(error);
@@ -33,7 +38,7 @@ const AddProject = ({ history }) => {
     e.preventDefault();
     const data = {
       name: name,
-      logo: image,
+      image: image,
       DemoUrl: demo,
       included: included,
       updated_at: updated_at,

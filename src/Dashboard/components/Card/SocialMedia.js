@@ -5,9 +5,14 @@ import {
   TwitterIcon,
   LinkedinIcon,
 } from "react-share";
-const SocialMedia = () => {
-  const shareUrl = "http://github.com";
-  const title = "GitHub";
+// import {getprofile} from './../../../redux/action/dashboardAction'
+
+const SocialMedia = (user) => {
+ 
+    const url = 'pfolio.me'
+    const title = 'hey guys ! I have build portfolio site through pfolio.me . On pfolio.me you can build your portfolio site on Custom domain'
+  
+
   return (
     <div className="justify-center mx-auto">
       <div className="h-80    flex justify-center items-center flex-col w-full md:w-4/6 lg:w-3/6 rounded-xl">
@@ -17,7 +22,8 @@ const SocialMedia = () => {
         <div className="flex justify-center items-center w-full mb-5 mt-4">
           <div className="p-4">
             <LinkedinShareButton
-              url={shareUrl}
+              url={url}
+              title={title}
               className="Demo__some-network__share-button"
             >
               <LinkedinIcon size={44} round />
@@ -25,7 +31,6 @@ const SocialMedia = () => {
           </div>
           <div className="p-4">
             <TwitterShareButton
-              url={shareUrl}
               title={title}
               className="Demo__some-network__share-button"
             >

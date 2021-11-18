@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import ReactGA from "react-ga";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { updateProfile } from "./../../../redux/action/dashboardAction";
 import ToastConatiner from "./../../../utils/toast";
 import Loader from "./../../../utils/loader";
@@ -14,6 +14,11 @@ const Index = ({ history }) => {
   useEffect(() => {
     error && toast.error(error);
   }, [error]);
+
+  React.useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
 
   const onSave = (e) => {
     e.preventDefault();

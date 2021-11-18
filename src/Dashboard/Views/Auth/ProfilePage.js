@@ -7,6 +7,8 @@ import {
 } from "./../../../redux/action/dashboardAction";
 import Loader from "../../../utils/loader";
 import ToastContainer from "../../../utils/toast";
+import ReactGA from "react-ga";
+
 
 const Profile = ({ history }) => {
   const dispatch = useDispatch();
@@ -14,6 +16,10 @@ const Profile = ({ history }) => {
   const { createProfilestatus, user } = useSelector((state) => state.store);
 
   const [username, setUsername] = useState("");
+  
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     error && toast.error(error);

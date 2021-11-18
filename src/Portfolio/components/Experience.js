@@ -12,7 +12,7 @@ const Experience = ({ user }) => {
 
   return (
     <div className="w-full md:w-10/12 lg:w-7/12 mx-auto pb-12">
-      <div className="mt-20 mb-4 md:mt-28 ml-4 md:ml-16">
+      <div className="mt-20 mb-4 md:mt-28 ml-8 md:ml-16">
         <div>
           <p
             className=" text-2xl font-bold md:text-3xl font-rubik text-white"

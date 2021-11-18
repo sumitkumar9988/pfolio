@@ -8,7 +8,6 @@ import { userSignup } from "../../../redux/action/authAction";
 import Loader from "../../../utils/loader";
 import ToastContainer from "../../../utils/toast";
 
-ReactGA.initialize("UA-198799173-1");
 
 const Signup = ({ history }) => {
   const [checked, setChecked] = useState(true);

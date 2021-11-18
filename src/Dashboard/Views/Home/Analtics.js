@@ -6,11 +6,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAnaltics } from "./../../../redux/action/dashboardAction";
 import ToastConatiner from "./../../../utils/toast";
 import Loader from "./../../../utils/loader";
+import ReactGA from "react-ga";
+
 
 const Analtics = () => {
   const dispatch = useDispatch();
   const { error, loading } = useSelector((state) => state.state);
   const { analtics } = useSelector((state) => state.store);
+
+  React.useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
 
   useEffect(()=>{
       error && toast.error(error);

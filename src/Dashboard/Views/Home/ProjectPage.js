@@ -1,4 +1,5 @@
 import React from "react";
+import ReactGA from "react-ga";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -14,6 +15,11 @@ const Project = () => {
   React.useEffect(() => {
     error && toast.error(error);
   }, [error]);
+
+  React.useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
 
   React.useEffect(() => {
     dispatch(getProject());

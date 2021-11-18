@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import ReactGA from "react-ga";
 import Loader from "./../../../../utils/loader";
 import { useDispatch, useSelector } from "react-redux";
 import ToastContainer from "./../../../../utils/toast";
@@ -24,6 +25,10 @@ const EditExperience = ({ history, match }) => {
 
   const { loading, error } = useSelector((state) => state.state);
   const { experience } = useSelector((state) => state.store);
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     error && toast.error(error);

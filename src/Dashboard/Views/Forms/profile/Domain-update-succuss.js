@@ -4,6 +4,7 @@ import Loader from "../../../../utils/loader";
 import ToastContainer from "../../../../utils/toast";
 import { useSelector, useDispatch } from "react-redux";
 import welcomeSvg from "./../../../Assets/welcome.svg";
+import {Link} from 'react-router-dom'
 
 const DomainSuccess = () => {
   const { loading, error } = useSelector((state) => state.state);
@@ -11,7 +12,7 @@ const DomainSuccess = () => {
   const [website, setWebsite] = React.useState("");
   React.useEffect(() => {
     if (domain) {
-      setWebsite(Domain);
+      setWebsite(domain);
     }
   }, domain);
 

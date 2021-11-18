@@ -1,7 +1,60 @@
-import React from "react";
+import React,{useState} from "react";
+import axios from 'axios'
 import { Link } from "react-router-dom";
-import dashboardImage from "./../Assets/demo.png";
+import dashboardImage from "./../Assets/demo.jpg";
 const Index = () => {
+
+  const [name,setName]=useState('')
+  const [email,setEmail]=useState('')
+  const [message,setMessage]=useState('')
+
+
+  const[emailSent,setEmailSent]=useState(false);
+  const[Subscribe,setSubscribe]=useState(false);
+
+  let to="s@pfolio.me";
+  const sendEmail=(e)=>{
+
+    e.preventDefault();
+    const data={
+      to,
+      name,
+      from:email,
+      message,
+    }
+    console.log(data)
+      axios.post('https://api.sumitk.site/api/v1/home/sendEmail',data,{
+      headers: {"Content-Type": "application/json"}
+    }).then((res)=>{
+      console.log(res.data)
+      setEmailSent(true)
+      setName('')
+      setEmail('')
+      setMessage('')
+    }).catch((err)=>{
+      console.log(err)
+    })
+  }
+
+  const newsletter=(e)=>{
+    e.preventDefault();
+    const data={
+      email
+    }
+    console.log(data);
+    axios.post('https://api.sumitk.site/api/v1/home/newsletter',data,{
+      headers: {"Content-Type": "application/json"}
+    }).then((res)=>{
+      console.log(res.data)
+      setSubscribe(true)
+      setEmail('')
+    }).catch((err)=>{
+      console.log(err)
+    })
+  }
+
+
+
   return (
     <>
       <body class="antialiased bg-body text-body font-body">
@@ -20,14 +73,14 @@ const Index = () => {
 
                 <div class="block">
                   <Link to="/login">
-                  <p class="mr-2 inline-block px-4 py-3 text-xs text-red-300 hover:text-red-400 font-semibold leading-none border border-red-200 hover:border-red-300 rounded">
-                    Log In
-                  </p>
+                    <p class="mr-2 inline-block px-4 py-3 text-xs text-red-300 hover:text-red-400 font-semibold leading-none border border-red-200 hover:border-red-300 rounded">
+                      Log In
+                    </p>
                   </Link>
                   <Link to="/signup">
-                  <p class="inline-block px-4 py-3 text-xs font-semibold leading-none bg-red-400 hover:bg-red-500 text-white rounded">
-                    Sign Up
-                  </p>
+                    <p class="inline-block px-4 py-3 text-xs font-semibold leading-none bg-red-400 hover:bg-red-500 text-white rounded">
+                      Sign Up
+                    </p>
                   </Link>
                 </div>
               </nav>
@@ -37,18 +90,16 @@ const Index = () => {
                     Build Your
                     <br /> Portfolio Site
                   </h1>
-
                   <h2 class="text-gray-900 font-bold font-rubik  text-2xl leading-relaxed pt-8">
                     on Custom Domain for free
                   </h2>
                 </div>
                 <div>
-                  <p
-                    to="/login"
-                    class=" inline-block py-4 px-8 mb-4 sm:mb-0 sm:mr-3 text-xs text-white text-center font-semibold leading-none bg-red-400 hover:bg-red-500 rounded"
-                  >
-                    Get Early Access
-                  </p>
+                  <Link to="/signup">
+                    <p class=" inline-block py-4 px-8 mb-4 sm:mb-0 sm:mr-3 text-xs text-white text-center font-semibold leading-none bg-red-400 hover:bg-red-500 rounded">
+                       Get Started
+                    </p>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -108,7 +159,7 @@ const Index = () => {
                       class="focus:outline-none text-base text-white leading-normal xl:w-10/12 pt-2"
                     >
                       Build your Portfolio without any effort in just a few
-                      simple within just a few minutes
+                      simple few minutes on Custom Domain
                     </p>
                   </div>
                 </div>
@@ -138,14 +189,13 @@ const Index = () => {
                       tabindex="0"
                       class="focus:outline-none text-lg font-bold leading-tight text-white"
                     >
-                      Change theme and Analytics of 90 days
+                      Analytics of 30 days
                     </h2>
                     <p
                       tabindex="0"
                       class="focus:outline-none text-base text-white leading-normal xl:w-10/12 pt-2"
                     >
-                      Change color theme according to of portfolio according to
-                      you and get Analytics of your site of about 90 days
+                     Get Analytics of your site of 30 days to know how many people visit your site
                     </p>
                   </div>
                 </div>
@@ -175,15 +225,13 @@ const Index = () => {
                       tabindex="0"
                       class="focus:outline-none text-lg font-bold leading-tight text-white"
                     >
-                      Import Your Project and Background
+                      Import Your Project 
                     </h2>
                     <p
                       tabindex="0"
                       class="focus:outline-none text-base text-white leading-normal xl:w-10/12 pt-2"
                     >
-                      Import your project from Github, Dribbble, Instagram,
-                      Youtube and import background from Linkedin and also you
-                      can add custom project
+                      Import your project from Github, Dribbble also Add Custsom Project
                     </p>
                   </div>
                 </div>
@@ -243,9 +291,11 @@ const Index = () => {
                     and your peers
                   </p>
                   <div class="mt-10">
+                    <Link to="/signup">
                     <p class="inline-block py-4 px-8 text-xs text-red-400 hover:text-white font-semibold leading-none bg-white hover:bg-red-400 border hover:border-white rounded transition duration-300">
                       Get Started
                     </p>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -266,7 +316,7 @@ const Index = () => {
                     </div>
                     <div class="mb-10 leading-relaxed">
                       <h4 class="text-sm text-blueGray-400">E-mail</h4>
-                      <p>sumit.firstletter@gmail.com</p>
+                      <p>s@pfolio.com</p>
                     </div>
                     {/* <div class="mb-10 leading-relaxed">
                       <h4 class="text-sm text-blueGray-400">Address</h4>
@@ -277,17 +327,13 @@ const Index = () => {
                 </div>
                 <div class="w-full pt-14 lg:w-1/2 px-3">
                   <form class="pt-8">
-                    <div class="mb-4">
-                      <input
-                        class="w-full p-4  text-xs font-semibold leading-none bg-blue-50 rounded outline-none"
-                        type="text"
-                        placeholder="Subject"
-                      />
-                    </div>
+                  
                     <div class="mb-4">
                       <input
                         class="w-full p-4 text-xs font-semibold leading-none bg-blue-50 rounded outline-none"
                         type="text"
+                        value={name}
+                        onChange={(e)=>setName(e.target.value)}
                         placeholder="Name"
                       />
                     </div>
@@ -295,6 +341,8 @@ const Index = () => {
                       <input
                         class="w-full p-4 text-xs font-semibold leading-none bg-blue-50 rounded outline-none"
                         type="email"
+                        value={email}
+                        onChange={(e)=>setEmail(e.target.value)}
                         placeholder="name@example.com"
                       />
                     </div>
@@ -303,6 +351,8 @@ const Index = () => {
                         class="w-full h-24 p-4 text-xs font-semibold leading-none resize-none bg-blue-50 rounded outline-none"
                         type="text"
                         placeholder="Message..."
+                        value={message}
+                        onChange={(e)=>setMessage(e.target.value)}
                       ></textarea>
                     </div>
                     <div class="flex justify-between items-center">
@@ -320,6 +370,7 @@ const Index = () => {
                       <button
                         class="py-4 px-8 text-sm text-white font-semibold leading-none bg-red-400 hover:bg-red-500 rounded"
                         type="submit"
+                        onClick={sendEmail}
                       >
                         Submit
                       </button>
@@ -354,15 +405,18 @@ const Index = () => {
                       </svg>
                       <input
                         class="w-full pl-3 py-4 text-xs text-white placeholder-white font-semibold leading-none bg-red-400 outline-none"
-                        type="text"
+                        type="email"
+                        value={email}
+                        onChange={(e)=>setEmail(e.target.value)}
                         placeholder="Type your e-mail"
                       />
                     </div>
                     <button
                       class="w-full md:w-auto py-4 px-8 text-xs  text-red-500 hover:text-white font-semibold leading-none border hover:border-red-200 bg-white hover:bg-red-400 rounded transition duration-300 ease-in-out"
                       type="submit"
+                      onClick={newsletter}
                     >
-                      Sign Up
+                      Subscribe
                     </button>
                   </div>
                 </div>
@@ -389,50 +443,43 @@ const Index = () => {
                 </div>
                 <div class="w-full lg:w-2/5 px-4 mb-8 lg:mb-0">
                   <p class="max-w-md mx-auto lg:max-w-full lg:mx-0 lg:pr-8 w-60 text-center lg:text-lg text-blueGray-400 leading-relaxed">
-                    Build your portfolio site in just few minute
+                    Build your portfolio site on Custom Domain
                   </p>
                 </div>
                 <div class="w-full lg:w-1/5 px-3 mb-8 lg:mb-0">
                   <p class="mb-2 lg:mb-4 lg:text-lg font-bold font-heading text-blueGray-800">
                     Office
                   </p>
-                  <p class="lg:text-lg text-blueGray-400">Not build Yet</p>
+                  <p class="lg:text-lg text-blueGray-400">Remote</p>
                 </div>
                 <div class="w-full lg:w-1/5 px-3">
                   <p class="mb-2 lg:mb-4 lg:text-lg font-bold font-heading text-blueGray-800">
                     Contacts
                   </p>
                   <p class="lg:text-lg text-blueGray-400">
-                    sumit.firstletter@gmail.com
+                    s@pfolio.me
                   </p>
                 </div>
               </div>
               <div class="flex flex-col lg:flex-row items-center lg:justify-between">
                 <p class="text-xs text-blueGray-400">
-                  © 2020. All rights reserved.
+                  © 2021. All rights reserved.
                 </p>
                 <div class="order-first lg:order-last -mx-2 mb-4 lg:mb-0">
-                  <p class="inline-block px-2">
+                  <a class="inline-block px-2" href="https://www.linkedin.com/company/pfolio-me" target="_blank" rel="noopener noreferrer">
                     <img
                       className="h-10"
                       src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACjklEQVRoge2ZT2gTQRTGv9m0pu0mEAu2ikuJDQqCNNbWniJ6qViwFg+i0osXvTeCDfSmElIPAQ8eRK8FsQiilXqzgvWgLbbpQRFUrD0YW0ItCSbY3edFlCQ7SSd1divM7/bmvZ39vn37Z3YXUCgUCjdh1Qo8idQAiIaIoRuA7oAmAMgR2GsNlDRj4ceVCisa0EbnEiA2/G+1CRO3YuERXpJrwJNIDRDooRxNYjCN+s0rByfschp3K6IhaYoEsSwW5eW4BoihS44ccRjQzcvxOwD4JGipFT8vUcmALfuavZgaDGEtegDPB0PYu927OWmbRNjAnT4DRwwder2GiKHjdp8hQ9eGETbQ2dpYFHeVxE4jbOBN+kdRPFsSO42wgYuTS3ixlEPup4WpxSwuTX6RoWvD1Ilu8D5TwNGxDzK01IRwB7Yawh0whzvKxjyjqar53f56XO7Zgd6gD+0BLwqmhYXlPO6/XcXd+QwKJolKAVCDgVoItzTg6dl2tDT93V1DnQcRQ0fE0HGhoxn945/wNbcuPLcjp9D46WCR+FIOtTZi7FRb9bW9DY4YCAW2Va051ubDiRB3xcDFEQMWATdnVtB77yPOP1rEs89Z27pz+wPCcztyDVydTuPadPpP/ODdd0ycCeL4nuIj3rOrSXhuRzpwa3alKDaJEH/5raxupy5+PKUbIACZvFk2vrCcLxvzez3C80s3wLuzrBbKTW3Zu5BMlAG3UQbcRhlwm//eAPfZoSXma3vDkIQVC9tqrdQB+yWjK7A1Xob/bRRsRo4YcQjE1cI1oIGScuSIo8HiauEa+P1nJC5FkRB03Yx1PuFlq/9iujF30rJYlAGH4dwX6ywBrzRYyUriFQqFwn1+AXvFo7bcPPZdAAAAAElFTkSuQmCC"
                       alt=""
                     />
-                  </p>{" "}
-                  <p class="inline-block px-2">
+                  </a>{" "}
+                  <a class="inline-block px-2" href="https://twitter.com/pfolio_me" target="_blank" rel="noopener noreferrer">
                     <img
                       className="h-10"
                       src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADz0lEQVRoge2XTWgdVRiGn+/MpGnv3LRoqC4UhCz8I8RFRClSXdgqWkuV4CRpi1gqglZTuhFXkiDdCVIKBfEHo1Bzr0JRtGAqWhTBQhsaFX9ADbZisbXaJnPb5t6Z+VyotU0yc89MYlGYZzcz73fO+84ZzjcHCgoKCgoK/sfIJZ2tOnmdq+ZxYLXCNUCowvdG9b3QNbvo8Y7NLFm0O+iqry9/njRk0wDOSO2e6JvS+wxKnNv4oBr3hmBIkacBN8FKgLIt6vNe4u0Tbc65xXch8gSxfBn1eU/mC1A9Xna09JPAcNhb3prXvzMy9QIij1rKDwFdQAtwLJKoE3/Zb0likzqxercDyxQGnJHaLqrqWLv+e4xqsD6DeYBu/jR/0gj30lB13wjuTBKnBlCJO85fiD7maG0P1dOXW1tRFWJ91lr/DyHI/ljZ4bjud8bheJIwNQA66/laR51xtxqstnHRUjlzMyIdzZWzcEF7gFsQ2VT3y18kCVMDCGZijttXqzLqVKb28Nbk9Wn1Mdpp53dOfhXiVZHvvZMmSg0QLT6zHySY+6nc70TmK6cSvOtUamvZq60zFSralsXxDAbC3qWfNhMlbGl/sW75lFSCVxQGEhQCrAFd40zVJqnU9in6mREdC018VCJJ3D2aojptI2veyF5Tz22tjSlcm9tMDkS5O+wrjzbTpW+jI8EGZ1GtR2LpUxhfOHvNMYZZXXkuUj8hFW0XZEcsisDZhbFmhdbPeT/YCNNXQOTjCy6XzMtSBgS+5iGp2WhTAzT88mGEAwtjyx5FP7HVpjcywCBbgMa8HGXGpO79FymbCRq+dwjVDVy6ECcjKX1gK24aACDqa3vTqNyGcDC/LztEeRFf6rZ6qwAAsXAVyCDKq4BVk8nB2VBlZ5aC9E58MatQ3fJvnuEEdtLv/ZylxnoFIomHgF8yu7LnSNiY3p61yDoAftsJE5t1wO9ZJ7EgFuERNrZPZi20DwA0+ksHIie6Ffgw60RpqMhQ6Jf35anN/UW3VGvdkXKfiK5ESTzyWTAc+d4mRDRPcaYVuJDGg6UxgaMo3XnHAIYj8TbnNQ95VmCvtjpBrV9hmyhdOedVRZ6J/dL2+ZiHlAAtI8FNGHFVY0+FK1SlQ+AOYCUwn5PWhKCbw962j+YxxnkS+0CjtfGjW295SpGtKKUF2P5PK/JcPF163vZP04bmvnYHVxqHjcDDApkP6QrjqL4ct4av88Blp/KYTCPbi61O3ehgVhDrCgydxLockXZgKXAKZRLDBKrfouZgZMwo/pIjC226oKCgoKCg4L/CH/2pQ2x506tNAAAAAElFTkSuQmCC"
                       alt=""
                     />
-                  </p>{" "}
-                  <p class="inline-block px-2">
-                    <img
-                      className="h-10"
-                      src="data:image/png;base64,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"
-                      alt=""
-                    />
-                  </p>
+                  </a>{" "}
                 </div>
               </div>
             </div>

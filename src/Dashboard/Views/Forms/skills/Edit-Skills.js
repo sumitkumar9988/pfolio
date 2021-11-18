@@ -1,5 +1,5 @@
 import React from "react";
-import { toast } from "react-toastify";
+import ReactGA from "react-ga";
 import Loader from "./../../../../utils/loader";
 import ToastContainer from "./../../../../utils/toast";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,6 +13,10 @@ const EditSkills = ({ id, onskillClick }) => {
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.state);
   const { skill } = useSelector((state) => state.store);
+
+  React.useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   const deleletSkills = (e) => {
     e.preventDefault();

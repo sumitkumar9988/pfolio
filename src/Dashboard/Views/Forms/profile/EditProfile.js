@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getprofile ,uploadFile,updateProfile} from "./../../../../redux/action/dashboardAction";
 import Loader from "./../../../../utils/loader";
 import ToastContainer from "./../../../../utils/toast";
 import { toast } from "react-toastify";
+import ReactGA from "react-ga";
 
 const EditProfile = ({history}) => {
   const dispatch = useDispatch();
@@ -22,6 +23,10 @@ const EditProfile = ({history}) => {
   const [dribbleAccount, setDribbleAccount] = useState("");
   const [behanceAccount, setBehanceAccount] = useState("");
   const [linkedInAccount, setLinkedInAccount] = useState("");
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   React.useEffect(()=>{
     dispatch(getprofile());

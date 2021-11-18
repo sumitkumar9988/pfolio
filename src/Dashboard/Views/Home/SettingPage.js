@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import ReactGA from "react-ga";
 import { useDispatch, useSelector } from "react-redux";
 import { getprofile } from "./../../../redux/action/dashboardAction";
 import Loader from "./../../../utils/loader";
@@ -28,6 +29,11 @@ const Setting = () => {
       setImage(profile.data.photo);
     }
   }, [dispatch, error]);
+
+  React.useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
 
   console.log(profile);
 
