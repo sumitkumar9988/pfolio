@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import axios from 'axios'
 import { Link } from "react-router-dom";
-import dashboardImage from "./../Assets/demo.jpg";
+import dashboardImage from "./../Assets/dashboard.jpg";
 const Index = () => {
 
   const [name,setName]=useState('')
