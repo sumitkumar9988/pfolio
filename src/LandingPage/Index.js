@@ -23,7 +23,7 @@ const Index = () => {
       message,
     }
     console.log(data)
-      axios.post('https://api.sumitk.site/api/v1/home/sendEmail',data,{
+      axios.post('https://nighteye.co/api/v1/home/sendEmail',data,{
       headers: {"Content-Type": "application/json"}
     }).then((res)=>{
       console.log(res.data)
@@ -42,7 +42,7 @@ const Index = () => {
       email
     }
     console.log(data);
-    axios.post('https://api.sumitk.site/api/v1/home/newsletter',data,{
+    axios.post('https://nighteye.co/api/v1/home/newsletter',data,{
       headers: {"Content-Type": "application/json"}
     }).then((res)=>{
       console.log(res.data)

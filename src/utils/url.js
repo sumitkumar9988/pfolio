@@ -1,8 +1,8 @@
 let api, baseURL, homeURL, profileURL;
 if (process.env.REACT_APP_NODE_ENV === "production") {
-  api = "https://api.sumitk.site/api/v1";
-  baseURL = "https://api.sumitk.site/api/v1/user";
-  profileURL = "https://api.sumitk.site/api/v1/profile";
+  api = "https://nighteye.co/api/v1";
+  baseURL = "https://nighteye.co/api/v1/user";
+  profileURL = "https://nighteye.co/api/v1/profile";
 } else {
   api = "http://localhost:3000/api/v1";
   baseURL = "http://localhost:3000/api/v1/user";
